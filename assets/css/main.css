@@ -3716,15 +3716,17 @@ input, select, textarea {
     		transform: translate(-50%, 0%);
 		}
 
+		/* 2023.11.20 강연우 갤러리 */
 		.gallery {
 		  display: grid;
 		  grid-template-columns: repeat(3, 1fr);
-		  gap: 10px;
+		  gap: 3px;
 		}
 
 		.gallery img {
 		  width: 100%;
-		  height: auto;
+		  height:auto;
+		  object-fit: cover;
 		}
 
 		.inner .content h2 span {
