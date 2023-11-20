@@ -3710,9 +3710,21 @@ input, select, textarea {
 			font-size: 0.8em;
 		}
 
+		/* 2023.11.20 강연우 지도 위치 중앙정렬 */
 		#map {
 			left: 50%;
     		transform: translate(-50%, 0%);
+		}
+
+		.gallery {
+		  display: grid;
+		  grid-template-columns: repeat(3, 1fr);
+		  gap: 10px;
+		}
+
+		.gallery img {
+		  width: 100%;
+		  height: auto;
 		}
 
 		.inner .content h2 span {
