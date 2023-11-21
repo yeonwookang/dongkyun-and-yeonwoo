@@ -93,7 +93,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #150e02;
+		background: #101416;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -1865,7 +1865,7 @@ input, select, textarea {
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			box-shadow: 0 0 0 2px #fff8e7;
+			box-shadow: 0 0 0 2px #b8ccd0;
 		}
 
 	select {
@@ -1955,14 +1955,14 @@ input, select, textarea {
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			background: #150e02;
+			background: #101416;
 			color: #fff;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			box-shadow: 0 0 0 2px #fff8e7;
+			box-shadow: 0 0 0 2px #b8ccd0;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2828,16 +2828,16 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #fff8e7;
-			color: #150e02;
+			background-color: #b8ccd0;
+			color: #101416;
 		}
 
 			.wrapper.style1 strong, .wrapper.style1 b {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style1 h2, .wrapper.style1 h3, .wrapper.style1 h4, .wrapper.style1 h5, .wrapper.style1 h6 {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style1 hr {
@@ -2853,7 +2853,7 @@ input, select, textarea {
 			}
 
 			.wrapper.style1 header p {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style1 header.major h2, .wrapper.style1 header.major h3, .wrapper.style1 header.major h4, .wrapper.style1 header.major h5, .wrapper.style1 header.major h6 {
@@ -2861,7 +2861,7 @@ input, select, textarea {
 			}
 
 			.wrapper.style1 header.major p {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style1 label {
@@ -2882,7 +2882,7 @@ input, select, textarea {
 
 				.wrapper.style1 select option {
 					color: #ffffff;
-					background: #fff8e7;
+					background: #b8ccd0;
 				}
 
 			.wrapper.style1 input[type="checkbox"] + label,
@@ -2898,7 +2898,7 @@ input, select, textarea {
 			.wrapper.style1 input[type="checkbox"]:checked + label:before,
 			.wrapper.style1 input[type="radio"]:checked + label:before {
 				background: #ffffff;
-				color: #fff8e7;
+				color: #b8ccd0;
 			}
 
 			.wrapper.style1 ::-webkit-input-placeholder {
@@ -2987,7 +2987,7 @@ input, select, textarea {
 			}
 
 		.wrapper.style2 {
-			background-color: #150e02;
+			background-color: #101416;
 		}
 
 		.wrapper.style3 {
@@ -3159,11 +3159,11 @@ input, select, textarea {
 		}
 
 			.wrapper.style5 strong, .wrapper.style5 b {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style5 h2, .wrapper.style5 h3, .wrapper.style5 h4, .wrapper.style5 h5, .wrapper.style5 h6 {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style5 hr {
@@ -3191,7 +3191,7 @@ input, select, textarea {
 			}
 
 			.wrapper.style5 label {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style5 input[type="text"],
@@ -3207,7 +3207,7 @@ input, select, textarea {
 			}
 
 				.wrapper.style5 select option {
-					color: #150e02;
+					color: #101416;
 					background: #ffffff;
 				}
 
@@ -3223,7 +3223,7 @@ input, select, textarea {
 
 			.wrapper.style5 input[type="checkbox"]:checked + label:before,
 			.wrapper.style5 input[type="radio"]:checked + label:before {
-				background: #150e02;
+				background: #101416;
 				color: #ffffff;
 			}
 
@@ -3264,7 +3264,7 @@ input, select, textarea {
 				}
 
 			.wrapper.style5 table th {
-				color: #150e02;
+				color: #101416;
 			}
 
 			.wrapper.style5 table thead {
@@ -3285,7 +3285,7 @@ input, select, textarea {
 			.wrapper.style5 button,
 			.wrapper.style5 .button {
 				box-shadow: inset 0 0 0 2px #dfdfdf;
-				color: #150e02;
+				color: #101416;
 			}
 
 				.wrapper.style5 input[type="submit"]:hover,
@@ -3362,7 +3362,7 @@ input, select, textarea {
 		-ms-transition: -ms-transform 0.5s ease;
 		transition: transform 0.5s ease;
 		-webkit-overflow-scrolling: touch;
-		background: #fff8e7;
+		background: #b8ccd0;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
@@ -3456,7 +3456,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #150e02;
+		background: #101416;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
@@ -3991,7 +3991,7 @@ input, select, textarea {
 			-ms-transition-delay: 1.25s;
 			transition-delay: 1.25s;
 			content: '';
-			background: #150e02;
+			background: #101416;
 			display: block;
 			width: 100%;
 			height: 100%;
