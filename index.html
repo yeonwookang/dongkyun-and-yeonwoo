@@ -20,11 +20,11 @@
 			    var dDay = (today - base) / 1000 / 60 / 60 / 24;
 			    var target = document.getElementById('dDayTarget')
 			    if(dDay < 0) {
-			        target.innerHTML = "D" + dDay;
+			        target.innerHTML = "동균♥연우 결혼식 D" + dDay;
 			    } else if(dDay == 0) {
-			        target.innerHTML = "D-day!";
+			        target.innerHTML = "동균♥연우 결혼식이 오늘입니다!";
 			    } else {
-			        target.innerHTML = "D+" + dDay;
+			        target.innerHTML = "동균♥연우 결혼식 D+" + dDay;
 			    }
 
 			}
@@ -61,25 +61,25 @@
 					</header>
 
 				<!-- Banner -->
-					<section id="banner">
+					<section id="banner" style="box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);">
 						<div class="inner">
+							  <div class="shooting-stars">
+						    <div class="shooting-star"></div>
+						    <div class="shooting-star shooting-star--mid"></div>
+						    <div class="shooting-star shooting-star--fast"></div>
+						    <div class="shooting-star shooting-star--meh"></div>
+						  </div>
 							<div class="content">
-								<h3 id="dDayTarget"></h3>
-								<h2><span>2024.03.17(일) 14:00</span>
-								<span>구동균♥강연우</span></h2>
-								<p><span>그러나 내가 오늘도 가까이</span>
+								<h3 style="font-size:0.7em;" id="dDayTarget"></h3>
+								<h2><span style="font-size:0.8em;">2024.03.17(일) 14:00</span>
+								<span>대구 파라다이스웨딩</span></h2>
+								<p style="font-size:1.3em;"><span>그러나 내가 오늘도 가까이</span>
 								<span>안아야 할 행복은</span>
 								<span>바로 앞의 산</span>
 								<span>바로 앞의 바다</span>
 								<span>바로 앞의 내 마음</span>
 								<span>바로 앞의 그 사람</span>
 								<span>- 이해인, &lt;가까운행복&gt;中</span>
-								<span>&nbsp;</span>
-								<span>어느 산에서 시작된 작은 인연으로</span>
-								<span>서로에게 행복을 주는 사람이 되었습니다.</span>
-								<span>&nbsp;</span>
-								<span>저희가 하나 되어 내딛는 첫걸음을</span>
-								<span>축복해 주시면 기쁨으로 간직하겠습니다.</span></p>
 							</div>
 						</div>
 						<a href="#one" class="more scrolly"></a>
@@ -91,9 +91,31 @@
 							<header class="major">
 								<div class="content">
 									<h2>오시는 길</h2>
-									<p><span>대구 파라다이스웨딩 그랜드볼룸</span>
-										<span>대구 달서구 구마로 52(본동)</span></p>
-									<div id="map" style="width:100%;height:400px;"></div>
+									<p style="font-size:1.3em;"><span>대구 파라다이스웨딩 3F 그랜드볼룸</span>
+										<span>(대구 달서구 구마로 52)</span>
+										<span>Tel. 053-552-0500</span></p>
+									<div id="map" style="width:100%; margin-top: 0; border: 8px solid white;box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);"></div>
+									<div class="actions">
+										<a href="https://naver.me/G2UVfoKx" target="_blank">
+											<img src="./images/navermap.png"/>
+										</a>
+										<a href="https://kko.to/LCrTZl7TOD" target="_blank">
+											<img src="./images/kakaomap.png"/>
+										</a>
+										<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank">
+											<img src="./images/tmap.png"/>
+										</a>
+									</div>
+									<div style="margin-top:20px">
+										<h3>지하철 이용시</h3>
+										<p><span>동대구역→지하철1호선→서부정류장역 1번 출구 건너편</span><span>버스 564, 651 환승 또는 택시 이용(5분 소요)</span></p>
+										<h3>KTX 이용시</h3>
+										<p><span>서대구역 하차 후 버스 및 택시 이용</span>
+											<span>(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
+										<h3>버스 이용시</h3>
+										<p><span>시외버스 : 대구 서부 정류장</span>
+											<span>시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
+									</div>
 								</div>
 							</header>
 						</div>
@@ -166,27 +188,43 @@
 			<script src="assets/js/main.js"></script>
 			<!-- Naver Map 생성 -->
 		    <script>
+		      var position = new naver.maps.LatLng(35.8369112, 128.5333350)
 		      var mapOptions = {
-		          center: new naver.maps.LatLng(35.8369112, 128.5333350),
-		          zoom: 12
+		          center: position.destinationPoint(90, 15),
+		          zoom: 17,
+			        zoomControl: true,
+			        zoomControlOptions: {
+			            style: naver.maps.ZoomControlStyle.SMALL,
+			            position: naver.maps.Position.TOP_RIGHT
+			        }
 		      };
 		      
 		      var map = new naver.maps.Map('map', mapOptions);
 		      resize();
 		      window.addEventListener('resize', resize);
 
-		      var marker = new naver.maps.Marker({
-				    position: new naver.maps.LatLng(35.8369112, 128.5333350),
-				    map: map
-				});
+
+				var markerOptions = {
+				    position: position.destinationPoint(0, 0),
+				    map: map,
+				    icon: {
+				        url: './images/heart_bookmark.png',
+				        size: new naver.maps.Size(40, 40),
+				        origin: new naver.maps.Point(0, 0),
+				        anchor: new naver.maps.Point(20, 30)
+				    }
+				};
+
+		      var marker = new naver.maps.Marker(markerOptions);
+
 
 		      function resize() {
 		          var mapWidth = window.innerWidth;
 		          var mapHeight;
 		      
 		          if (mapWidth <= 767) {
-		              mapWidth = Math.min(mapWidth, 80 * window.innerWidth / 100) + 'px';
-		              mapHeight = '250px';
+		              mapWidth = Math.min(mapWidth, 95 * window.innerWidth / 100) + 'px';
+		              mapHeight = '300px';
 		          } else if (mapWidth <= 1023) {
 		              mapWidth = '700px';
 		              mapHeight = '400px';
