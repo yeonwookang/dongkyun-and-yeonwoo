@@ -9,7 +9,15 @@
 		<title>동균♥연우 결혼합니다</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!-- meta -->
+		<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app/">
+		<meta property="og:title" content="동균♥연우 모바일 청첩장">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner.jpg">
+		<meta property="og:description" content="구동균♥강연우 저희 결혼합니다!">
+
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://kit.fontawesome.com/2ecc76d553.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xe3kmd34v7"></script>
 		<script type="text/javascript">
 		     /* 디데이 */
@@ -20,11 +28,11 @@
 			    var dDay = (today - base) / 1000 / 60 / 60 / 24;
 			    var target = document.getElementById('dDayTarget')
 			    if(dDay < 0) {
-			        target.innerHTML = "동균♥연우 결혼식 D" + dDay;
+			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼 D" + dDay;
 			    } else if(dDay == 0) {
-			        target.innerHTML = "동균♥연우 결혼식이 오늘입니다!";
+			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼이 오늘입니다!";
 			    } else {
-			        target.innerHTML = "동균♥연우 결혼식 D+" + dDay;
+			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼 D+" + dDay;
 			    }
 
 			}
@@ -41,7 +49,7 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">동균♥연우</a></h1>
+						<h1><a href="index.html">동균<i class="fa-solid fa-heart fa-beat"></i>연우</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
@@ -73,16 +81,19 @@
 								<h3 style="font-size:0.7em;" id="dDayTarget"></h3>
 								<h2><span style="font-size:0.8em;">2024.03.17(일) 14:00</span>
 								<span>대구 파라다이스웨딩</span></h2>
-								<p style="font-size:1.3em;"><span>그러나 내가 오늘도 가까이</span>
+								<p style="font-size:1.3em;">
+								<span style="margin-top: 0px;"><b>저희 결혼합니다.</b></span>
+								<span>&nbsp;</span>
+								<span>그러나 내가 오늘도 가까이</span>
 								<span>안아야 할 행복은</span>
 								<span>바로 앞의 산</span>
 								<span>바로 앞의 바다</span>
 								<span>바로 앞의 내 마음</span>
 								<span>바로 앞의 그 사람</span>
+								<span>&nbsp;</span>
 								<span>- 이해인, &lt;가까운행복&gt;中</span>
 							</div>
 						</div>
-						<a href="#one" class="more scrolly"></a>
 					</section>
 
 				<!-- One -->
@@ -91,30 +102,35 @@
 							<header class="major">
 								<div class="content">
 									<h2>오시는 길</h2>
-									<p style="font-size:1.3em;"><span>대구 파라다이스웨딩 3F 그랜드볼룸</span>
+									<p style="font-size:1.3em;"><span><b>대구 파라다이스웨딩 3F 그랜드볼룸</b></span>
 										<span>(대구 달서구 구마로 52)</span>
 										<span>Tel. 053-552-0500</span></p>
 									<div id="map" style="width:100%; margin-top: 0; border: 8px solid white;box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);"></div>
+									<h3 style="border-bottom:none;padding-bottom:0px;margin-top:30px">
+									<i class="fa-solid fa-map-location-dot fa-fade"></i> 내비게이션</h3>
 									<div class="actions">
 										<a href="https://naver.me/G2UVfoKx" target="_blank">
-											<img src="./images/navermap.png"/>
-										</a>
+										<img src="./images/navermap.png"/>
+										</a>&nbsp;
 										<a href="https://kko.to/LCrTZl7TOD" target="_blank">
-											<img src="./images/kakaomap.png"/>
-										</a>
+										<img src="./images/kakaomap.png"/>
+										</a>&nbsp;
 										<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank">
-											<img src="./images/tmap.png"/>
+										<img src="./images/tmap.png"/>
 										</a>
 									</div>
 									<div style="margin-top:20px">
-										<h3>지하철 이용시</h3>
+										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<i class="fa-solid fa-train-subway fa-fade"></i> 지하철 이용시</h3>
 										<p><span>동대구역→지하철1호선→서부정류장역 1번 출구 건너편</span><span>버스 564, 651 환승 또는 택시 이용(5분 소요)</span></p>
-										<h3>KTX 이용시</h3>
+										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<i class="fa-solid fa-train fa-fade"></i> KTX 이용시</h3>
 										<p><span>서대구역 하차 후 버스 및 택시 이용</span>
-											<span>(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
-										<h3>버스 이용시</h3>
+										<span>(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
+										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<i class="fa-solid fa-bus fa-fade"></i> 버스 이용시</h3>
 										<p><span>시외버스 : 대구 서부 정류장</span>
-											<span>시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
+										<span>시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
 									</div>
 								</div>
 							</header>
