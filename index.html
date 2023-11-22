@@ -11,10 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!-- meta -->
 		<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app/">
-		<meta property="og:title" content="동균♥연우 모바일 청첩장">
+		<meta property="og:title" content="동균♥연우 결혼식에 초대합니다!">
 		<meta property="og:type" content="website">
 		<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_resized.png?raw=true">
-		<meta property="og:description" content="구동균♥강연우 저희 결혼합니다!">
+		<meta property="og:description" content="2024년 3월 17일 일요일 오후 2시 대구 파라다이스웨딩 그랜드볼룸">
 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/calendar.css" />
@@ -29,11 +29,11 @@
 			    var dDay = (today - base) / 1000 / 60 / 60 / 24;
 			    var target = document.getElementById('dDayTarget')
 			    if(dDay < 0) {
-			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼식까지 D" + dDay;
+			        target.innerHTML = "우리 결혼까지 D" + dDay;
 			    } else if(dDay == 0) {
-			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼이 오늘입니다!";
+			        target.innerHTML = "우리 오늘 결혼합니다!";
 			    } else {
-			        target.innerHTML = "동균" +'<i class="fa-solid fa-heart"></i>'+"연우 결혼식 D+" + dDay;
+			        target.innerHTML = "우리 결혼 D+" + dDay;
 			    }
 
 			}
@@ -57,12 +57,12 @@
 									<a href="#menu" class="menuToggle"><span></span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Main</a></li>
-											<li><a href="#">오시는 길</a></li>
-											<li><a href="#">인사말</a></li>
-											<li><a href="#">사진첩</a></li>
+											<li><a href="index.html">첫 화면</a></li>
+											<li><a href="#one">오시는 길</a></li>
+											<li><a href="#two">초대인사</a></li>
+											<li><a href="#">신랑신부 소개</a></li>
 											<li><a href="#">방명록</a></li>
-											<li><a href="#">마음전할곳</a></li>
+											<li><a href="#">마음전하는 곳</a></li>
 										</ul>
 									</div>
 								</li>
@@ -73,14 +73,18 @@
 				<!-- Banner -->
 					<section id="banner" style="box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);">
 						<div class="inner">
-							  <div class="shooting-stars">
+							<div class="stars">
+							<div class="stars stars--small"></div>
+							<div class="stars stars--medium"></div>
+							<div class="stars stars--big"></div>
+							</div>
+							<div class="shooting-stars">
 						    <div class="shooting-star"></div>
 						    <div class="shooting-star shooting-star--mid"></div>
 						    <div class="shooting-star shooting-star--fast"></div>
 						    <div class="shooting-star shooting-star--meh"></div>
-						  </div>
+						  	</div>
 							<div class="content">
-								<h3 style="font-size:0.7em;" id="dDayTarget"></h3>
 								<h2><span style="font-size:0.8em;">2024.03.17(일) 14:00</span>
 								<span>대구 파라다이스웨딩</span></h2>
 								<p style="font-size:1.1em;">
@@ -109,9 +113,9 @@
 							<header class="major">
 								<div class="content">
 									<h2>오시는 길</h2>
-									<p style="font-size:1.3em;"><span><b>대구 파라다이스웨딩 3F 그랜드볼룸</b></span>
+									<p style="font-size:1.3em;"><span><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
 										<span>(대구광역시 달서구 구마로 52)</span>
-										<span>Tel. 053-552-0500</span></p>
+										<span>전화. 053-552-0500</span></p>
 									<div>
 									<div id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
 									</div>
@@ -151,11 +155,11 @@
 						</div>
 					</section>
 				<!-- Three -->
-					<section id="three" class="wrapper style2 special">
+					<section id="two" class="wrapper style2 special">
 						<div class="inner">
 							<header class="major">
 								<div class="content">
-									<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+									<h2 id="dDayTarget"></h2>
 									<div class="calender-wrapper">
 								    <header>
 								        <div class="nav">
@@ -239,7 +243,7 @@
 						</div>
 					</section>
 				<!-- Two -->
-					<section id="two" class="wrapper style3 special">
+					<section id="three" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
 								<h2>사진첩<br /></h2>
@@ -265,7 +269,7 @@
 					</section>
 
 				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
+					<section id="four" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
 								<h2>방명록</h2>
