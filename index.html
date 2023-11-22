@@ -18,9 +18,21 @@
 
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/calendar.css" />
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 		<script src="https://kit.fontawesome.com/2ecc76d553.js" crossorigin="anonymous"></script>
 		<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xe3kmd34v7"></script>
+    	<script src="assets/js/jquery.js"></script>
 		<script type="text/javascript">
+		      /* 첫 화면 로딩 */
+		      $(window).on('load', function () {
+		        $(".loader").delay("1000").fadeOut();
+		        $(".loading-image").delay("1500").fadeOut();
+		        $(".loaded-container").delay("2200").fadeIn();
+		        $(".loader").delay("1000").fadeIn();
+		        $(".loading-image").delay("1500").fadeIn();
+		        $(".loading-image-cover").delay("1500").fadeIn();
+		      });
+
 		     /* 디데이 */
 			function calcDday(date) {
 			    var now = new Date();
@@ -44,9 +56,17 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
 	</head>
 	<body class="landing is-preload">
-
+	  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	  <script>
+	    AOS.init();
+	  </script>
+    <div class="loading-image-cover"></div>
+    <div class="loader">
+      <div class="loading-image fire">
+      </div>
+    </div>
 		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+			<div id="page-wrapper loaded-container">
 
 				<!-- Header -->
 					<header id="header" class="alt">
@@ -57,12 +77,12 @@
 									<a href="#menu" class="menuToggle"><span></span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">첫 화면</a></li>
+											<li><a href="index.html">첫화면</a></li>
 											<li><a href="#one">오시는 길</a></li>
 											<li><a href="#two">초대인사</a></li>
 											<li><a href="#">신랑신부 소개</a></li>
 											<li><a href="#">방명록</a></li>
-											<li><a href="#">마음전하는 곳</a></li>
+											<li><a href="#">마음 전하는 곳</a></li>
 										</ul>
 									</div>
 								</li>
@@ -78,12 +98,6 @@
 							<div class="stars stars--medium"></div>
 							<div class="stars stars--big"></div>
 							</div>
-							<div class="shooting-stars">
-						    <div class="shooting-star"></div>
-						    <div class="shooting-star shooting-star--mid"></div>
-						    <div class="shooting-star shooting-star--fast"></div>
-						    <div class="shooting-star shooting-star--meh"></div>
-						  	</div>
 							<div class="content">
 								<h2><span style="font-size:0.8em;">2024.03.17(일) 14:00</span>
 								<span>대구 파라다이스웨딩</span></h2>
@@ -109,21 +123,21 @@
 
 				<!-- One -->
 					<section id="one" class="wrapper style1 special">
-						<div class="inner" >
+						<div class="inner">
 							<header class="major">
 								<div class="content">
-									<h2>오시는 길</h2>
-									<p style="font-size:1.3em;"><span><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
-										<span>(대구광역시 달서구 구마로 52)</span>
-										<span>전화. 053-552-0500</span></p>
+									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">오시는 길</h2>
+									<p style="font-size:1.3em;"><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
+										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">(대구광역시 달서구 구마로 52)</span>
+										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">전화. 053-552-0500</span></p>
 									<div>
-									<div id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
+									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
 									</div>
 									<a href="https://naver.me/G2UVfoKx" target="_blank">
-									<div style="background-color:#101416;line-height: 30px;height:30px; width:100%;margin: 0 0 0 0;max-width:100%" class="button">지도 자세히 보러가기</div></a></div>
-									<h3 style="border-bottom:none;padding-bottom:0px;margin-top:30px">
+									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:100%;margin: 0 0 0 0;max-width:100%" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div></a></div>
+									<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;margin-top:30px">
 									<i class="fa-solid fa-map-location-dot fa-fade"></i> 내비게이션</h3>
-									<div class="actions">
+									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="actions">
 										<a href="https://naver.me/G2UVfoKx" target="_blank">
 										<img src="./images/navermap.png"/ >
 										</a>&nbsp;
@@ -135,20 +149,20 @@
 										</a>
 									</div>
 									<div style="margin-top:20px">
-										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
 										<i class="fa-solid fa-train-subway fa-fade"></i> 지하철 이용시</h3>
-										<p><span>동대구역→지하철1호선→서부정류장역 1번 출구 건너편</span><span>버스 564, 651 환승 또는 택시 이용(5분 소요)</span></p>
-										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >동대구역→지하철1호선→서부정류장역 1번 출구</span><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >건너편 버스 564, 651 환승 또는 택시 이용(5분 소요)</span></p>
+										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
 										<i class="fa-solid fa-train fa-fade"></i> KTX 이용시</h3>
-										<p><span>서대구역 하차 후 버스 및 택시 이용</span>
-										<span>(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
-										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서대구역 하차 후 버스 및 택시 이용</span>
+										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
+										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
 										<i class="fa-solid fa-bus fa-fade"></i> 버스 이용시</h3>
-										<p><span>시외버스 : 대구 서부 정류장</span>
-										<span>시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
-										<h3 style="border-bottom:none;padding-bottom:0px;">
+										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시외버스 : 대구 서부 정류장</span>
+										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
+										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
 										<i class="fa-solid fa-bus fa-fade"></i> 전세버스 안내</h3>
-										<p><span>준비중입니다.</span></p>
+										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >준비중입니다.</span></p>
 									</div>
 								</div>
 							</header>
@@ -159,8 +173,8 @@
 						<div class="inner">
 							<header class="major">
 								<div class="content">
-									<h2 id="dDayTarget"></h2>
-									<div class="calender-wrapper">
+									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  id="dDayTarget"></h2>
+									<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="calender-wrapper">
 								    <header>
 								        <div class="nav">
 								          <p class="current-date">2024년 3월</p>
@@ -216,27 +230,27 @@
 								        </ul>
 								      </div>
 								    </div>
-									<h2>
+									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
 								<span>&nbsp;</span>
 								<span>&nbsp;</span>초대합니다</h2>
 								<p style="font-size:1.3em; color: #fff;">
-								<span>그러나 내가 오늘도 가까이</span>
-								<span>안아야 할 행복은</span>
-								<span>바로 앞의 산</span>
-								<span>바로 앞의 바다</span>
-								<span>바로 앞의 내 마음</span>
-								<span>바로 앞의 그 사람</span>
-								<span>&nbsp;</span>
-								<span>- 이해인, &lt;가까운행복&gt;中</span>
-								<span>&nbsp;</span>
-								<span>어느 산에서 시작된 작은 인연으로</span>
-								<span>서로에게 행복을 주는 사람이 되었습니다.</span>
-								<span>&nbsp;</span>
-								<span>저희가 하나 되어 내딛는 첫걸음을</span>
-								<span>축복해주시면 기쁨으로 간직하겠습니다.</span>
-								<span>&nbsp;</span>
-								<span style="font-size:1.2em;line-height: 2.2em;">태복 · 선희의 아들&nbsp;&nbsp;&nbsp;<b>동 균</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
-								<span style="font-size:1.2em;">진헌 · 승현의 딸&nbsp;&nbsp;&nbsp;&nbsp;<b>연 우</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >그러나 내가 오늘도 가까이</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >안아야 할 행복은</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 산</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 바다</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 내 마음</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 그 사람</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >- 이해인, &lt;가까운행복&gt;中</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >어느 산에서 시작된 작은 인연으로</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서로에게 행복을 주는 사람이 되었습니다.</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >저희가 하나 되어 내딛는 첫걸음을</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >축복해주시면 기쁨으로 간직하겠습니다.</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;line-height: 2.2em;">태복 · 선희의 아들&nbsp;&nbsp;&nbsp;<b>동 균</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;">진헌 · 승현의 딸&nbsp;&nbsp;&nbsp;&nbsp;<b>연 우</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
 								</p>
 								</div>
 							</header>
@@ -246,19 +260,20 @@
 					<section id="three" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
-								<h2>사진첩<br /></h2>
-								<p>Photo</p>
+								<h2>신랑 신부 소개</h2>
+								<p>준비중입니다.</p>
+								<h2>사진첩</h2>
 								<div class="proportion">
 									<div class="gallery">
 									  <div style="background-image:url('./images/image1.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image2.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image3.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image4.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image5.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image6.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box"></div>
+									  <div style="background-image:url('./images/image4.jpg')" class="gallery-box"></div>
+									  <div style="background-image:url('./images/image5.jpg')" class="gallery-box"></div>
+									  <div style="background-image:url('./images/image6.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box"></div>
 									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box"></div>
@@ -273,30 +288,34 @@
 						<div class="inner">
 							<header class="major">
 								<h2>방명록</h2>
-								<p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-								fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
+								<p>준비중입니다.</p>
 							</header>
 						</div>
 					</section>
 
 				<!-- CTA -->
-					<section id="cta" class="wrapper style4">
+					<section id="cta" class="wrapper style1 special">
 						<div class="inner">
-							<header>
-								<h2>마음 전하는 곳</h2>
+							<header class="major">
+								<div class="content">
+									<h2>마음 전하는 곳</h2>
+									<p><span>송구하지만 멀리서 축하해 주시는 분들을</span>
+									<span>위해 계좌번호를 준비했습니다.</span>
+									<span>축하해 주신 모든분께 감사드립니다.</span></p>
+								</div>
 							</header>
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">Activate</a></li>
-								<li><a href="#" class="button fit">Learn More</a></li>
+								<li><a href="#" class="button fit primary">신랑에게 마음 전하기</a></li>
+								<li><a href="#" class="button fit primary">신부에게 마음 전하기</a></li>
 							</ul>
 						</div>
 					</section>
 
 				<!-- Footer -->
-					<footer id="footer">
+					<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
 						<ul class="copyright">
-							<li>&copy; yeonwookang</li>
-							<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; yeonwookang </i></li>
+							<li style="font-size:0.8em;color: rgba(255,255,255,0.5);"><a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</footer>
 

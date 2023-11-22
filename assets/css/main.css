@@ -27,6 +27,7 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	scroll-behavior: smooth;
 	font: inherit;
 	vertical-align: baseline;
 	font-family: 'MaruBuri-Regular';}
@@ -2498,7 +2499,7 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #ed4933;
+			background-color: #101416;
 			box-shadow: none !important;
 			color: #ffffff !important;
 		}
@@ -2508,7 +2509,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #ef5e4a !important;
+				background-color: #20272B !important;
 			}
 
 			input[type="submit"].primary:active,
@@ -2516,7 +2517,7 @@ input, select, textarea {
 			input[type="button"].primary:active,
 			button.primary:active,
 			.button.primary:active {
-				background-color: #eb341c !important;
+				background-color: #070909 !important;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -2991,7 +2992,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style3 {
-			background-color: #505393;
+			background-color: #20272B;
 			color: #d3d4e4;
 		}
 
@@ -3150,7 +3151,7 @@ input, select, textarea {
 			}
 
 		.wrapper.style4 {
-			background-color: transparent;
+			background-color: #ffffff;
 		}
 
 		.wrapper.style5 {
@@ -3862,6 +3863,10 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -4049,6 +4054,7 @@ input, select, textarea {
 			  background-size:cover;
 			  background-position:50%;
 			  height: 100%;
+		  border-radius: 5px;
 			}
 
 		.inner .content h2 span {
@@ -4237,7 +4243,6 @@ input, select, textarea {
 
 	#footer {
 		padding: 6em 0 4em 0 ;
-		background-color: #1d242a;
 		text-align: center;
 	}
 
@@ -4254,7 +4259,8 @@ input, select, textarea {
 				}
 
 		#footer .copyright {
-			color: rgba(255, 255, 255, 0.5);
+			background-color: #101416;
+			color: #F0F4F5;
 			font-size: 0.8em;
 			letter-spacing: 0.225em;
 			list-style: none;
