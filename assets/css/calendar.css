@@ -11,7 +11,6 @@
 .calender-wrapper .nav {
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
 }
 .calender-wrapper .nav .current-date {
   font-size: 24px;
@@ -48,7 +47,7 @@
 .calendar .days li {
   /*#10*/
   z-index: 1;
-  margin-top: 30px;
+  margin-top: 15px;
   cursor: pointer;
   color: #101416;
 }
@@ -67,7 +66,7 @@
   height: 40px;
   width: 40px;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -1;
@@ -76,5 +75,5 @@
   background: #F0F4F5;
 }
 .days li.active::before {
-  background: #101416;
+  background: #CA7E7E;
 }
