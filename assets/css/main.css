@@ -4025,7 +4025,8 @@ input, select, textarea {
 
 		.proportion {
 		    position: relative;
-		    width: 100%; /* 원하는 가로크기 */
+		    width: 95%; /* 원하는 가로크기 */
+		    margin:auto;
 		} 
 		.proportion:before {
 		    content: "";
@@ -4037,6 +4038,7 @@ input, select, textarea {
 		  display: grid;
 		  grid-template-columns: repeat(3, 1fr);
 		  gap: 3px;
+		  height: 100%;
 		  position: absolute;
 		  top: 0;
 		  right: 0;
@@ -4044,18 +4046,37 @@ input, select, textarea {
 		  left: 0;
 		}
 
-		.gallery img {
-		  width: 100px;
-		  height:100px;
-		  object-fit: cover;
-		}
-		/* 2023.11.20 강연우 갤러리 박스 */
+		/* 2023.11.20 강연우 갤러리 박스 칸에 맞게 이미지 조절*/
 		.gallery-box {
 			  background-size:cover;
 			  background-position:50%;
 			  height: 100%;
-		  border-radius: 5px;
+		  	 background-size: 100%;
+		  	 -webkit-transition: background-size.5s ease-in-out;
+		  	 transition: background-size.5s ease-in-out;
 			}
+
+
+		.gallery-box:nth-child(1) {
+			grid-column: 1 / span 2;
+			grid-row: 1 / span 2;
+			border-top-left-radius: 10px;
+		}	
+
+		.gallery-box:nth-child(2) {
+			border-top-right-radius: 10px;
+		}	
+
+
+		.gallery-box:nth-child(8) {
+			grid-column: 2 / span 2;
+			grid-row: 4 / span 3;
+			border-bottom-right-radius: 10px;
+		}	
+
+		.gallery-box:nth-child(10) {
+			border-bottom-left-radius: 10px;
+		}	
 
 		.inner .content h2 span {
 			display: block;
@@ -4397,3 +4418,251 @@ input, select, textarea {
 	    overflow: hidden
 	  }
 
+
+  #gallery-modal {
+    display: none; /* 모달창 숨겨 놓기 */
+    position: fixed; 
+    z-index: 999; /* 모달창을 제일 앞에 두기 */
+    padding-top: 100px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto; /* 스크롤 허용 auto */
+    background-color: rgba(0, 0, 0, 0.8);
+  	margin:auto;
+  	justify-content: center;
+  	align-items: center;
+
+  }
+
+    /* 모달창 이미지 */
+  #gallery-modal-content {
+    width: 95%; height: auto;
+    border-radius: 10px;
+  }
+
+  #gallery-content {
+  	top:50%;
+    animation-name: zoom;
+    animation-duration: 0.8s;
+  }
+
+  #gallery-modal-paner {
+  	top:50%;
+  }
+
+  /* 모달창 애니메이션 추가 */
+  @keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+  /* 닫기 버튼 꾸미기 */
+  #close {
+  	position: absolute;
+    color: #f1f1f1;
+    right: 5%;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 3px;
+  }
+
+  .close:hover, .close:focus{
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #left {
+  	position: absolute;
+    color: #f1f1f1;
+    left: 5%;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+    #right {
+  	position: absolute;
+    color: #f1f1f1;
+    right: 5%;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+ .couple-intro {
+ 	display: block;
+ 	width: 100%;
+ 	margin: auto;
+ 	margin-bottom: 30px;
+ }
+
+ .couple-intro-box{
+ 	display: inline-block;
+ 	width: 45%;
+ 	height: auto;
+ 	margin: 0 auto;
+ 	padding: 0px;
+ }
+
+  #couple-intro-img1{
+  	position: relative;
+ 	width: 100%;
+ 	height: 100%;
+ 	border-top-left-radius: 5px;
+ 	border-bottom-left-radius: 5px;
+ 	overflow: hidden;
+ 	margin-right: 0px;
+ 	filter: grayscale(100%);
+ }
+
+ #couple-intro-img2 {
+  	position: relative;
+ 	width: 100%;
+ 	height: 100%;
+ 	border-top-right-radius: 5px;
+ 	border-bottom-right-radius: 5px;
+ 	overflow: hidden;
+ 	margin-left: 0px;
+ 	filter: grayscale(100%);
+    transition: .5s ease-in-out;
+ }
+
+  #couple-intro-img1:active{
+  -webkit-filter: grayscale(0%);
+  -webkit-transition: .5s ease-in-out;
+  -moz-filter: grayscale(0%); 
+  -moz-transition: .5s ease-in-out;
+  -o-filter: grayscale(0%); 
+  -o-transition: .5s ease-in-out;
+  filter: grayscale(0%);
+  transition: .5s ease-in-out;
+ }
+
+ #couple-intro-img2:active {
+  -webkit-filter: grayscale(0%);
+  -webkit-transition: .5s ease-in-out;
+  -moz-filter: grayscale(0%); 
+  -moz-transition: .5s ease-in-out;
+  -o-filter: grayscale(0%); 
+  -o-transition: .5s ease-in-out;
+  filter: grayscale(0%);
+  transition: .5s ease-in-out;
+ }
+
+ .couple-intro-text {
+ 	position: relative;
+ 	display: block;
+ 	top: -45px;
+ }
+
+
+/* 소개 Modal  */
+ #popup-groom {
+  background-color:rgba(0,0,0,.3); 
+  justify-content:center;
+  align-items:center;     
+  position:fixed;       
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               
+  display:none; 
+  padding:15px; 
+  z-index: 9999999;
+}
+
+ #popup-bride {
+  background-color:rgba(0,0,0,.3); 
+  justify-content:center;
+  align-items:center;     
+  position:fixed;       
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               
+  display:none; 
+  padding:15px; 
+  z-index: 9999999;
+}
+
+/* 계좌 Modal  */
+ #popup-groom-account {
+  background-color:rgba(0,0,0,.3); 
+  justify-content:center;
+  align-items:center;     
+  position:fixed;       
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               
+  display:none; 
+  padding:15px; 
+  z-index: 9999999;
+}
+
+ #popup-bride-account {
+  background-color:rgba(0,0,0,.3); 
+  justify-content:center;
+  align-items:center;     
+  position:fixed;       
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;               
+  display:none; 
+  padding:15px; 
+  z-index: 9999999;
+}
+
+.popup{
+  width:90%;         
+  border-radius:10px;     
+  overflow:hidden;         
+  background-color:#101416;
+  color: #F0F4F5;
+  box-shadow: 5px 10px 10px 1px rgba(0,0,0,.3); 
+}
+
+.popup-head{
+  width:100%;
+  height:50px;
+  display:flex; 
+  align-items:center;
+  justify-content:center;
+}
+
+.popup-body{                
+  width:100%;
+  background-color:#F0F4F5; 
+}
+.body-content{            
+  width:100%;
+  padding:30px;            
+}
+.body-titlebox{             
+  text-align:center;       
+  width:100%;
+  height:40px;
+  margin-bottom:10px;      
+}
+.body-contentbox{           
+  word-break:break-word;    
+  overflow-y:auto;          
+  min-height:100px;         
+  max-height:200px;        
+}
+
+.popup-foot{                     
+  width:100%;
+  height:50px;
+}
+.pop-btn{ 
+  display:inline-flex;           
+  width:100%;                      
+  height:100%;                   
+  justify-content:center;         
+  align-items:center;             
+  float:left;                     
+  color:#ffffff;                   
+}

@@ -39,7 +39,7 @@
 			    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 			    var base = new Date(date.substring(0,4), Number(date.substring(4,6))-1, date.substring(6,8));
 			    var dDay = (today - base) / 1000 / 60 / 60 / 24;
-			    var target = document.getElementById('dDayTarget')
+			    var target = document.getElementById('dDayTarget');
 			    if(dDay < 0) {
 			        target.innerHTML = "우리 결혼까지 D" + dDay;
 			    } else if(dDay == 0) {
@@ -49,6 +49,142 @@
 			    }
 
 			}
+
+			/* Gallery Modal */
+			function openGalleryModal(imgNo) {
+				var modal = document.getElementById('gallery-modal');
+				var modalImg = document.getElementById('gallery-modal-content');
+				modal.style.display = "flex";
+				var imgPath = "./images/image" + imgNo + ".jpg";
+				modalImg.src = imgPath;
+				document.body.style.overflow = 'hidden';
+			}
+
+			function closeModal() {
+				var modal = document.getElementById('gallery-modal');
+				modal.style.display = "none";
+    		document.body.style.overflow = "unset";
+			}
+
+			function beforeGalleryImg() { 
+
+				var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
+
+				var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
+				var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
+				var beforeImgNo = 0; // 이전 이미지 번호
+
+				if(currentImgNo < 1) {
+					beforeImgNo = 9;// 맨 첫 이미지인 경우 마지막 이미지로 보냄
+				} else {
+					beforeImgNo = currentImgNo - 1; // 아닌경우 앞 이미지로
+				}
+
+		    $("#gallery-content").fadeOut(); //기본 fadeIn 메소드
+		    $("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
+		    $("#gallery-content").fadeOut(1000, function(){
+				// Modal 이미지 변경
+				var imgPath = "./images/image" + beforeImgNo + ".jpg";
+				modalImg.src = imgPath;
+
+		    });
+		    $("#gallery-content").fadeIn(); //기본 fadeIn 메소드
+		    $("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
+		    $("#gallery-content").fadeIn(1000); // 시간설정 6초
+
+			}
+
+			function nextGalleryImg() { 
+				var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
+
+				var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
+				var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
+				var nextImgNo = 0; // 다음 이미지 번호
+
+				if(currentImgNo == 9) {
+					nextImgNo = 0;
+				} else {
+					nextImgNo = parseInt(currentImgNo) + 1 ;
+				}
+
+		    $("#gallery-content").fadeOut(); //기본 fadeIn 메소드
+		    $("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
+		    $("#gallery-content").fadeOut(1000, function(){
+				// Modal 이미지 변경
+				var imgPath = "./images/image" + nextImgNo + ".jpg";
+				modalImg.src = imgPath;
+
+		    });
+		    $("#gallery-content").fadeIn(); //기본 fadeIn 메소드
+		    $("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
+		    $("#gallery-content").fadeIn(1000); // 시간설정 6초
+
+
+			}
+
+			$(function(){
+
+			  $("#couple-intro-img1").click(function(){        
+						document.body.style.overflow = 'hidden';
+			      $("#popup-groom").css('display','flex').hide().fadeIn();
+			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+			  });
+
+			  $("#popup-close").click(function(){
+			      modalClose(); //모달 닫기 함수 호출
+			  });
+
+			  function modalClose(){
+			      $("#popup-groom").fadeOut(); //페이드아웃 효과
+    			  document.body.style.overflow = "unset";
+			  }
+
+
+			  $("#couple-intro-img2").click(function(){
+						document.body.style.overflow = 'hidden';        
+			      $("#popup-bride").css('display','flex').hide().fadeIn();
+			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+			  });
+
+			  $("#popup-close2").click(function(){
+			      modalClose2(); //모달 닫기 함수 호출
+			  });
+
+			  function modalClose2(){
+			      $("#popup-bride").fadeOut(); //페이드아웃 효과
+    			  document.body.style.overflow = "unset";
+			  }
+
+			  $("#open-groom-account").click(function(){
+						document.body.style.overflow = 'hidden';        
+			      $("#popup-groom-account").css('display','flex').hide().fadeIn();
+			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+			  });
+
+			  $("#popup-close3").click(function(){
+			      modalClose3(); //모달 닫기 함수 호출
+			  });
+
+			  function modalClose3(){
+			      $("#popup-groom-account").fadeOut(); //페이드아웃 효과
+    			  document.body.style.overflow = "unset";
+			  }
+
+			  $("#open-bride-account").click(function(){
+						document.body.style.overflow = 'hidden';        
+			      $("#popup-bride-account").css('display','flex').hide().fadeIn();
+			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+			  });
+
+			  $("#popup-close4").click(function(){
+			      modalClose4(); //모달 닫기 함수 호출
+			  });
+
+			  function modalClose4(){
+			      $("#popup-bride-account").fadeOut(); //페이드아웃 효과
+    			  document.body.style.overflow = "unset";
+			  }
+			});
 
 			window.onload = function() {calcDday("20240317");}
 
@@ -62,7 +198,7 @@
 	  </script>
     <div class="loading-image-cover"></div>
     <div class="loader">
-      <div class="loading-image fire">
+      <div class="loading-image">
       </div>
     </div>
 		<!-- Page Wrapper -->
@@ -118,7 +254,6 @@
 								<span>&nbsp;</span>
 							</div>
 						</div>
-						<a href="#one" class="more scrolly"></a>
 					</section>
 
 				<!-- One -->
@@ -233,6 +368,60 @@
 									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
 								<span>&nbsp;</span>
 								<span>&nbsp;</span>초대합니다</h2>
+								<!-- 신랑소개 Modal-->
+									<div class="container">
+									  <div class="popup-wrap" id="popup-groom"> 
+									    <div class="popup">	
+									      <div class="popup-head">	
+									          <span class="head-title">신랑 소개</span>
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-titlebox">
+									            <h1 style="color:black">동균이를 소개합니다.</h1>
+									          </div>
+									          <div class="body-contentbox">
+									          	<img src="./images/groom_intro.png">
+									            <p style="color:black;"> 동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구동구</p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot"> 
+									        <span class="pop-btn" id="popup-close">닫기</span>
+									      </div>
+									    </div>
+									</div>
+									</div>
+								<!-- 신랑소개 Modal-->
+								<!-- 신부소개 Modal-->
+									<div class="container">
+									  <div class="popup-wrap" id="popup-bride"> 
+									    <div class="popup">	
+									      <div class="popup-head">	
+									          <span class="head-title">신부 소개</span>
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-titlebox">
+									            <h1 style="color:black">연우를 소개합니다.</h1>
+									          </div>
+									          <div class="body-contentbox">
+									          	<img src="./images/bride_intro.png">
+									            <p style="color:black;"> 연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우연우</p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot"> 
+									        <span class="pop-btn" id="popup-close2">닫기</span>
+									      </div>
+									    </div>
+									</div>
+									</div>
+								<!-- 신부소개 Modal-->
+										<div class="couple-intro">
+									  <div class="couple-intro-box"><img src="./images/groom_intro.png" id="couple-intro-img1"><span class="couple-intro-text">신랑 <b>동&nbsp;균</b></span></div>
+									  <div class="couple-intro-box"><img src="./images/bride_intro.png" id="couple-intro-img2"><span class="couple-intro-text">신부 <b>연&nbsp;우</b></span></div>
+									</div>
 								<p style="font-size:1.3em; color: #fff;">
 								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >그러나 내가 오늘도 가까이</span>
 								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >안아야 할 행복은</span>
@@ -249,8 +438,8 @@
 								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >저희가 하나 되어 내딛는 첫걸음을</span>
 								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >축복해주시면 기쁨으로 간직하겠습니다.</span>
 								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;line-height: 2.2em;">태복 · 선희의 아들&nbsp;&nbsp;&nbsp;<b>동 균</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;">진헌 · 승현의 딸&nbsp;&nbsp;&nbsp;&nbsp;<b>연 우</b> <i class="fa-solid fa-clover fa-beat-fade fa-2xs"></i></span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;line-height: 2.2em;">태복 · 선희<small style="font-size:0.7em;">의 아들</small>&nbsp;&nbsp;<b>동 균</b> </span>
+								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;">진헌 · 승현<small style="font-size:0.7em;">의 딸</small>&nbsp;&nbsp;<b>연 우</b> </span>
 								</p>
 								</div>
 							</header>
@@ -260,53 +449,100 @@
 					<section id="three" class="wrapper style3 special">
 						<div class="inner">
 							<header class="major">
-								<h2>신랑 신부 소개</h2>
-								<p>준비중입니다.</p>
-								<h2>사진첩</h2>
+
+								<h2>갤러리</h2>
+								<div id="gallery-modal" >
+									<div id="gallery-content">
+											<span id="close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+											<img id="gallery-modal-content">
+									</div>
+									<div id="gallery-modal-paner">
+											<span id="left" onclick="beforeGalleryImg()"><i class="fa-solid fa-chevron-left"></i></span>
+											<span id="right" onclick="nextGalleryImg()"><i class="fa-solid fa-chevron-right"></i></span>
+									</div>
+								</div>
 								<div class="proportion">
 									<div class="gallery">
-									  <div style="background-image:url('./images/image1.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image2.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image3.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image4.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image5.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image6.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box"></div>
-									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box"></div>
+									  <div style="background-image:url('./images/image0.jpg')" class="gallery-box" onclick="openGalleryModal('0')"></div>
+									  <div style="background-image:url('./images/image1.jpg')" class="gallery-box" onclick="openGalleryModal('1')"></div>
+									  <div style="background-image:url('./images/image2.jpg')" class="gallery-box" onclick="openGalleryModal('2')"></div>
+									  <div style="background-image:url('./images/image3.jpg')" class="gallery-box" onclick="openGalleryModal('3')"></div>
+									  <div style="background-image:url('./images/image4.jpg')" class="gallery-box" onclick="openGalleryModal('4')"></div>
+									  <div style="background-image:url('./images/image5.jpg')" class="gallery-box" onclick="openGalleryModal('5')"></div>
+									  <div style="background-image:url('./images/image6.jpg')" class="gallery-box" onclick="openGalleryModal('6')"></div>
+									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box" onclick="openGalleryModal('7')"></div>
+									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box" onclick="openGalleryModal('8')"></div>
+									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box" onclick="openGalleryModal('9')"></div>
 									</div>
+								</div>
+								<div class="content">
+									<h5>&nbsp;</h5>
+									<iframe style="border-radius: 10px;" width="100%" height="320px" src="https://www.youtube.com/embed/vHhvfaVqI6w?si=Dtd4aTcufHUhayli&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 								</div>
 							</header>
 						</div>
 					</section>
 
-				<!-- Three -->
-					<section id="four" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>방명록</h2>
-								<p>준비중입니다.</p>
-							</header>
-						</div>
-					</section>
 
 				<!-- CTA -->
 					<section id="cta" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
 								<div class="content">
+							<h2>방명록</h2>
+								<p>준비중입니다.</p>
+							</header>
 									<h2>마음 전하는 곳</h2>
 									<p><span>송구하지만 멀리서 축하해 주시는 분들을</span>
 									<span>위해 계좌번호를 준비했습니다.</span>
 									<span>축하해 주신 모든분께 감사드립니다.</span></p>
 								</div>
 							</header>
+								<!-- 신랑 계좌 Modal-->
+									<div class="container">
+									  <div class="popup-wrap" id="popup-groom-account"> 
+									    <div class="popup">	
+									      <div class="popup-head">	
+									          <span class="head-title">신랑에게 마음 전하기</span>
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox">
+									            <p style="color:black;"> 카카오 00-0000-00000</p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot"> 
+									        <span class="pop-btn" id="popup-close3">닫기</span>
+									      </div>
+									    </div>
+									</div>
+									</div>
+								<!-- 신랑 계좌 Modal-->
+								<!-- 신랑 계좌 Modal-->
+									<div class="container">
+									  <div class="popup-wrap" id="popup-bride-account"> 
+									    <div class="popup">	
+									      <div class="popup-head">	
+									          <span class="head-title">신부에게 마음 전하기</span>
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-contentbox">
+									            <p style="color:black;"> 카카오 00-0000-00000</p>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot"> 
+									        <span class="pop-btn" id="popup-close4">닫기</span>
+									      </div>
+									    </div>
+									</div>
+									</div>
+								<!-- 신랑 계좌 Modal-->
 							<ul class="actions stacked">
-								<li><a href="#" class="button fit primary">신랑에게 마음 전하기</a></li>
-								<li><a href="#" class="button fit primary">신부에게 마음 전하기</a></li>
+								<li><a class="button fit primary" id="open-groom-account">신랑에게 마음 전하기</a></li>
+								<li><a class="button fit primary" id="open-bride-account">신부에게 마음 전하기</a></li>
 							</ul>
 						</div>
 					</section>
