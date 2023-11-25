@@ -186,12 +186,36 @@
 			  }
 			});
 
+			var musicStat = true;
+
+			function musicOnOff() {
+			const audioContainer = document.getElementById('audioContainer');
+				
+
+				if(musicStat==true) {
+					musicStat=false;
+					document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-xmark-solid.svg)";
+					audioContainer.pause(); 
+
+				}
+				else {
+					musicStat=true;
+					document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-high-solid.svg)";
+					audioContainer.play(); 
+				}
+
+			}
+
 			window.onload = function() {calcDday("20240317");}
 
 		</script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
 	</head>
 	<body class="landing is-preload">
+  <audio id="audioContainer" autoplay loop="infinite"> <!-- audio play를 위함 -->
+        <source id="audioSource" src="JaneStreet.mp3" /> <!-- audio 파일 -->
+        HTML5 Audio를 지원하지 않는 브라우저입니다.
+   </audio>
 	  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	  <script>
 	    AOS.init();
@@ -253,6 +277,7 @@
 								<span>&nbsp;</span>
 							</div>
 						</div>
+						<a class="more" id="music-button" onclick="musicOnOff()"></a>
 					</section>
 
 				<!-- One -->

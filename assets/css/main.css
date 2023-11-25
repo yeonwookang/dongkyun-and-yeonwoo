@@ -3941,7 +3941,7 @@ input, select, textarea {
 				color: inherit;
 			}
 
-		#banner .more {
+		.more {
 			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
 			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
 			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
@@ -3955,25 +3955,16 @@ input, select, textarea {
 			-ms-transform: translateY(0);
 			transform: translateY(0);
 			border: none;
-			bottom: 0;
 			color: inherit;
-			font-size: 0.8em;
-			height: 8.5em;
-			left: 50%;
+			font-size: 1.2em;
 			letter-spacing: 0.225em;
-			margin-left: -8.5em;
 			opacity: 1;
 			outline: 0;
 			padding-left: 0.225em;
-			position: absolute;
 			text-align: center;
 			text-transform: uppercase;
-			width: 16em;
 			z-index: 1;
-		}
-
-			#banner .more:after {
-				background-image: url("images/arrow.svg");
+				background-image: url("../../images/volume-high-solid.svg");
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: contain;
@@ -3985,7 +3976,9 @@ input, select, textarea {
 				margin: 0 0 0 -0.75em;
 				position: absolute;
 				width: 1.5em;
-			}
+				z-index: 9999;
+		}
+
 
 		#banner:after {
 			pointer-events: none;
