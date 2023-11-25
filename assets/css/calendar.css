@@ -43,6 +43,7 @@
   width: calc(100% / 7);
   /*#9*/
   position: relative;
+  padding: 0;
 }
 .calendar .days li {
   /*#10*/
@@ -66,7 +67,7 @@
   height: 40px;
   width: 40px;
   top: 50%;
-  left: 55%;
+  left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   z-index: -1;
@@ -75,5 +76,8 @@
   background: #F0F4F5;
 }
 .days li.active::before {
-  background: #CA7E7E;
+  background-image: url("../../images/heart-solid.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
 }

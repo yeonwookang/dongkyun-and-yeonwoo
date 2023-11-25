@@ -2499,9 +2499,9 @@ input, select, textarea {
 		input[type="button"].primary,
 		button.primary,
 		.button.primary {
-			background-color: #101416;
+			background-color: transparent;
 			box-shadow: none !important;
-			color: #ffffff !important;
+			color: #101416 !important;
 		}
 
 			input[type="submit"].primary:hover,
@@ -2509,7 +2509,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #20272B !important;
+				background-color: transparent;
 			}
 
 			input[type="submit"].primary:active,
@@ -2517,7 +2517,7 @@ input, select, textarea {
 			input[type="button"].primary:active,
 			button.primary:active,
 			.button.primary:active {
-				background-color: #070909 !important;
+				background-color: transparent;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -4051,7 +4051,7 @@ input, select, textarea {
 			  background-size:cover;
 			  background-position:50%;
 			  height: 100%;
-		  	 background-size: 170%;
+		  	  background-size: 170%;
 		  	 -webkit-transition: background-size.5s ease-in-out;
 		  	 transition: background-size.5s ease-in-out;
 			}
@@ -4061,21 +4061,33 @@ input, select, textarea {
 			grid-column: 1 / span 2;
 			grid-row: 1 / span 2;
 			border-top-left-radius: 10px;
+			background-size: 200%;
 		}	
 
 		.gallery-box:nth-child(2) {
 			border-top-right-radius: 10px;
+		}
+
+		.gallery-box:nth-child(3) {
+			background-size: 250%;
+		}	
+		.gallery-box:nth-child(4) {
+			background-size: 280%;
+		}
+		.gallery-box:nth-child(5) {
+			grid-column: 2 / span 2;
+			grid-row: 3 / span 2;
+			background-size: 200%;
 		}	
 
-
-		.gallery-box:nth-child(8) {
-			grid-column: 2 / span 2;
-			grid-row: 4 / span 3;
-			border-bottom-right-radius: 10px;
+		.gallery-box:nth-child(7) {
+			grid-column: 1 / span 2;
+			grid-row: 5 / span 3;
+			border-bottom-left-radius: 10px;
 		}	
 
 		.gallery-box:nth-child(10) {
-			border-bottom-left-radius: 10px;
+			border-bottom-right-radius: 10px;
 		}	
 
 		.inner .content h2 span {
@@ -4495,6 +4507,7 @@ input, select, textarea {
  	width: 100%;
  	margin: auto;
  	margin-bottom: 30px;
+ 	padding: 0px;
  }
 
  .couple-intro-box{
@@ -4503,6 +4516,21 @@ input, select, textarea {
  	height: auto;
  	margin: 0 auto;
  	padding: 0px;
+ 	color: white !important;
+ }
+  .couple-intro-box b{
+ 	color: white !important;
+ }
+  .couple-intro-text2{
+ 	display: block;
+ 	width: 100%;
+ 	height: auto;
+ 	margin: 0 auto;
+ 	padding: 0px;
+ }
+  .couple-intro-text2 span{
+  	color: #999;
+  	margin-top: -25px;
  }
 
   #couple-intro-img1{
@@ -4637,6 +4665,7 @@ input, select, textarea {
 .popup-body{                
   width:100%;
   background-color:#F0F4F5; 
+  height: 200px;
 }
 .body-content{            
   width:100%;
@@ -4647,6 +4676,12 @@ input, select, textarea {
   text-align:center;       
   width:100%;
   height:40px;
+  margin-bottom:10px;      
+}
+.body-titlebox2{             
+  text-align:center;       
+  width:100%;
+  height:70px;
   margin-bottom:10px;      
 }
 .body-contentbox{           
@@ -4668,4 +4703,36 @@ input, select, textarea {
   align-items:center;             
   float:left;                     
   color:#ffffff;                   
+}
+
+
+
+.button-wrapper {
+	vertical-align: middle;
+	height: auto;
+	margin-top: 15px;
+}
+
+.button-content {
+	display: inline-block;
+	vertical-align: middle;
+    top: 50%;
+}
+
+.button-content img{
+	width: 70px;
+	height: 70px;
+}
+
+.button-content-text{
+	margin-left: 10px;
+	font-weight: 1000;
+    font-size: 1.2em;
+}
+
+
+.body-titlebox2 img {
+
+	width: 70px;
+	height: 70px;
 }
