@@ -184,6 +184,17 @@
 			      $("#popup-bride-account").fadeOut(); //페이드아웃 효과
     			  document.body.style.overflow = "unset";
 			  }
+
+
+
+			  $("#popup-close-message").click(function(){
+			      modalClose5(); //모달 닫기 함수 호출
+			  });
+
+			  function modalClose5(){
+			      $("#popup-message").fadeOut(); //페이드아웃 효과
+    			  document.body.style.overflow = "unset";
+			  }
 			});
 
 			var musicStat = true;
@@ -531,15 +542,49 @@
 					<section id="cta" class="wrapper style1 special">
 						<div class="inner">
 							<header class="major">
-						<div class="content">
-							<!--
+						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
 							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
-								<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >준비중입니다.</p>
-							-->
-									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >마음 전하는 곳</h2>
-									<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><span>송구하지만 멀리서 축하해 주시는 분들을</span>
-									<span>위해 계좌번호를 준비했습니다.</span>
-									<span>축하해 주신 모든분께 감사드립니다.</span></p>
+								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+									<div class="speech-bubble">TEST TEST TEST</div> 
+								</div>
+								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:70%;margin: auto;max-width:70%;display: block;" class="button"><i class="fa-solid fa-magnifying-glass"></i> 방명록 남기기</div>
+								<!-- 방명록 Modal-->
+									<div class="container">
+									  <div class="popup-wrap" id="popup-message">
+									    <div class="popup">	
+									      <div class="popup-head">	
+									          <span class="head-title">방명록 남기기</span>
+									      </div>
+									      <div class="popup-body">	
+									        <div class="body-content">
+									          <div class="body-titlebox">
+									            <h1 style="color:#101416;">축하의 말씀을 남겨주세요.</h1>
+									          </div>
+									          <div class="body-contentbox">
+									           <textarea id="message" maxlength="200" placeholder="" style="color:#101416;border:1px solid #101416;resize:none;"></textarea>
+												<div id="reset-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">초기화</div>
+												<div id="message-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">저 장</div>
+									          </div>
+									        </div>
+									      </div>
+									      <div class="popup-foot"> 
+									        <span class="pop-btn" id="popup-close-message">닫기</span>
+									      </div>
+									    </div>
+									</div>
+									</div>
+								<!-- 방명록 Modal-->
+								<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px">마음 전하는 곳</h2>
+								<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><span>송구하지만 멀리서 축하해 주시는 분들을</span>
+								<span>위해 계좌번호를 준비했습니다.</span>
+								<span>축하해 주신 모든분께 감사드립니다.</span></p>
 
 						</div>
 						<div class="content">
@@ -690,5 +735,92 @@
 					    alert('계좌번호가 복사되었습니다 : ' +  el.value);
 				  }
 		    </script>
+<!--Firebase-->
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+  import { getDatabase, ref, set, child, get, onValue, push  } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyAfRh7foEHrHxFQKt0whyUTkvcBSSvc2b4",
+    authDomain: "dongkyun-and-yeonwoo.firebaseapp.com",
+    databaseURL: "https://dongkyun-and-yeonwoo-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "dongkyun-and-yeonwoo",
+    storageBucket: "dongkyun-and-yeonwoo.appspot.com",
+    messagingSenderId: "318368665753",
+    appId: "1:318368665753:web:005e047eac30f3eefba808",
+    measurementId: "G-ENCNDJW07Z"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  const database = getDatabase(app);
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const provider = new GoogleAuthProvider();
+
+  const displayName = "익명";
+  const photoURL = "";
+  const email = "";
+
+  if(user != null) {
+  	displayName = user.displayName;
+    photoURL = user.photoURL;
+    email = user.email;
+  }
+
+
+  // 방명록 글쓰기
+  $("#message-button").click(function(){
+	  const db = getDatabase();
+	  //displayName = user.uid;
+	  const message = document.getElementById("message").value;
+
+	  push(ref(db, 'users/' + displayName), {
+	    message : message
+	  }, );
+  });
+
+
+  $("#open-message").click(function(){
+
+	const auth = getAuth();
+	signInWithPopup(auth, provider)
+	  .then((result) => {
+	    // This gives you a Google Access Token. You can use it to access the Google API.
+	    const credential = GoogleAuthProvider.credentialFromResult(result);
+	    const token = credential.accessToken;
+	    // The signed-in user info.
+	    user = result.user;
+	    // IdP data available using getAdditionalUserInfo(result)
+	    // ...
+	  }).catch((error) => {
+	    // Handle Errors here.
+	    const errorCode = error.code;
+	    const errorMessage = error.message;
+	    // The email of the user's account used.
+	    const email = error.customData.email;
+	    // The AuthCredential type that was used.
+	    const credential = GoogleAuthProvider.credentialFromError(error);
+	    // ...
+	  });
+  	
+	 document.body.style.overflow = 'hidden';        
+      $("#popup-message").css('display','flex').hide().fadeIn();
+      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+  });
+
+</script>
 	</body>
 </html>
