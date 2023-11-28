@@ -44,7 +44,7 @@
             if(Agent.includes("kakao") || Agent.includes("KAKAO")){ // 카카오 브라우저로 실행 시킨 경우
                 // 먼저, 카카오 인앱 브라우저 닫기
                 if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
-                	location.href = 'kakaoweb://closeBrowser';
+                	window.location.href = 'kakaoweb://closeBrowser';
                     console.log("");
                     console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
                     console.log("");
