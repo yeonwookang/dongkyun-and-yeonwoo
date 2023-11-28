@@ -766,13 +766,13 @@
 
   const database = getDatabase(app);
   const auth = getAuth();
-  const user = auth.currentUser;
+  var user = auth.currentUser;
 
   const provider = new GoogleAuthProvider();
 
-  const displayName = "익명";
-  const photoURL = "";
-  const email = "";
+  var displayName = "익명";
+  var photoURL = "";
+  var email = "";
 
   if(user != null) {
   	displayName = user.displayName;
