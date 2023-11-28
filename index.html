@@ -772,12 +772,12 @@
 
   var displayName = "익명";
   var photoURL = "";
-  var email = "";
+  var uid = "";
 
   if(user != null) {
   	displayName = user.displayName;
     photoURL = user.photoURL;
-    email = user.email;
+    uid = user.uid;
   }
 
 
@@ -787,7 +787,9 @@
 	  //displayName = user.uid;
 	  const message = document.getElementById("message").value;
 
-	  push(ref(db, 'users/' + displayName), {
+	  push(ref(db, 'users/' + uid), {
+	  	displayName : displayName,
+	  	photoURL : photoURL,
 	    message : message
 	  }, );
   });
@@ -804,6 +806,13 @@
 	    const token = credential.accessToken;
 	    // The signed-in user info.
 	    user = result.user;
+	    photoURL = user.photoURL;
+	    displayName = user.displayName;
+	    uid = user.uid;
+
+	    console.lod("open message : " + photoURL + "," + displayName + "," + uid);
+
+
 	   	console.log(user);
 	    // IdP data available using getAdditionalUserInfo(result)
 	    // ...
