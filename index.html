@@ -48,14 +48,7 @@
                     console.log("");
                     console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
                     console.log("");
-                    location.href = 'kakaotalk://web/openExternal?url='+encodeURIComponent(Url)
-                    
-			    let popup = window.open();
-
-			    setTimeout(() => {
-			      popup.location = Url;
-			    }, 500);
-                    
+                    location.href = 'kakaotalk://web/openExternal?url='+encodeURIComponent(Url);
                 }
                 else { // 안드로이드 접속 경우
                 	location.href = 'kakaotalk://inappbrowser/close';
