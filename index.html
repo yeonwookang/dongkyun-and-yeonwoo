@@ -191,6 +191,10 @@
 			      modalClose5(); //모달 닫기 함수 호출
 			  });
 
+			  $("#reset-button").click(function() {
+			  	document.getElementById("message").value = "";
+			  });
+
 			  function modalClose5(){
 			      $("#popup-message").fadeOut(); //페이드아웃 효과
     			  document.body.style.overflow = "unset";
@@ -545,14 +549,6 @@
 						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
 							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
 								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
-									<div class="speech-bubble">TEST TEST TEST</div> 
 								</div>
 								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:70%;margin: auto;max-width:70%;display: block;" class="button"><i class="fa-solid fa-magnifying-glass"></i> 방명록 남기기</div>
 								<!-- 방명록 Modal-->
@@ -562,7 +558,7 @@
 									      <div class="popup-head">	
 									          <span class="head-title">방명록 남기기</span>
 									      </div>
-									      <div class="popup-body">	
+									      <div class="popup-body-message">	
 									        <div class="body-content">
 									          <div class="body-titlebox">
 												<div class="writer-wrapper">
@@ -571,7 +567,7 @@
 												</div>
 									          </div>
 									          <div class="body-contentbox">
-									           <textarea id="message" maxlength="200" placeholder="" style="color:#101416;border:1px solid #101416;resize:none;"></textarea>
+									           <textarea id="message" maxlength="200" placeholder=""></textarea>
 												<div id="reset-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">초기화</div>
 												<div id="message-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">저 장</div>
 									          </div>
@@ -783,6 +779,54 @@
     uid = user.uid;
   }
 
+  // 방명록 글 읽어오기
+  function loadMessage() {
+  	  const dbRef = ref(getDatabase());
+	get(child(dbRef, `users/`)).then((snapshot) => {
+	  if (snapshot.exists()) {
+
+	  	var obj = snapshot.val();
+	  	let keys = Object.keys(obj);	// 키 값 전체 받아옴
+	  	let values = Object.values(obj);	// 키 값 전체 받아옴
+
+
+	  	var htmltext = "";
+
+	    for (var i = 0; i < keys.length; i++) {
+		    let keys2 = Object.keys(Object.entries(values[i]));
+		    let values2 = Object.values(Object.values(values[i]));
+
+		    for(var j = 0; j < keys2.length; j++) {
+
+			    var entries3 = Object.entries(values2[j]);
+			    var keys3 = Object.keys(values2[j]);
+			    var values3 = Object.values(values2[j]);
+
+			    var displayName = values3[0];
+			    var message = values3[1];
+			    var photoURL = values3[2];
+
+			    console.log("방명록 글읽기 : " + displayName + "," + message + "," + photoURL);
+
+			    htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
+			    							photoURL + '"></span><span class="writer-name" style="color:black;">'+ displayName +'</span></div><div class="writer-message-box">' + message + '</div></div></div>';
+
+			    }
+		}
+
+	    var targetName = document.getElementById('message-container');
+	    targetName.innerHTML = htmltext;
+
+
+	  } else {
+	    console.log("No data available");
+	  }
+	}).catch((error) => {
+	  console.error(error);
+	});
+  }
+
+	loadMessage();
 
   // 방명록 글쓰기 저장
   $("#message-button").click(function(){
@@ -799,7 +843,10 @@
 	  }).then(() => {
 	  	// Data saved Successfully!
 	  	console.log("Data saved Successfully!");
-	  	modalClose5();
+	      $("#popup-message").fadeOut(); //페이드아웃 효과
+		  document.body.style.overflow = "unset";
+		  document.getElementById("message").value = "";
+		  loadMessage();
 	  })
 	  .catch((error) => {
 	    const errorCode = error.code;
