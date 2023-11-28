@@ -4769,3 +4769,31 @@ input, select, textarea {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
+
+.writer-wrapper {
+	vertical-align: middle;
+	text-align: left;
+	height: auto;
+}
+
+#writer-img-box {
+	height: 50px;
+	width: 50px;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	background-color: transparent;
+	border-radius: 50%;
+}
+
+#writer-img {
+	height: 50px;
+	width: 50px;
+}
+
+#writer-name {
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: 800;
+}

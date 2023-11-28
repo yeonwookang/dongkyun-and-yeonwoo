@@ -565,7 +565,10 @@
 									      <div class="popup-body">	
 									        <div class="body-content">
 									          <div class="body-titlebox">
-									            <h1 style="color:#101416;">축하의 말씀을 남겨주세요.</h1>
+												<div class="writer-wrapper">
+													<span id="writer-img-box"><img id="writer-img" src=""></span>
+													<span id="writer-name" style="color:black;"></span>
+												</div>
 									          </div>
 									          <div class="body-contentbox">
 									           <textarea id="message" maxlength="200" placeholder="" style="color:#101416;border:1px solid #101416;resize:none;"></textarea>
@@ -822,6 +825,12 @@
 	    photoURL = user.photoURL;
 	    displayName = user.displayName;
 	    uid = user.uid;
+
+
+	    var targetImg = document.getElementById('writer-img');
+	    targetImg.src = photoURL;
+	    var targetName = document.getElementById('writer-name');
+	    targetName.innerHTML = displayName;
 
 	    console.log("open message : " + photoURL + "," + displayName + "," + uid);
 
