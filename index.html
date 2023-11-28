@@ -41,7 +41,7 @@
             console.log("[window ready] : [접속 Agent] : " + Agent);
             console.log("");
             //alert(Agent);
-            if(Agent.includes("kakao")){ // 카카오 브라우저로 실행 시킨 경우
+            if(Agent.includes("kakao") || Agent.includes("KAKAO")){ // 카카오 브라우저로 실행 시킨 경우
                 // 먼저, 카카오 인앱 브라우저 닫기
                 location.href = 'kakaotalk://inappbrowser/close';
                 if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
