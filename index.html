@@ -787,6 +787,8 @@
 	  //displayName = user.uid;
 	  const message = document.getElementById("message").value;
 
+	  console.lod("save message : " + photoURL + "," + displayName + "," + uid);
+
 	  push(ref(db, 'users/' + uid), {
 	  	displayName : displayName,
 	  	photoURL : photoURL,
