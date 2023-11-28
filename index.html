@@ -793,7 +793,18 @@
 	  	displayName : displayName,
 	  	photoURL : photoURL,
 	    message : message
-	  }, );
+	  }).then(() => {
+	  	// Data saved Successfully!
+	  	console.log("Data saved Successfully!");
+	  	modalClose5();
+	  })
+	  .catch((error) => {
+	    const errorCode = error.code;
+	    const errorMessage = error.message;
+
+	    console.log("SAVE ERROR CODE : " + errorCode);
+	    console.log("SAVE ERROR : " + errorMessage);
+	  });
   });
 
 
