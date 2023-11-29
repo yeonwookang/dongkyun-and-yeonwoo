@@ -3942,18 +3942,6 @@ input, select, textarea {
 			}
 
 		.more {
-			-moz-transition: -moz-transform 0.75s ease, opacity 0.75s ease;
-			-webkit-transition: -webkit-transform 0.75s ease, opacity 0.75s ease;
-			-ms-transition: -ms-transform 0.75s ease, opacity 0.75s ease;
-			transition: transform 0.75s ease, opacity 0.75s ease;
-			-moz-transition-delay: 3.5s;
-			-webkit-transition-delay: 3.5s;
-			-ms-transition-delay: 3.5s;
-			transition-delay: 3.5s;
-			-moz-transform: translateY(0);
-			-webkit-transform: translateY(0);
-			-ms-transform: translateY(0);
-			transform: translateY(0);
 			border: none;
 			color: inherit;
 			font-size: 1.2em;
@@ -4756,7 +4744,7 @@ input, select, textarea {
 /* Message  */
 .speech-bubble {
 	position: relative;
-	background: rgba(202,126,126, 0.3);
+	background: #fff;
 	border-radius: 5px;
 	margin: auto;
 	margin-top: 5px;
@@ -4766,6 +4754,8 @@ input, select, textarea {
 	width: 80%;
 	max-width: 80%;
 	font-size: 0.7em;
+	box-shadow: 0 0 0 2px #F0F4F5;
+	color: #101416;
 }
 
 #message-container {
@@ -4816,6 +4806,9 @@ input, select, textarea {
 .writer-message-box {
 	text-align: left;
 	padding: 15px;
+	margin-top: 10px;
+	border-top: 1px solid #ddd;
+	color: #101416;
 }
 
 .writer-img-box {
@@ -4837,5 +4830,5 @@ input, select, textarea {
 	display: inline-block;
 	vertical-align: middle;
 	font-weight: 800;
-	padding-left: 20px;
+	padding-left: 10px;
 }

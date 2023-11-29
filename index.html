@@ -315,7 +315,7 @@
 							<div class="stars stars--big"></div>
 							</div>
 							<div class="content">
-								<h2><span style="font-size:0.8em;">2024.03.17(일) 14:00</span>
+								<h2><span style="font-size:0.8em;">2024.03.17(일) 오후2시</span>
 								<span>대구 파라다이스웨딩</span></h2>
 								<p style="font-size:1.1em;">
 								<span>&nbsp;</span>
@@ -592,7 +592,7 @@
 							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
 								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
 								</div>
-								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:70%;margin: auto;max-width:70%;display: block;" class="button"><i class="fa-solid fa-magnifying-glass"></i> 방명록 남기기</div>
+								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:70%;margin: auto;max-width:70%;display: block;" class="button"><i class="fa-solid fa-feather"></i></i> 방명록 남기기</div>
 								<!-- 방명록 Modal-->
 									<div class="container">
 									  <div class="popup-wrap" id="popup-message">
@@ -782,7 +782,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-  import { getDatabase, ref, set, child, get, onValue, push  } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+  import { getDatabase, ref, set, child, get, onValue, push, query, orderByChild, orderByKey, orderByValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -823,14 +823,14 @@
 
   // 방명록 글 읽어오기
   function loadMessage() {
-  	  const dbRef = ref(getDatabase());
-	get(child(dbRef, `users/`)).then((snapshot) => {
+
+  	const dbRef = ref(getDatabase());
+	get(child(dbRef, 'users/')).then((snapshot) => {
 	  if (snapshot.exists()) {
 
 	  	var obj = snapshot.val();
 	  	let keys = Object.keys(obj);	// 키 값 전체 받아옴
 	  	let values = Object.values(obj);	// 키 값 전체 받아옴
-
 
 	  	var htmltext = "";
 
@@ -839,17 +839,19 @@
 		    let values2 = Object.values(Object.values(values[i]));
 
 		    for(var j = 0; j < keys2.length; j++) {
+		    	var checkUid = keys[i];
 
 			    var entries3 = Object.entries(values2[j]);
 			    var keys3 = Object.keys(values2[j]);
 			    var values3 = Object.values(values2[j]);
 
-			    var displayName = values3[0];
-			    var message = values3[1];
-			    var photoURL = values3[2];
+			    var displayName = values3[1];
+			    var message = values3[2];
+			    var photoURL = values3[3];
+			    var date = values3[0];
 
 			    htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-			    							photoURL + '"></span><span class="writer-name" style="color:black;">'+ displayName +'</span></div><div class="writer-message-box">' + message + '</div></div></div>';
+			    							photoURL + '"></span><span class="writer-name" style="color:black;">'+ displayName +'&nbsp;<small style="font-size:0.7em;"> ' + date + '</small></span></div><div class="writer-message-box">' + message + '</div></div></div>';
 
 			    }
 		}
@@ -871,15 +873,32 @@
   // 방명록 글쓰기 저장
   $("#message-button").click(function(){
 	  const db = getDatabase();
-	  //displayName = user.uid;
 	  const message = document.getElementById("message").value;
 
-	  console.log("save message : " + photoURL + "," + displayName + "," + uid);
+	  var date = "";
+	  var today = new Date();
+
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var day = ('0' + today.getDate()).slice(-2);
+
+		var dateString = year + '/' + month  + '/' + day;
+
+		var hours = ('0' + today.getHours()).slice(-2); 
+		var minutes = ('0' + today.getMinutes()).slice(-2);
+		var seconds = ('0' + today.getSeconds()).slice(-2); 
+
+		var timeString = hours + ':' + minutes  + ':' + seconds;
+
+		date = "(" + dateString + " " + timeString + ")";
+
+	  console.log("save message : " + photoURL + "," + displayName + "," + uid, "," + date);
 
 	  push(ref(db, 'users/' + uid), {
 	  	displayName : displayName,
 	  	photoURL : photoURL,
-	    message : message
+	    message : message,
+	    date : date
 	  }).then(() => {
 	  	// Data saved Successfully!
 	  	console.log("Data saved Successfully!");
@@ -887,6 +906,7 @@
 		  document.body.style.overflow = "unset";
 		  document.getElementById("message").value = "";
 		  loadMessage();
+		  // 스크롤 맨 아래로
 	  })
 	  .catch((error) => {
 	    const errorCode = error.code;
