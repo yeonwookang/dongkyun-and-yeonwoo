@@ -16,6 +16,7 @@
 		<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_resized.png?raw=true">
 		<meta property="og:description" content="2024년 3월 17일 일요일 오후 2시 대구 파라다이스웨딩 그랜드볼룸">
 
+		<link rel="icon" href="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/favicon.ico" type="image/x-icon"/>
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="stylesheet" href="assets/css/calendar.css" />
 		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -65,15 +66,6 @@
 
     </script>
 		<script type="text/javascript">
-		      /* 첫 화면 로딩 */
-		      $(window).on('load', function () {
-		        $(".loader").delay("1000").fadeOut();
-		        $(".loading-image").delay("1500").fadeOut();
-		        $(".loaded-container").delay("2200").fadeIn();
-		        $(".loader").delay("1000").fadeIn();
-		        $(".loading-image").delay("1500").fadeIn();
-		        $(".loading-image-cover").delay("1500").fadeIn();
-		      });
 
 		     /* 디데이 */
 			function calcDday(date) {
@@ -244,11 +236,12 @@
 			});
 
 			var musicStat = true;
+			var audioContainer;
 
 			function musicOnOff() {
-			const audioContainer = document.getElementById('audioContainer');
+			audioContainer = document.getElementById('audioContainer');
+			audioContainer.volume=0.2;
 				
-
 				if(musicStat==true) {
 					musicStat=false;
 					document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-xmark-solid.svg)";
@@ -263,13 +256,18 @@
 
 			}
 
-			window.onload = function() {calcDday("20240317");}
+			window.onload = function() {
+				calcDday("20240317");
+				audioContainer = document.getElementById('audioContainer');
+				audioContainer.volume=0.2;
+			}
 
 		</script>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
 	</head>
 	<body class="landing is-preload">
-  <audio id="audioContainer" autoplay loop="infinite"> <!-- audio play를 위함 -->
+
+  <audio id="audioContainer" autoplay loop="infinite" volume="0.2"> <!-- audio play를 위함 -->
         <source id="audioSource" src="JaneStreet.mp3" /> <!-- audio 파일 -->
         HTML5 Audio를 지원하지 않는 브라우저입니다.
    </audio>
@@ -277,13 +275,8 @@
 	  <script>
 	    AOS.init();
 	  </script>
-    <div class="loading-image-cover"></div>
-    <div class="loader">
-      <div class="loading-image">
-      </div>
-    </div>
 		<!-- Page Wrapper -->
-			<div id="page-wrapper loaded-container">
+			<div id="page-wrapper">
 
 				<!-- Header -->
 					<header id="header" class="alt">
@@ -298,7 +291,7 @@
 											<li><a href="#one">오시는 길</a></li>
 											<li><a href="#three">신랑신부 소개</a></li>
 											<li><a href="#four">사진첩</a></li>
-											<li><a href="#cta">마음 전하는 곳</a></li>
+											<li><a href="#five">마음 전하는 곳</a></li>
 										</ul>
 									</div>
 								</li>
@@ -585,15 +578,15 @@
 
 
 				<!-- CTA -->
-					<section id="cta" class="wrapper style1 special">
+					<section id="five" class="wrapper style1 special">
 						<div class="inner">
 							<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
 						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
 							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
 								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
 								</div>
-								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-solid fa-feather"></i> 방명록 남기기</div>
-								<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
+								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-brands fa-google fa-fade"></i> 방명록 남기기</div>
+								<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#bbb;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
 								<!-- 방명록 Modal-->
 									<div class="container">
 									  <div class="popup-wrap" id="popup-message">
@@ -624,10 +617,11 @@
 									</div>
 								<!-- 방명록 Modal-->
 								<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px">마음 전하는 곳</h2>
+								<div>
 								<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><span>송구하지만 멀리서 축하해 주시는 분들을</span>
 								<span>위해 계좌번호를 준비했습니다.</span>
 								<span>축하해 주신 모든분께 감사드립니다.</span></p>
-
+								</div>
 						</div>
 						<div class="content">
 								<div class="button-wrapper" id="open-groom-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
@@ -698,9 +692,12 @@
 
 				<!-- Footer -->
 					<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
+    <a id="kakao-link-btn" href="javascript:kakaoShare()">
+    	<img style="width:30px;height:30px;" src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+    </a>
 						<ul class="copyright">
 							<li>&copy; yeonwookang </i></li>
-							<li style="font-size:0.8em;color: rgba(255,255,255,0.5);"><a href="http://html5up.net">HTML5 UP</a></li>
+							<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
 						</ul>
 					</footer>
 
@@ -812,9 +809,9 @@
 
   const provider = new GoogleAuthProvider();
 
-  var displayName = "익명";
-  var photoURL = "";
-  var uid = "";
+  var displayName;
+  var photoURL;
+  var uid;
   var messageArray = new Array();
 
   if(user != null) {
@@ -822,6 +819,10 @@
     photoURL = user.photoURL;
     uid = user.uid;
   }
+
+
+  
+	loadMessage();
 
   // 방명록 글 읽어오기
   function loadMessage() {
@@ -897,7 +898,17 @@
 			}
 
 			  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-			    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.2em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+			    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+
+		
+			// 삭제 이벤트 추가
+			$(document).on("click","#"+ messageArray[i].deleteKey , function() {
+					var deleteKey = $(this).attr("id");
+					// 파이어베이스 변수
+					const db = getDatabase();
+					remove(ref(db, 'users/' + uid +"/" + deleteKey));
+					loadMessage();
+			});
 
 		}
 
@@ -912,27 +923,9 @@
 	}).catch((error) => {
 	  console.error(error);
 	});
-  
-	settingDelete();
+ 
   }
 
-  function settingDelete() {
-	for(var i=0; i < messageArray.length; i++) {
-
-		var key = messageArray[i].deleteKey;
-			// 삭제 이벤트 추가
-			$(document).on("click","#"+ messageArray[i].deleteKey , function() {
-					var deleteKey = $(this).attr("id");
-					console.log("deleteKey : " + deleteKey);
-					// 파이어베이스 변수
-					const db = getDatabase();
-					remove(ref(db, 'users/' + uid +"/" + deleteKey));
-					loadMessage();
-			});
-	}
-  }
-	
-	loadMessage();
 
 
   // 방명록 글쓰기 저장
@@ -963,13 +956,12 @@
 	    message : message,
 	    date : date
 	  }).then(() => {
-	  	// Data saved Successfully!
-	  	console.log("Data saved Successfully!");
+		loadMessage();
+
+		  // 스크롤 맨 아래로
 	      $("#popup-message").fadeOut(); //페이드아웃 효과
 		  document.body.style.overflow = "unset";
 		  document.getElementById("message").value = "";
-		  loadMessage(); // 저장한 직후에 삭제 버튼이 먹통 (확인)
-		  // 스크롤 맨 아래로
 	  })
 	  .catch((error) => {
 	    const errorCode = error.code;
@@ -980,42 +972,45 @@
 
  // 방명록 글쓰기 창 오픈
   $("#open-message").click(function(){
+	// 로그인 되어있지 않으면 Google 로그인 시도
+	if(uid==null) {
+		signInWithPopup(auth, provider)
+		  .then((result) => {
+		    // This gives you a Google Access Token. You can use it to access the Google API.
+		    const credential = GoogleAuthProvider.credentialFromResult(result);
+		    const token = credential.accessToken;
+		    // The signed-in user info.
+		    user = result.user;
+		    photoURL = user.photoURL;
+		    displayName = user.displayName;
+		    uid = user.uid;
 
-	const auth = getAuth();
-	signInWithPopup(auth, provider)
-	  .then((result) => {
-	    // This gives you a Google Access Token. You can use it to access the Google API.
-	    const credential = GoogleAuthProvider.credentialFromResult(result);
-	    const token = credential.accessToken;
-	    // The signed-in user info.
-	    user = result.user;
-	    photoURL = user.photoURL;
-	    displayName = user.displayName;
-	    uid = user.uid;
+		    var targetImg = document.getElementById('writer-img');
+		    targetImg.src = photoURL;
+		    var targetName = document.getElementById('writer-name');
+		    targetName.innerHTML = displayName;
 
-	    var targetImg = document.getElementById('writer-img');
-	    targetImg.src = photoURL;
-	    var targetName = document.getElementById('writer-name');
-	    targetName.innerHTML = displayName;
-	  }).catch((error) => {
-	    const errorCode = error.code;
-	    const errorMessage = error.message;
-	    const credential = GoogleAuthProvider.credentialFromError(error);
+		  }).catch((error) => {
+		    const errorCode = error.code;
+		    const errorMessage = error.message;
+		    const credential = GoogleAuthProvider.credentialFromError(error);
 
-	    console.log("ERROR CODE : " + errorCode);
-	    console.log("ERROR : " + errorMessage);
-	    // ...
-	  });
-  	
-	 document.body.style.overflow = 'hidden';        
-      $("#popup-message").css('display','flex').hide().fadeIn();
-      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+		    console.log("ERROR CODE : " + errorCode);
+		    console.log("ERROR : " + errorMessage);
+		  });
+
+	}
+
+		 document.body.style.overflow = 'hidden';        
+	      $("#popup-message").css('display','flex').hide().fadeIn();
+	      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
   });
 
 
  // 방명록 삭제 활성화
   $("#delete-message").click(function(){
-
+	// 로그인 되어있지 않으면 Google 로그인 시도
+	if(uid==null) {
 	const auth = getAuth();
 	signInWithPopup(auth, provider)
 	  .then((result) => {
@@ -1037,11 +1032,46 @@
 
 	    console.log("ERROR CODE : " + errorCode);
 	    console.log("ERROR : " + errorMessage);
-	    // ...
 	  });
-  	
+	}  	
   });
 
+</script>
+<!-- kakao sdk 호출 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('45b1d7be01ff37249a218e8080b2ad91');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '카카오공유하기 시 타이틀',
+        description: '카카오공유하기 시 설명',
+        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
+        link: {
+          mobileWebUrl: 'https://www.naver.com',
+          webUrl: 'https://www.naver.com',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://www.naver.com',
+            webUrl: 'https://www.naver.com',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
 </script>
 	</body>
 </html>
