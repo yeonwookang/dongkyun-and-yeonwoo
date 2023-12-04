@@ -4053,7 +4053,7 @@ input, select, textarea {
 			background-size: 250%;
 		}	
 		.gallery-box:nth-child(4) {
-			background-size: 280%;
+			background-size: 200%;
 		}
 		.gallery-box:nth-child(5) {
 			grid-column: 2 / span 2;
