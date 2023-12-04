@@ -908,6 +908,7 @@
 					var deleteKey = $(this).attr("id");
 					// 파이어베이스 변수
 					const db = getDatabase();
+					console.log("deleteKey : " + deleteKey);
 					remove(ref(db, 'users/' + uid +"/" + deleteKey));
 					loadMessage();
 			});
@@ -921,14 +922,14 @@
 
 	  } else {
 	    console.log("No data available");
+	    htmltext = "";
+	    var targetName = document.getElementById('message-container');
+	    targetName.innerHTML = htmltext;
 	  }
 	}).catch((error) => {
 	  console.error(error);
 	});
- 
   }
-
-
 
   // 방명록 글쓰기 저장
   $("#message-button").click(function(){
