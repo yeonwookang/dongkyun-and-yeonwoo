@@ -412,16 +412,16 @@
 								          <li class="inactive">27</li>
 								          <li class="inactive">28</li>
 								          <li class="inactive">29</li>
-								          <li>1</li>
+								          <li style="color:#990000;">1</li>
 								          <li>2</li>
-								          <li>3</li>
+								          <li style="color:#990000;">3</li>
 								          <li>4</li>
 								          <li>5</li>
 								          <li>6</li>
 								          <li>7</li>
 								          <li>8</li>
 								          <li>9</li>
-								          <li>10</li>
+								          <li style="color:#990000;">10</li>
 								          <li>11</li>
 								          <li>12</li>
 								          <li>13</li>
@@ -435,14 +435,14 @@
 								          <li>21</li>
 								          <li>22</li>
 								          <li>23</li>
-								          <li>24</li>
+								          <li style="color:#990000;">24</li>
 								          <li>25</li>
 								          <li>26</li>
 								          <li>27</li>
 								          <li>28</li>
 								          <li>29</li>
 								          <li>30</li>
-								          <li>31</li>
+								          <li style="color:#990000;">31</li>
 								        </ul>
 								      </div>
 								    </div>
@@ -587,12 +587,13 @@
 				<!-- CTA -->
 					<section id="cta" class="wrapper style1 special">
 						<div class="inner">
-							<header class="major">
+							<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
 						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
 							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
 								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
 								</div>
-								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:70%;margin: auto;max-width:70%;display: block;" class="button"><i class="fa-solid fa-feather"></i></i> 방명록 남기기</div>
+								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-solid fa-feather"></i> 방명록 남기기</div>
+								<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
 								<!-- 방명록 Modal-->
 									<div class="container">
 									  <div class="popup-wrap" id="popup-message">
@@ -782,7 +783,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-  import { getDatabase, ref, set, child, get, onValue, push, query, orderByChild, orderByKey, orderByValue } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+  import { getDatabase, ref, set, child, get, onValue, push, query, orderByChild, orderByKey, orderByValue,remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
   import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
   // TODO: Add SDKs for Firebase products that you want to use
@@ -814,6 +815,7 @@
   var displayName = "익명";
   var photoURL = "";
   var uid = "";
+  var messageArray = new Array();
 
   if(user != null) {
   	displayName = user.displayName;
@@ -825,8 +827,10 @@
   function loadMessage() {
 
   	const dbRef = ref(getDatabase());
+
 	get(child(dbRef, 'users/')).then((snapshot) => {
 	  if (snapshot.exists()) {
+
 
 	  	var obj = snapshot.val();
 	  	let keys = Object.keys(obj);	// 키 값 전체 받아옴
@@ -834,9 +838,13 @@
 
 	  	var htmltext = "";
 
+	  	messageArray = new Array();
+
 	    for (var i = 0; i < keys.length; i++) {
+			let entries2 = Object.entries(values[i]);
 		    let keys2 = Object.keys(Object.entries(values[i]));
 		    let values2 = Object.values(Object.values(values[i]));
+		    let deletekeys = Object.keys(values[i]);
 
 		    for(var j = 0; j < keys2.length; j++) {
 		    	var checkUid = keys[i];
@@ -850,11 +858,49 @@
 			    var photoURL = values3[3];
 			    var date = values3[0];
 
-			    htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-			    							photoURL + '"></span><span class="writer-name" style="color:black;">'+ displayName +'&nbsp;<small style="font-size:0.7em;"> ' + date + '</small></span></div><div class="writer-message-box">' + message + '</div></div></div>';
+			    var messageObj = new Object();
+			    messageObj.date = date;
+			    messageObj.displayName = displayName;
+			    messageObj.photoURL = photoURL;
+			    messageObj.message = message;
+			    messageObj.deleteKey = deletekeys[j];
+
+			    if(checkUid == uid) {
+			    	messageObj.deleteBtn = true;
+			    }
+			    else {
+			    	messageObj.deleteBtn = false;
+			    }
+
+			    messageArray.push(messageObj);
 
 			    }
 		}
+
+		// 날짜순으로 정렬
+		messageArray.sort(
+			function(a,b) {
+				if(a.date > b.date)
+					return 1;
+				else if(a.date < b.date)
+					return -1;
+				else
+					return 0;
+			});
+
+		for(var i = 0; i < messageArray.length; i++) {
+			var deleteBtn = "";
+			if(messageArray[i].deleteBtn == true) {
+				deleteBtn = "[삭제]";
+			} else {
+				deleteBtn = "";
+			}
+
+			  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
+			    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.2em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+
+		}
+
 
 	    var targetName = document.getElementById('message-container');
 	    targetName.innerHTML = htmltext;
@@ -866,9 +912,28 @@
 	}).catch((error) => {
 	  console.error(error);
 	});
+  
+	settingDelete();
   }
 
+  function settingDelete() {
+	for(var i=0; i < messageArray.length; i++) {
+
+		var key = messageArray[i].deleteKey;
+			// 삭제 이벤트 추가
+			$(document).on("click","#"+ messageArray[i].deleteKey , function() {
+					var deleteKey = $(this).attr("id");
+					console.log("deleteKey : " + deleteKey);
+					// 파이어베이스 변수
+					const db = getDatabase();
+					remove(ref(db, 'users/' + uid +"/" + deleteKey));
+					loadMessage();
+			});
+	}
+  }
+	
 	loadMessage();
+
 
   // 방명록 글쓰기 저장
   $("#message-button").click(function(){
@@ -878,7 +943,7 @@
 	  var date = "";
 	  var today = new Date();
 
-		var year = today.getFullYear();
+		var year = today.getFullYear().toString().slice(-2);
 		var month = ('0' + (today.getMonth() + 1)).slice(-2);
 		var day = ('0' + today.getDate()).slice(-2);
 
@@ -892,8 +957,6 @@
 
 		date = "(" + dateString + " " + timeString + ")";
 
-	  console.log("save message : " + photoURL + "," + displayName + "," + uid, "," + date);
-
 	  push(ref(db, 'users/' + uid), {
 	  	displayName : displayName,
 	  	photoURL : photoURL,
@@ -905,15 +968,12 @@
 	      $("#popup-message").fadeOut(); //페이드아웃 효과
 		  document.body.style.overflow = "unset";
 		  document.getElementById("message").value = "";
-		  loadMessage();
+		  loadMessage(); // 저장한 직후에 삭제 버튼이 먹통 (확인)
 		  // 스크롤 맨 아래로
 	  })
 	  .catch((error) => {
 	    const errorCode = error.code;
 	    const errorMessage = error.message;
-
-	    console.log("SAVE ERROR CODE : " + errorCode);
-	    console.log("SAVE ERROR : " + errorMessage);
 	  });
   });
 
@@ -933,24 +993,13 @@
 	    displayName = user.displayName;
 	    uid = user.uid;
 
-
 	    var targetImg = document.getElementById('writer-img');
 	    targetImg.src = photoURL;
 	    var targetName = document.getElementById('writer-name');
 	    targetName.innerHTML = displayName;
-
-	    console.log("open message : " + photoURL + "," + displayName + "," + uid);
-
-
-	   	console.log(user);
-	    // IdP data available using getAdditionalUserInfo(result)
-	    // ...
 	  }).catch((error) => {
-	    // Handle Errors here.
 	    const errorCode = error.code;
 	    const errorMessage = error.message;
-	    // The email of the user's account used.
-	    // The AuthCredential type that was used.
 	    const credential = GoogleAuthProvider.credentialFromError(error);
 
 	    console.log("ERROR CODE : " + errorCode);
@@ -961,6 +1010,36 @@
 	 document.body.style.overflow = 'hidden';        
       $("#popup-message").css('display','flex').hide().fadeIn();
       //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
+  });
+
+
+ // 방명록 삭제 활성화
+  $("#delete-message").click(function(){
+
+	const auth = getAuth();
+	signInWithPopup(auth, provider)
+	  .then((result) => {
+	    // This gives you a Google Access Token. You can use it to access the Google API.
+	    const credential = GoogleAuthProvider.credentialFromResult(result);
+	    const token = credential.accessToken;
+	    // The signed-in user info.
+	    user = result.user;
+	    photoURL = user.photoURL;
+	    displayName = user.displayName;
+	    uid = user.uid;
+
+		loadMessage();
+
+	  }).catch((error) => {
+	    const errorCode = error.code;
+	    const errorMessage = error.message;
+	    const credential = GoogleAuthProvider.credentialFromError(error);
+
+	    console.log("ERROR CODE : " + errorCode);
+	    console.log("ERROR : " + errorMessage);
+	    // ...
+	  });
+  	
   });
 
 </script>
