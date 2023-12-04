@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!-- meta -->
-		<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app/">
+		<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app">
 		<meta property="og:title" content="동균♥연우 결혼식에 초대합니다!">
 		<meta property="og:type" content="website">
 		<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_resized.png?raw=true">
@@ -692,9 +692,11 @@
 
 				<!-- Footer -->
 					<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
-    <a id="kakao-link-btn" href="javascript:kakaoShare()">
-    	<img style="width:30px;height:30px;" src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
-    </a>
+
+<a id="kakaotalk-sharing-btn" href="javascript:;">
+  <img src="./images/kakaotalk_sharing_btn_small.png"
+    alt="카카오톡 공유 보내기 버튼" />
+</a>
 						<ul class="copyright">
 							<li>&copy; yeonwookang </i></li>
 							<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
@@ -1037,41 +1039,45 @@
   });
 
 </script>
-<!-- kakao sdk 호출 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"
+  integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('74d288d034dd713e33a0aa884d02aacf'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
 
-<script type="text/javascript">
-  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
-  Kakao.init('45b1d7be01ff37249a218e8080b2ad91');
 
-  // SDK 초기화 여부를 판단합니다.
-  console.log(Kakao.isInitialized());
-
-  function kakaoShare() {
-    Kakao.Link.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '카카오공유하기 시 타이틀',
-        description: '카카오공유하기 시 설명',
-        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
-        link: {
-          mobileWebUrl: 'https://www.naver.com',
-          webUrl: 'https://www.naver.com',
-        },
+<script>
+  Kakao.Share.createDefaultButton({
+    container: '#kakaotalk-sharing-btn',
+    objectType: 'feed',
+    content: {
+      title: '동균♥연우 결혼식에 초대합니다!',
+      description: '23/03/17(일) 오후2시 대구 파라다이스웨딩 그랜드볼룸',
+      imageUrl:
+        'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_resized.png?raw=true',
+      link: {
+        // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+        mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+        webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
       },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://www.naver.com',
-            webUrl: 'https://www.naver.com',
-          },
+    },
+    social: {
+      likeCount: 286,
+      commentCount: 45,
+      sharedCount: 845,
+    },
+    buttons: [
+      {
+        title: '청첩장 보기',
+        link: {
+          mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+          webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
         },
-      ],
-      // 카카오톡 미설치 시 카카오톡 설치 경로이동
-      installTalk: true,
-    })
-  }
+      }
+    ],
+  });
+</script>
+
 </script>
 	</body>
 </html>
