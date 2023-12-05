@@ -24,7 +24,6 @@
 		/* 현재 접속 브라우저 점검 및 인앱브라우저 탈출 함수 */
 		document.addEventListener("DOMContentLoaded", ready);
 		function ready(){      
-			console.log("[window ready] : [start]");
 			var Url = location.href;
 			var Agent = navigator.userAgent.toLowerCase();
 			console.log("[window ready] : [접속 Url] : " + Url);
@@ -51,7 +50,7 @@
 		var audioContainer;
 		function musicOnOff() {
 			audioContainer = document.getElementById('audioContainer');
-			audioContainer.volume=0.2;
+			audioContainer.volume=0.15;
 			if(musicStat==true) {
 				musicStat=false;
 				document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-xmark-solid.svg)";
@@ -159,7 +158,7 @@
 		window.onload = function() {
 			calcDday("20240317"); // 디데이 설정
 			audioContainer = document.getElementById('audioContainer');
-			audioContainer.volume=0.2; // 볼륨 설정
+			audioContainer.volume=0.15; // 볼륨 설정
 
 			// 신랑 소개 Modal 호출
 			$("#couple-intro-img1").click(function(){        
@@ -201,7 +200,7 @@
 				$("#popup-bride-account").fadeOut(); //페이드아웃 효과
 				document.body.style.overflow = "unset";
 			});
-			// 방명록 Modal 호출 및 저장은 Google 
+			// 방명록 Modal 호출 및 저장은 Google API Module에서 구현
 			// 방명록 쓰기 Modal 닫기
 			$("#popup-close-message").click(function(){
 				$("#popup-message").fadeOut(); //페이드아웃 효과
@@ -218,7 +217,7 @@
 <body class="landing is-preload">
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>AOS.init();</script>
-	<audio id="audioContainer" autoplay loop="infinite" volume="0.2">
+	<audio id="audioContainer" autoplay loop="infinite" volume="0.15">
 		<source id="audioSource" src="JaneStreet.mp3" /> 
 		HTML5 Audio를 지원하지 않는 브라우저입니다.
 	</audio>
@@ -556,7 +555,7 @@
 									<div class="body-content">
 										<div class="body-titlebox">
 											<div class="writer-wrapper">
-												<span id="writer-img-box"><img id="writer-img" src=""></span>
+												<span id="writer-img-box"><img id="writer-img" alt="writer-img"/></span>
 												<span id="writer-name" style="color:black;"></span>
 											</div>
 										</div>
@@ -585,11 +584,11 @@
 				</header>
 				<div class="content">
 					<div class="button-wrapper" id="open-groom-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-						<span class="button-content"><img src="./images/baby-groom.png"></span>
+						<span class="button-content"><img src="./images/baby-groom.png" alt="baby-groom"/></span>
 						<span class="button-content button-content-text">신랑에게 마음 전하기</span>
 					</div>
 					<div class="button-wrapper"id="open-bride-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-						<span class="button-content"><img src="./images/baby-bride.png"></span>
+						<span class="button-content"><img src="./images/baby-bride.png" alt="baby-bride"/></span>
 						<span class="button-content button-content-text">신부에게 마음 전하기</span>
 					</div>
 				</div>
@@ -604,13 +603,16 @@
 						<div class="popup-body">	
 							<div class="body-content">
 								<div class="body-titlebox2">
-									<img src="./images/baby-groom.png">
+									<img src="./images/baby-groom.png" alt="baby-groom"/>
 								</div>
 								<div class="body-contentbox">
 									<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px">
 										<a href='tel:010-3677-0211'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
 										<a href="sms:010-3677-0211">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-										<a href="https://qr.kakaopay.com/Ej7sHOa17"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a></p>
+										<a href="https://qr.kakaopay.com/Ej7sHOa17">
+											<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
+										</a>
+									</p>
 									<p style="color:#101416;"> 하나 647-910859-47507 
 										<a onclick="clipboardCopy('하나은행 647-910859-47507')" style="font-weight: 800;">[복사]</a>
 									</p>
@@ -634,13 +636,15 @@
 							<div class="popup-body">	
 								<div class="body-content">
 									<div class="body-titlebox2">
-										<img src="./images/baby-bride.png">
+										<img src="./images/baby-bride.png" alt="baby-bride"/>
 									</div>
 									<div class="body-contentbox">
 										<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px;">
 											<a href='tel:010-3233-1191'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
 											<a href="sms:010-3233-1191">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-											<a href="https://qr.kakaopay.com/Ej7sy8kMj"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a>
+											<a href="https://qr.kakaopay.com/Ej7sy8kMj">
+												<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
+											</a>
 										</p>
 										<p style="color:#101416;"> 경남 207-0104-0281-05 
 											<a onclick="clipboardCopy('경남은행 207-0104-0281-05')" style="font-weight: 800;">[복사]</a>
@@ -829,7 +833,7 @@
 					deleteBtn = "";
 				}
 				  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-				    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+				    							messageArray[i].photoURL + '" alt="writer-img"/></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
 
 			
 				// 삭제 이벤트 추가
