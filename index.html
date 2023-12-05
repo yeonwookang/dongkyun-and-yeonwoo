@@ -5,1082 +5,978 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>동균♥연우 결혼합니다</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<!-- meta -->
-		<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app">
-		<meta property="og:title" content="동균♥연우 결혼식에 초대합니다!">
-		<meta property="og:type" content="website">
-		<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true">
-		<meta property="og:description" content="2024년 3월 17일 일요일 오후 2시 대구 파라다이스웨딩 그랜드볼룸">
-
-		<link rel="icon" href="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/favicon.ico" type="image/x-icon"/>
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/calendar.css" />
-		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-		<script src="https://kit.fontawesome.com/2ecc76d553.js" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xe3kmd34v7"></script>
-    	<script src="assets/js/jquery.js"></script>
-<script>
-
-        /* [브라우저 ready 상태 정의 : 최초 호출 상태] */
-        document.addEventListener("DOMContentLoaded", ready);
-        function ready(){
-            console.log("");            
-            console.log("[window ready] : [start]");
-            console.log("");
-
-
-            // [현재 접속된 url 정보 및 접속 브라우저 확인]
-            // [카카오톡 인앱 브라우저 >> 안드로이드 모바일 기종 인 경우 >> 크롬 브라우저 이동 실시]
-            var Url = location.href;
-            var Agent = navigator.userAgent.toLowerCase();
-            console.log("");            
-            console.log("[window ready] : [접속 Url] : " + Url);
-            console.log("[window ready] : [접속 Agent] : " + Agent);
-            console.log("");
-            //alert(Agent);
-            if(Agent.includes("kakao") || Agent.includes("KAKAO")){ // 카카오 브라우저로 실행 시킨 경우
-                // 먼저, 카카오 인앱 브라우저 닫기
-                if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
-                	window.location.href = 'kakaoweb://closeBrowser';
-                    console.log("");
-                    console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
-                    console.log("");
-                    location.href = 'kakaotalk://web/openExternal?url='+encodeURIComponent(Url);
-                }
-                else { // 안드로이드 접속 경우
-                	location.href = 'kakaotalk://inappbrowser/close';
-                    console.log("");
-                    console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
-                    console.log("");
-                    // 크롬으로 새창 열기
-                    location.href='intent://'+location.href.replace(/https?:\/\//i,'')+'#Intent;scheme=http;package=com.android.chrome;end';
-                }
-            }
-
-        };
-
-
-    </script>
-		<script type="text/javascript">
-
-		     /* 디데이 */
-			function calcDday(date) {
-			    var now = new Date();
-			    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-			    var base = new Date(date.substring(0,4), Number(date.substring(4,6))-1, date.substring(6,8));
-			    var dDay = (today - base) / 1000 / 60 / 60 / 24;
-			    var target = document.getElementById('dDayTarget');
-			    if(dDay < 0) {
-			        target.innerHTML = "우리 결혼까지 D" + dDay;
-			    } else if(dDay == 0) {
-			        target.innerHTML = "우리 오늘 결혼합니다!";
-			    } else {
-			        target.innerHTML = "우리 결혼 D+" + dDay;
-			    }
-
-			}
-
-			/* Gallery Modal */
-			function openGalleryModal(imgNo) {
-				var modal = document.getElementById('gallery-modal');
-				var modalImg = document.getElementById('gallery-modal-content');
-				modal.style.display = "flex";
-				var imgPath = "./images/image" + imgNo + ".jpg";
-				modalImg.src = imgPath;
-				document.body.style.overflow = 'hidden';
-			}
-
-			function closeModal() {
-				var modal = document.getElementById('gallery-modal');
-				modal.style.display = "none";
-    		document.body.style.overflow = "unset";
-			}
-
-			function beforeGalleryImg() { 
-
-				var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
-
-				var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
-				var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
-				var beforeImgNo = 0; // 이전 이미지 번호
-
-				if(currentImgNo < 1) {
-					beforeImgNo = 9;// 맨 첫 이미지인 경우 마지막 이미지로 보냄
-				} else {
-					beforeImgNo = currentImgNo - 1; // 아닌경우 앞 이미지로
+<head>
+	<title>동균♥연우 결혼합니다</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app">
+	<meta property="og:title" content="동균♥연우 결혼식에 초대합니다!">
+	<meta property="og:type" content="website">
+	<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true">
+	<meta property="og:description" content="2024년 3월 17일 일요일 오후 2시 대구 파라다이스웨딩 그랜드볼룸">
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/calendar.css" />
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+	<script src="https://kit.fontawesome.com/2ecc76d553.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xe3kmd34v7"></script>
+	<script src="assets/js/jquery.js"></script>
+	<script>
+		/* 현재 접속 브라우저 점검 및 인앱브라우저 탈출 함수 */
+		document.addEventListener("DOMContentLoaded", ready);
+		function ready(){      
+			console.log("[window ready] : [start]");
+			var Url = location.href;
+			var Agent = navigator.userAgent.toLowerCase();
+			console.log("[window ready] : [접속 Url] : " + Url);
+			console.log("[window ready] : [접속 Agent] : " + Agent);
+			//alert(Agent);
+			if(Agent.includes("kakao") || Agent.includes("KAKAO")){ // 카카오 브라우저로 실행 시킨 경우
+				// 먼저, 카카오 인앱 브라우저 닫기
+				if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
+					window.location.href = 'kakaoweb://closeBrowser';
+					console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
+					location.href = 'kakaotalk://web/openExternal?url='+encodeURIComponent(Url);
 				}
-
-		    $("#gallery-content").fadeOut(); //기본 fadeIn 메소드
-		    $("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
-		    $("#gallery-content").fadeOut(1000, function(){
-				// Modal 이미지 변경
-				var imgPath = "./images/image" + beforeImgNo + ".jpg";
-				modalImg.src = imgPath;
-
-		    });
-		    $("#gallery-content").fadeIn(); //기본 fadeIn 메소드
-		    $("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
-		    $("#gallery-content").fadeIn(1000); // 시간설정 6초
-
-			}
-
-			function nextGalleryImg() { 
-				var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
-
-				var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
-				var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
-				var nextImgNo = 0; // 다음 이미지 번호
-
-				if(currentImgNo == 9) {
-					nextImgNo = 0;
-				} else {
-					nextImgNo = parseInt(currentImgNo) + 1 ;
+				else { // 안드로이드 접속 경우
+					location.href = 'kakaotalk://inappbrowser/close';
+					console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
+					// 크롬으로 새창 열기
+					location.href='intent://'+location.href.replace(/https?:\/\//i,'')+'#Intent;scheme=http;package=com.android.chrome;end';
 				}
-
-		    $("#gallery-content").fadeOut(); //기본 fadeIn 메소드
-		    $("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
-		    $("#gallery-content").fadeOut(1000, function(){
-				// Modal 이미지 변경
-				var imgPath = "./images/image" + nextImgNo + ".jpg";
-				modalImg.src = imgPath;
-
-		    });
-		    $("#gallery-content").fadeIn(); //기본 fadeIn 메소드
-		    $("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
-		    $("#gallery-content").fadeIn(1000); // 시간설정 6초
-
-
 			}
+		}
 
-			$(function(){
-
-			  $("#couple-intro-img1").click(function(){        
-						document.body.style.overflow = 'hidden';
-			      $("#popup-groom").css('display','flex').hide().fadeIn();
-			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
-			  });
-
-			  $("#popup-close").click(function(){
-			      modalClose(); //모달 닫기 함수 호출
-			  });
-
-			  function modalClose(){
-			      $("#popup-groom").fadeOut(); //페이드아웃 효과
-    			  document.body.style.overflow = "unset";
-			  }
-
-
-			  $("#couple-intro-img2").click(function(){
-						document.body.style.overflow = 'hidden';        
-			      $("#popup-bride").css('display','flex').hide().fadeIn();
-			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
-			  });
-
-			  $("#popup-close2").click(function(){
-			      modalClose2(); //모달 닫기 함수 호출
-			  });
-
-			  function modalClose2(){
-			      $("#popup-bride").fadeOut(); //페이드아웃 효과
-    			  document.body.style.overflow = "unset";
-			  }
-
-			  $("#open-groom-account").click(function(){
-						document.body.style.overflow = 'hidden';        
-			      $("#popup-groom-account").css('display','flex').hide().fadeIn();
-			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
-			  });
-
-			  $("#popup-close3").click(function(){
-			      modalClose3(); //모달 닫기 함수 호출
-			  });
-
-			  function modalClose3(){
-			      $("#popup-groom-account").fadeOut(); //페이드아웃 효과
-    			  document.body.style.overflow = "unset";
-			  }
-
-			  $("#open-bride-account").click(function(){
-						document.body.style.overflow = 'hidden';        
-			      $("#popup-bride-account").css('display','flex').hide().fadeIn();
-			      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
-			  });
-
-			  $("#popup-close4").click(function(){
-			      modalClose4(); //모달 닫기 함수 호출
-			  });
-
-			  function modalClose4(){
-			      $("#popup-bride-account").fadeOut(); //페이드아웃 효과
-    			  document.body.style.overflow = "unset";
-			  }
-
-
-
-			  $("#popup-close-message").click(function(){
-			      modalClose5(); //모달 닫기 함수 호출
-			  });
-
-			  $("#reset-button").click(function() {
-			  	document.getElementById("message").value = "";
-			  });
-
-			  function modalClose5(){
-			      $("#popup-message").fadeOut(); //페이드아웃 효과
-    			  document.body.style.overflow = "unset";
-			  }
-			});
-
-			var musicStat = true;
-			var audioContainer;
-
-			function musicOnOff() {
+		/* 배경음악 재생 Control 함수 */
+		var musicStat = true;
+		var audioContainer;
+		function musicOnOff() {
 			audioContainer = document.getElementById('audioContainer');
 			audioContainer.volume=0.2;
-				
-				if(musicStat==true) {
-					musicStat=false;
-					document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-xmark-solid.svg)";
-					audioContainer.pause(); 
-
-				}
-				else {
-					musicStat=true;
-					document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-high-solid.svg)";
-					audioContainer.play(); 
-				}
-
+			if(musicStat==true) {
+				musicStat=false;
+				document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-xmark-solid.svg)";
+				audioContainer.pause(); 
 			}
-
-			window.onload = function() {
-				calcDday("20240317");
-				audioContainer = document.getElementById('audioContainer');
-				audioContainer.volume=0.2;
+			else {
+				musicStat=true;
+				document.getElementsByClassName("more")[0].style.backgroundImage="url(./images/volume-high-solid.svg)";
+				audioContainer.play(); 
 			}
-
-		</script>
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
-	</head>
-	<body class="landing is-preload">
-
-  <audio id="audioContainer" autoplay loop="infinite" volume="0.2"> <!-- audio play를 위함 -->
-        <source id="audioSource" src="JaneStreet.mp3" /> <!-- audio 파일 -->
-        HTML5 Audio를 지원하지 않는 브라우저입니다.
-   </audio>
-	  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	  <script>
-	    AOS.init();
-	  </script>
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
-
-				<!-- Header -->
-					<header id="header" class="alt">
-						<h1><a href="index.html"><b>동균</b><i class="fa-solid fa-heart fa-beat"></i><b>연우</b></a></h1>
-						<nav id="nav">
-							<ul>
-								<li class="special">
-									<a href="#menu" class="menuToggle"><span></span></a>
-									<div id="menu">
-										<ul>
-											<li><a href="index.html">첫화면</a></li>
-											<li><a href="#one">오시는 길</a></li>
-											<li><a href="#three">신랑신부 소개</a></li>
-											<li><a href="#four">사진첩</a></li>
-											<li><a href="#five">마음 전하는 곳</a></li>
-										</ul>
-									</div>
-								</li>
-							</ul>
-						</nav>
-					</header>
-
-				<!-- Banner -->
-					<section id="banner" style="box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);">
-						<div class="inner">
-							<div class="stars">
-							<div class="stars stars--small"></div>
-							<div class="stars stars--medium"></div>
-							<div class="stars stars--big"></div>
-							</div>
-							<div class="content">
-								<h2><span style="font-size:0.8em;">2024.03.17(일) 오후2시</span>
-								<span>대구 파라다이스웨딩</span></h2>
-								<p style="font-size:1.1em;">
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span style="margin-top: 0px;font-size:1.3em;"><b>구동균</b> <small style="font-size:0.6em;">그리고</small> <b>강연우</b></span>
-								<span style="margin-top: 0px;font-size:1em;">저희 결혼합니다<i class="fa-solid fa-heart fa-beat"></i></span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-								<span>&nbsp;</span>
-							</div>
-						</div>
-						<a class="more" id="music-button" onclick="musicOnOff()"></a>
-					</section>
-
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<div class="content">
-									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">오시는 길</h2>
-									<p style="font-size:1.3em;"><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
-										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">(대구광역시 달서구 구마로 52)</span>
-										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">전화. 053-552-0500</span></p>
-									<div>
-									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
-									</div>
-									<a href="https://naver.me/G2UVfoKx" target="_blank">
-									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:100%;margin: 0 0 0 0;max-width:100%" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div></a></div>
-									<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;margin-top:30px">
-									<i class="fa-solid fa-map-location-dot fa-fade"></i> 내비게이션</h3>
-									<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="actions">
-										<a href="https://naver.me/G2UVfoKx" target="_blank">
-										<img src="./images/navermap.png"/ >
-										</a>&nbsp;
-										<a href="https://kko.to/LCrTZl7TOD" target="_blank">
-										<img src="./images/kakaomap.png"/>
-										</a>&nbsp;
-										<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank">
-										<img src="./images/tmap.png"/>
-										</a>
-									</div>
-									<div style="margin-top:20px">
-										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
-										<i class="fa-solid fa-train-subway fa-fade"></i> 지하철 이용시</h3>
-										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >동대구역→지하철1호선→서부정류장역 1번 출구</span><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >건너편 버스 564, 651 환승 또는 택시 이용(5분 소요)</span></p>
-										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
-										<i class="fa-solid fa-train fa-fade"></i> KTX 이용시</h3>
-										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서대구역 하차 후 버스 및 택시 이용</span>
-										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >(버스 급행7 이용 후 학산공원1 정류장 하차)</span></p>
-										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
-										<i class="fa-solid fa-bus fa-fade"></i> 버스 이용시</h3>
-										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시외버스 : 대구 서부 정류장</span>
-										<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span></p>
-										<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
-										<i class="fa-solid fa-bus fa-fade"></i> 전세버스 안내</h3>
-										<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >준비중입니다.</span></p>
-									</div>
-								</div>
-							</header>
-						</div>
-					</section>
-				<!-- Two -->
-					<section id="two" class="wrapper style2 special">
-						<div class="inner">
-							<header class="major">
-								<div class="content">
-									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  id="dDayTarget"></h2>
-									<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="calender-wrapper">
-								    <header>
-								        <div class="nav">
-								          <p class="current-date">2024년 3월</p>
-								        </div>
-								      </header>
-								      <div class="calendar">
-								        <ul class="weeks" style="margin-bottom:0px;padding-left: 0px;">
-								          <li style="color:#990000;">일</li>
-								          <li>월</li>
-								          <li>화</li>
-								          <li>수</li>
-								          <li>목</li>
-								          <li>금</li>
-								          <li>토</li>
-								        </ul>
-								        <ul class="days" style="padding-left: 0px;">
-								          <li class="inactive">25</li>
-								          <li class="inactive">26</li>
-								          <li class="inactive">27</li>
-								          <li class="inactive">28</li>
-								          <li class="inactive">29</li>
-								          <li style="color:#990000;">1</li>
-								          <li>2</li>
-								          <li style="color:#990000;">3</li>
-								          <li>4</li>
-								          <li>5</li>
-								          <li>6</li>
-								          <li>7</li>
-								          <li>8</li>
-								          <li>9</li>
-								          <li style="color:#990000;">10</li>
-								          <li>11</li>
-								          <li>12</li>
-								          <li>13</li>
-								          <li>14</li>
-								          <li>15</li>
-								          <li>16</li>
-								          <li class="active"><b>17</b></li>
-								          <li>18</li>
-								          <li>19</li>
-								          <li>20</li>
-								          <li>21</li>
-								          <li>22</li>
-								          <li>23</li>
-								          <li style="color:#990000;">24</li>
-								          <li>25</li>
-								          <li>26</li>
-								          <li>27</li>
-								          <li>28</li>
-								          <li>29</li>
-								          <li>30</li>
-								          <li style="color:#990000;">31</li>
-								        </ul>
-								      </div>
-								    </div>
-								</div>
-							</header>
-						</div>
-					</section>
-					<section id="three" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<div class="content">
-									<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-								초대합니다</h2>
-								<!-- 신랑소개 Modal-->
-									<div class="container">
-									  <div class="popup-wrap" id="popup-groom"> 
-									    <div class="popup">	
-									      <div class="popup-head">	
-									          <span class="head-title">신랑 소개</span>
-									      </div>
-									      <div class="popup-body-intro">	
-									        <div class="body-content">
-									          <div class="body-titlebox">
-									            <h1 style="color:#101416;">동균이를 소개합니다.</h1>
-									          </div>
-									          <div class="body-contentbox" style="text-align: left; font-size: 0.8em;">
-									            <b><p style="color:#101416;">#INFJ #반전매력 #살림꾼</p></b>
-									            <p style="color:#101416;">
-									            처음 동균이를 만났을 때 겉모습만 보고서는 재외교포라고 생각했지만 신토불이 한국인이라 놀랐습니다.</p>
-									            <p style="color:#101416;">
-									            조금 무서워보이는 겉모습과는 다르게 내면은 누구보다 다정하고 섬세한 동균이에게 반전매력을 느꼈습니다.</p>
-									            <p style="color:#101416;">연애초반 가정을 꾸리고 한 곳만 바라보고 살고싶다는 동균이의 말에 늦지 않게 답을 줘야겠다 다짐했고, 이후 연애 3개월 차에 여느 연인이 그러듯 시덥잖은 일로 싸우고 화해하던 순간 저는 동균이에게 결혼하자고 말했습니다.</p>
-									            <p style="color:#101416;">당황한 동균이는 바로 대답하지 않았지만 제 마음이 상하기 전에 긍정적인 답변을 주어 저희는 빛의 속도로 결혼을 준비하게 되었습니다.</p>
-									            <p style="color:#101416;">감정과 다른 사람과의 관계를 다루는데 서투른 제게 동균이는 마음의 버팀목이자 좋은 선생님이 되어주었고, 가끔은 귀찮을법해도 매번 출근길 역까지 배웅해주고 도시락을 챙겨주었습니다. 동균이 덕분에 저는 누군가에게 보살핌 받는 감사함을 배웠습니다.</p>
-								            <p style="color:#101416;">알뜰살뜰 살림하고 요리하는 동균이를 보면 생활력이 대단하면서도 꼼꼼히 물건을 고르는 모습이 귀엽게 느껴질 때도 있습니다.</p>
-								            <p style="color:#101416;">상대가 귀엽게 느껴지면 끝이라고 하잖아요?</p>
-								            <p style="color:#101416;">동균이가 아니면 저는 아예 결혼을 하지 않았거나 시간이 훨씬 흐른 뒤, 먼 훗날에나 결혼을 고민했으리라 감히 예상합니다.</p>
-								            <b><p style="color:#101416;text-align:right;"><span style="font-size:1em;">동균이를 신랑으로 맞이하게 되어</span><span style="font-size:1em;">더없이 행복한 신부 연우</span></p></b>
-									          </div>
-									        </div>
-									      </div>
-									      <div class="popup-foot"> 
-									        <span class="pop-btn" id="popup-close">닫기</span>
-									      </div>
-									    </div>
-									</div>
-									</div>
-								<!-- 신랑소개 Modal-->
-								<!-- 신부소개 Modal-->
-									<div class="container">
-									  <div class="popup-wrap" id="popup-bride"> 
-									    <div class="popup">	
-									      <div class="popup-head">	
-									          <span class="head-title">신부 소개</span>
-									      </div>
-									      <div class="popup-body-intro">	
-									        <div class="body-content">
-									          <div class="body-titlebox">
-									            <h1 style="color:black">연우를 소개합니다.</h1>
-									          </div>
-									          <div class="body-contentbox">
-									            <p style="color:#101416;">준비중입니다.</p>
-									          </div>
-									        </div>
-									      </div>
-									      <div class="popup-foot"> 
-									        <span class="pop-btn" id="popup-close2">닫기</span>
-									      </div>
-									    </div>
-									</div>
-									</div>
-								<!-- 신부소개 Modal-->
-										<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="couple-intro">
-									  <div class="couple-intro-box"><img src="./images/groom_intro.png" id="couple-intro-img1"><span class="couple-intro-text">신랑 <b>동&nbsp;균</b></span></div>
-									  <div class="couple-intro-box"><img src="./images/bride_intro.png" id="couple-intro-img2"><span class="couple-intro-text">신부 <b>연&nbsp;우</b></span></div>
-									  <div class="couple-intro-text2"><p><span>사진을 누르면 소개글이 있어요.</span></p></div>
-									</div>
-								<p style="font-size:1.3em;">
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >그러나 내가 오늘도 가까이</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >안아야 할 행복은</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 산</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 바다</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 내 마음</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 그 사람</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >- 이해인, &lt;가까운행복&gt;中</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >어느 산에서 시작된 작은 인연으로</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서로에게 행복을 주는 사람이 되었습니다.</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >저희가 하나 되어 내딛는 첫걸음을</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >축복해주시면 기쁨으로 간직하겠습니다.</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;line-height: 2.2em;">태복 · 선희<small style="font-size:0.7em;">의 아들</small>&nbsp;&nbsp;<b>동 균</b> </span>
-								<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;">진헌 · 승현<small style="font-size:0.7em;">의 딸</small>&nbsp;&nbsp;<b>연 우</b> </span>
-								</p>
-								</div>
-							</header>
-						</div>
-					</section>
-				<!-- Four -->
-					<section id="four" class="wrapper style2 special">
-						<div class="inner">
-							<header class="major">
-
-								<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >사진첩</h2>
-								<div id="gallery-modal">
-									<div id="gallery-content">
-											<span id="close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
-											<img id="gallery-modal-content">
-									</div>
-									<div id="gallery-modal-paner">
-											<span id="left" onclick="beforeGalleryImg()"><i class="fa-solid fa-chevron-left"></i></span>
-											<span id="right" onclick="nextGalleryImg()"><i class="fa-solid fa-chevron-right"></i></span>
-									</div>
-								</div>
-								<div class="proportion">
-									<div class="gallery"  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">
-									  <div style="background-image:url('./images/image0.jpg')" class="gallery-box" onclick="openGalleryModal('0')"></div>
-									  <div style="background-image:url('./images/image1.jpg')" class="gallery-box" onclick="openGalleryModal('1')"></div>
-									  <div style="background-image:url('./images/image2.jpg')" class="gallery-box" onclick="openGalleryModal('2')"></div>
-									  <div style="background-image:url('./images/image3.jpg')" class="gallery-box" onclick="openGalleryModal('3')"></div>
-									  <div style="background-image:url('./images/image4.jpg')" class="gallery-box" onclick="openGalleryModal('4')"></div>
-									  <div style="background-image:url('./images/image5.jpg')" class="gallery-box" onclick="openGalleryModal('5')"></div>
-									  <div style="background-image:url('./images/image6.jpg')" class="gallery-box" onclick="openGalleryModal('6')"></div>
-									  <div style="background-image:url('./images/image7.jpg')" class="gallery-box" onclick="openGalleryModal('7')"></div>
-									  <div style="background-image:url('./images/image8.jpg')" class="gallery-box" onclick="openGalleryModal('8')"></div>
-									  <div style="background-image:url('./images/image9.jpg')" class="gallery-box" onclick="openGalleryModal('9')"></div>
-									</div>
-								</div>
-								<!--
-								<div class="content">
-									<h5 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</h5>
-									<iframe data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="border-radius: 10px;" width="100%" height="300px" src="https://www.youtube.com/embed/vHhvfaVqI6w?si=Dtd4aTcufHUhayli&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-								</div>
-							-->
-							</header>
-						</div>
-					</section>
-
-
-				<!-- CTA -->
-					<section id="five" class="wrapper style1 special">
-						<div class="inner">
-							<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
-						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
-							<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >방명록</h2>
-								<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
-								</div>
-								<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-brands fa-google "></i> 방명록 남기기</div>
-								<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#bbb;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
-								<!-- 방명록 Modal-->
-									<div class="container">
-									  <div class="popup-wrap" id="popup-message">
-									    <div class="popup">	
-									      <div class="popup-head">	
-									          <span class="head-title">방명록 남기기</span>
-									      </div>
-									      <div class="popup-body-message">	
-									        <div class="body-content">
-									          <div class="body-titlebox">
-												<div class="writer-wrapper">
-													<span id="writer-img-box"><img id="writer-img" src=""></span>
-													<span id="writer-name" style="color:black;"></span>
-												</div>
-									          </div>
-									          <div class="body-contentbox">
-									           <textarea id="message" maxlength="200" placeholder=""></textarea>
-												<div id="reset-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">초기화</div>
-												<div id="message-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">저 장</div>
-									          </div>
-									        </div>
-									      </div>
-									      <div class="popup-foot"> 
-									        <span class="pop-btn" id="popup-close-message">닫기</span>
-									      </div>
-									    </div>
-									</div>
-									</div>
-								<!-- 방명록 Modal-->
-								<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px">마음 전하는 곳</h2>
-								<div>
-								<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><span>송구하지만 멀리서 축하해 주시는 분들을</span>
-								<span>위해 계좌번호를 준비했습니다.</span>
-								<span>축하해 주신 모든분께 감사드립니다.</span></p>
-								</div>
-						</div>
-						<div class="content">
-								<div class="button-wrapper" id="open-groom-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-									<span class="button-content"><img src="./images/baby-groom.png"></span>
-									<span class="button-content button-content-text">신랑에게 마음 전하기</span>
-								</div>
-								<div class="button-wrapper"id="open-bride-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-									<span class="button-content"><img src="./images/baby-bride.png"></span>
-									<span class="button-content button-content-text">신부에게 마음 전하기</span>
-								</div>
-						</div>
-								<!-- 신랑 계좌 Modal-->
-									<div class="container">
-									  <div class="popup-wrap" id="popup-groom-account"> 
-									    <div class="popup">	
-									      <div class="popup-head">	
-									          <span class="head-title">신랑에게 마음 전하기</span>
-									      </div>
-									      <div class="popup-body">	
-									        <div class="body-content">
-									          <div class="body-titlebox2">
-									            <img src="./images/baby-groom.png">
-									          </div>
-									          <div class="body-contentbox">
-									            <p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px"><a href='tel:010-3677-0211'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
-									            <a href="sms:010-3677-0211">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-									            <a href="https://qr.kakaopay.com/Ej7sHOa17"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a></p>
-									            <p style="color:#101416;"> 하나 647-910859-47507 <a onclick="clipboardCopy('하나은행 647-910859-47507')" style="font-weight: 800;">[복사]</a></p>
-									          </div>
-									        </div>
-									      </div>
-									      <div class="popup-foot"> 
-									        <span class="pop-btn" id="popup-close3">닫기</span>
-									      </div>
-									    </div>
-									</div>
-									</div>
-								<!-- 신랑 계좌 Modal-->
-								<!-- 신랑 계좌 Modal-->
-									<div class="container">
-									  <div class="popup-wrap" id="popup-bride-account"> 
-									    <div class="popup">	
-									      <div class="popup-head">	
-									          <span class="head-title">신부에게 마음 전하기</span>
-									      </div>
-									      <div class="popup-body">	
-									        <div class="body-content">
-									          <div class="body-titlebox2">
-									            <img src="./images/baby-bride.png">
-									          </div>
-									          <div class="body-contentbox">
-									            <p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px;"><a href='tel:010-3233-1191'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
-									            <a href="sms:010-3233-1191">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-									            <a href="https://qr.kakaopay.com/Ej7sy8kMj"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a></p>
-									            <p style="color:#101416;"> 경남 207-0104-0281-05 <a onclick="clipboardCopy('경남은행 207-0104-0281-05')" style="font-weight: 800;">[복사]</a></p>
-									          </div>
-									        </div>
-									      </div>
-									      <div class="popup-foot"> 
-									        <span class="pop-btn" id="popup-close4">닫기</span>
-									      </div>
-									    </div>
-									</div>
-									</div>
-								<!-- 신랑 계좌 Modal-->
-						</div>
-					</section>
-
-				<!-- Footer -->
-					<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
-
-<a id="kakaotalk-sharing-btn" href="javascript:;">
-  <img src="./images/kakaotalk_sharing_btn_small.png"
-    alt="카카오톡 공유 보내기 버튼" />
-</a>
-						<ul class="copyright">
-							<li>&copy; yeonwookang </i></li>
-							<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
-						</ul>
-					</footer>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<!-- Naver Map 생성 -->
-		    <script>
-		      var position = new naver.maps.LatLng(35.8369112, 128.5333350)
-		      var mapOptions = {
-		          center: position.destinationPoint(90, 15),
-		          zoom: 17,
-			        zoomControl: true,
-			        zoomControlOptions: {
-			            style: naver.maps.ZoomControlStyle.SMALL,
-			            position: naver.maps.Position.TOP_RIGHT
-			        }
-		      };
-		      
-		      var map = new naver.maps.Map('map', mapOptions);
-		      resize();
-		      window.addEventListener('resize', resize);
-
-
-				var markerOptions = {
-				    position: position.destinationPoint(0, 0),
-				    map: map,
-				    icon: {
-				        url: './images/heart_bookmark.png',
-				        size: new naver.maps.Size(40, 40),
-				        origin: new naver.maps.Point(0, 0),
-				        anchor: new naver.maps.Point(20, 30)
-				    }
-				};
-
-		      var marker = new naver.maps.Marker(markerOptions);
-
-
-		      function resize() {
-		          var mapWidth = window.innerWidth;
-		          var mapHeight;
-		      
-		          if (mapWidth <= 767) {
-		              mapWidth = Math.min(mapWidth, 90 * window.innerWidth / 100) + 'px';
-		              mapHeight = '300px';
-		          } else if (mapWidth <= 1023) {
-		              mapWidth = '700px';
-		              mapHeight = '400px';
-		          } else {
-		              mapWidth = '1000px';
-		              mapHeight = '600px';
-		          }
-		      
-		          document.getElementById('map').style.width = mapWidth;
-		          document.getElementById('map').style.height = mapHeight;
-		          map.setSize(new naver.maps.Size(parseInt(mapWidth), parseInt(mapHeight)));
-		      }
-
-						function clipboardCopy(value) {
-					  	const el = document.createElement('textarea');
-					    el.value = value;
-					    el.setAttribute('readonly', '');
-					    document.body.appendChild(el);
-					    el.select();
-					    document.execCommand('copy');
-					    document.body.removeChild(el);
-					    alert('계좌번호가 복사되었습니다 : ' +  el.value);
-				  }
-		    </script>
-<!--Firebase-->
-
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-  import { getDatabase, ref, set, child, get, onValue, push, query, orderByChild, orderByKey, orderByValue,remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyAfRh7foEHrHxFQKt0whyUTkvcBSSvc2b4",
-    authDomain: "dongkyun-and-yeonwoo.firebaseapp.com",
-    databaseURL: "https://dongkyun-and-yeonwoo-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "dongkyun-and-yeonwoo",
-    storageBucket: "dongkyun-and-yeonwoo.appspot.com",
-    messagingSenderId: "318368665753",
-    appId: "1:318368665753:web:005e047eac30f3eefba808",
-    measurementId: "G-ENCNDJW07Z"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-
-  const database = getDatabase(app);
-  const auth = getAuth();
-  var user = auth.currentUser;
-
-  const provider = new GoogleAuthProvider();
-
-  var displayName;
-  var photoURL;
-  var uid;
-  var messageArray = new Array();
-
-  if(user != null) {
-  	displayName = user.displayName;
-    photoURL = user.photoURL;
-    uid = user.uid;
-  }
-
-
-  
-	loadMessage();
-
-  // 방명록 글 읽어오기
-  function loadMessage() {
-
-  	const dbRef = ref(getDatabase());
-
-	get(child(dbRef, 'users/')).then((snapshot) => {
-	  if (snapshot.exists()) {
-
-
-	  	var obj = snapshot.val();
-	  	let keys = Object.keys(obj);	// 키 값 전체 받아옴
-	  	let values = Object.values(obj);	// 키 값 전체 받아옴
-
-	  	var htmltext = "";
-
-	  	messageArray = new Array();
-
-	    for (var i = 0; i < keys.length; i++) {
-			let entries2 = Object.entries(values[i]);
-		    let keys2 = Object.keys(Object.entries(values[i]));
-		    let values2 = Object.values(Object.values(values[i]));
-		    let deletekeys = Object.keys(values[i]);
-
-		    for(var j = 0; j < keys2.length; j++) {
-		    	var checkUid = keys[i];
-
-			    var entries3 = Object.entries(values2[j]);
-			    var keys3 = Object.keys(values2[j]);
-			    var values3 = Object.values(values2[j]);
-
-			    var displayName = values3[1];
-			    var message = values3[2];
-			    var photoURL = values3[3];
-			    var date = values3[0];
-
-			    var messageObj = new Object();
-			    messageObj.date = date;
-			    messageObj.displayName = displayName;
-			    messageObj.photoURL = photoURL;
-			    messageObj.message = message;
-			    messageObj.deleteKey = deletekeys[j];
-
-			    if(checkUid == uid) {
-			    	messageObj.deleteBtn = true;
-			    }
-			    else {
-			    	messageObj.deleteBtn = false;
-			    }
-
-			    messageArray.push(messageObj);
-
-			    }
 		}
 
-		// 날짜순으로 정렬
-		messageArray.sort(
-			function(a,b) {
-				if(a.date > b.date)
-					return 1;
-				else if(a.date < b.date)
-					return -1;
-				else
-					return 0;
-			});
-
-		for(var i = 0; i < messageArray.length; i++) {
-			var deleteBtn = "";
-			if(messageArray[i].deleteBtn == true) {
-				deleteBtn = "[삭제]";
+		/* 디데이 계산 함수 */
+		function calcDday(date) {
+			var now = new Date();
+			var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+			var base = new Date(date.substring(0,4), Number(date.substring(4,6))-1, date.substring(6,8));
+			var dDay = (today - base) / 1000 / 60 / 60 / 24;
+			var target = document.getElementById('dDayTarget');
+			if(dDay < 0) {
+				target.innerHTML = "우리 결혼까지 D" + dDay;
+			} else if(dDay == 0) {
+				target.innerHTML = "우리 오늘 결혼합니다!";
 			} else {
-				deleteBtn = "";
+				target.innerHTML = "우리 결혼 D+" + dDay;
 			}
-
-			  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-			    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
-
-		
-			// 삭제 이벤트 추가
-			$(document).on("click","#"+ messageArray[i].deleteKey , function() {
-					var deleteKey = $(this).attr("id");
-					// 파이어베이스 변수
-					const db = getDatabase();
-					console.log("deleteKey : " + deleteKey);
-					remove(ref(db, 'users/' + uid +"/" + deleteKey));
-					loadMessage();
-			});
-
 		}
 
+		/* 계좌번호 클립보드 복사 함수 */
+		function clipboardCopy(value) {
+			const el = document.createElement('textarea');
+			el.value = value;
+			el.setAttribute('readonly', '');
+			document.body.appendChild(el);
+			el.select();
+			document.execCommand('copy');
+			document.body.removeChild(el);
+			alert('계좌번호가 복사되었습니다 : ' +  el.value);
+		}
 
-	    var targetName = document.getElementById('message-container');
-	    targetName.innerHTML = htmltext;
+		/* 사진첩 호출 함수 */
+		function openGalleryModal(imgNo) {
+			var modal = document.getElementById('gallery-modal');
+			var modalImg = document.getElementById('gallery-modal-content');
+			modal.style.display = "flex";
+			var imgPath = "./images/image" + imgNo + ".jpg";
+			modalImg.src = imgPath;
+			document.body.style.overflow = 'hidden';
+		}
 
+		/* 사진첩 닫기 함수 */
+		function closeModal() {
+			var modal = document.getElementById('gallery-modal');
+			modal.style.display = "none";
+			document.body.style.overflow = "unset";
+		}
 
-	  } else {
-	    console.log("No data available");
-	    htmltext = "";
-	    var targetName = document.getElementById('message-container');
-	    targetName.innerHTML = htmltext;
-	  }
-	}).catch((error) => {
-	  console.error(error);
-	});
-  }
+		/* 사진첩 이전 이미지 호출 함수 */
+		function beforeGalleryImg() { 
+			var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
+			var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
+			var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
+			var beforeImgNo = 0; // 이전 이미지 번호
+			if(currentImgNo < 1) {
+				beforeImgNo = 9;// 맨 첫 이미지인 경우 마지막 이미지로 보냄
+			} 
+			else {
+				beforeImgNo = currentImgNo - 1; // 아닌경우 앞 이미지로
+			}
+			$("#gallery-content").fadeOut(); //기본 fadeIn 메소드
+			$("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
+			$("#gallery-content").fadeOut(1000, function(){
+				var imgPath = "./images/image" + beforeImgNo + ".jpg";
+				modalImg.src = imgPath;
+			});
+			$("#gallery-content").fadeIn(); //기본 fadeIn 메소드
+			$("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
+			$("#gallery-content").fadeIn(1000); // 시간설정 6초
+		}
 
-  // 방명록 글쓰기 저장
-  $("#message-button").click(function(){
-	  const db = getDatabase();
-	  const message = document.getElementById("message").value;
+		/* 사진첩 다음 이미지 호출 함수 */
+		function nextGalleryImg() { 
+			var modalImg = document.getElementById('gallery-modal-content'); // Modal 이미지
+			var currentImg = document.getElementById('gallery-modal-content').src; //현재 이미지경로
+			var currentImgNo = currentImg.slice(-5).charAt(0); // 현재 이미지 번호
+			var nextImgNo = 0; // 다음 이미지 번호
+			if(currentImgNo == 9) {
+				nextImgNo = 0;
+			} 
+			else {
+				nextImgNo = parseInt(currentImgNo) + 1 ;
+			}
+			$("#gallery-content").fadeOut(); //기본 fadeIn 메소드
+			$("#gallery-content").fadeOut("slow"); // fadeIn slow 적용
+			$("#gallery-content").fadeOut(1000, function(){
+				var imgPath = "./images/image" + nextImgNo + ".jpg";
+				modalImg.src = imgPath;
+			});
+			$("#gallery-content").fadeIn(); //기본 fadeIn 메소드
+			$("#gallery-content").fadeIn("slow"); // fadeIn slow 적용
+			$("#gallery-content").fadeIn(1000); // 시간설정 6초
+		}
 
-	  var date = "";
-	  var today = new Date();
+		/* 화면로딩 후 호출할 함수 및 Modal 이벤트 추가 */
+		window.onload = function() {
+			calcDday("20240317"); // 디데이 설정
+			audioContainer = document.getElementById('audioContainer');
+			audioContainer.volume=0.2; // 볼륨 설정
 
-		var year = today.getFullYear().toString().slice(-2);
-		var month = ('0' + (today.getMonth() + 1)).slice(-2);
-		var day = ('0' + today.getDate()).slice(-2);
+			// 신랑 소개 Modal 호출
+			$("#couple-intro-img1").click(function(){        
+				document.body.style.overflow = 'hidden';
+				$("#popup-groom").css('display','flex').hide().fadeIn();
+			});
+			// 신랑 소개 Modal 닫기
+			$("#popup-close").click(function(){
+				$("#popup-groom").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신부 소개 Modal 호출
+			$("#couple-intro-img2").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-bride").css('display','flex').hide().fadeIn();
+			});
+			// 신부 소개 Modal 닫기
+			$("#popup-close2").click(function(){
+				$("#popup-bride").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신랑 계좌 Modal 호출
+			$("#open-groom-account").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-groom-account").css('display','flex').hide().fadeIn();
+			});
+			// 신랑 계좌 Modal 닫기
+			$("#popup-close3").click(function(){
+				$("#popup-groom-account").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신부 계좌 Modal 호출
+			$("#open-bride-account").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-bride-account").css('display','flex').hide().fadeIn();
+			});
+			// 신부 계좌 Modal 닫기
+			$("#popup-close4").click(function(){
+				$("#popup-bride-account").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 방명록 Modal 호출 및 저장은 Google 
+			// 방명록 쓰기 Modal 닫기
+			$("#popup-close-message").click(function(){
+				$("#popup-message").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 방명록 쓰기 Reset 버튼 이벤트
+			$("#reset-button").click(function() {
+				document.getElementById("message").value = "";
+			});
+		}
+	</script>
+	<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
+</head>
+<body class="landing is-preload">
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>AOS.init();</script>
+	<audio id="audioContainer" autoplay loop="infinite" volume="0.2">
+		<source id="audioSource" src="JaneStreet.mp3" /> 
+		HTML5 Audio를 지원하지 않는 브라우저입니다.
+	</audio>
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html"><b>동균</b><i class="fa-solid fa-heart fa-beat"></i><b>연우</b></a></h1>
+			<nav id="nav">
+				<ul>
+					<li class="special">
+					<a href="#menu" class="menuToggle"><span></span></a>
+						<div id="menu">
+							<ul>
+								<li><a href="index.html">첫화면</a></li>
+								<li><a href="#one">오시는 길</a></li>
+								<li><a href="#three">초대합니다</a></li>
+								<li><a href="#four">사랑스러운 우리의 순간</a></li>
+								<li><a href="#five">따듯한 축하의 말씀</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<!-- Banner -->
+		<section id="banner" style="box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);">
+			<div class="inner">
+				<div class="stars">
+					<div class="stars stars--small"></div>
+					<div class="stars stars--medium"></div>
+					<div class="stars stars--big"></div>
+				</div>
+				<div class="content">
+					<h2><span style="font-size:0.8em;">2024.03.17(일) 오후2시</span>
+					<span>대구 파라다이스웨딩</span></h2>
+					<p style="font-size:1.1em;">
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span style="margin-top: 0px;font-size:1.3em;"><b>구동균</b> <small style="font-size:0.6em;">그리고</small> <b>강연우</b></span>
+						<span style="margin-top: 0px;font-size:1em;">결혼합니다.</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+						<span>&nbsp;</span>
+					</p>
+				</div>
+			</div>
+			<a class="more" id="music-button" onclick="musicOnOff()"></a>
+		</section>
+		<!-- One 오시는 길-->
+		<section id="one" class="wrapper style1 special">
+			<div class="inner">
+				<header class="major">
+					<div class="content">
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">오시는 길</h2>
+						<p style="font-size:1.3em;">
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">(대구광역시 달서구 구마로 52)</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">전화. 053-552-0500</span>
+						</p>
+					<div>
+					<!-- NAVER MAP-->
+					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
+					</div>
+					<!-- NAVER MAP-->
+					<a href="https://naver.me/G2UVfoKx" target="_blank">
+						<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:100%;margin: 0 0 0 0;max-width:100%" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div>
+					</a>
+					<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;margin-top:30px">
+					<i class="fa-solid fa-map-location-dot fa-fade"></i> 내비게이션</h3>
+					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="actions">
+						<a href="https://naver.me/G2UVfoKx" target="_blank"><img src="./images/navermap.png" alt="navermap" /></a>&nbsp;
+						<a href="https://kko.to/LCrTZl7TOD" target="_blank"><img src="./images/kakaomap.png" alt="kakaomap" /></a>&nbsp;
+						<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank"><img src="./images/tmap.png" alt="tmap" /></a>
+					</div>
+					<div style="margin-top:20px">
+						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
+						<i class="fa-solid fa-train-subway fa-fade"></i> 지하철 이용시</h3>
+						<p>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >동대구역→지하철1호선→서부정류장역 1번 출구</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >건너편 버스 564, 651 환승 또는 택시 이용(5분 소요)</span>
+						</p>
+						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
+						<i class="fa-solid fa-train fa-fade"></i> KTX 이용시</h3>
+						<p>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서대구역 하차 후 버스 및 택시 이용</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >(버스 급행7 이용 후 학산공원1 정류장 하차)</span>
+						</p>
+						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
+						<i class="fa-solid fa-bus fa-fade"></i> 버스 이용시</h3>
+						<p>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시외버스 : 대구 서부 정류장</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span>
+						</p>
+						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
+						<i class="fa-solid fa-bus fa-fade"></i> 전세버스 안내</h3>
+						<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >준비중입니다.</span></p>
+					</div>
+				</header>
+			</div>
+		</section>
+		<!-- Two 달력 -->
+		<section id="two" class="wrapper style2 special">
+			<div class="inner">
+				<header class="major">
+					<div class="content">
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  id="dDayTarget"></h2>
+						<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="calender-wrapper">
+							<header>
+								<div class="nav">
+									<p class="current-date">2024년 3월</p>
+								</div>
+							</header>
+							<div class="calendar">
+								<ul class="weeks" style="margin-bottom:0px;padding-left: 0px;">
+									<li style="color:#990000;">일</li>
+									<li>월</li>
+									<li>화</li>
+									<li>수</li>
+									<li>목</li>
+									<li>금</li>
+									<li>토</li>
+								</ul>
+								<ul class="days" style="padding-left: 0px;">
+									<li class="inactive">25</li>
+									<li class="inactive">26</li>
+									<li class="inactive">27</li>
+									<li class="inactive">28</li>
+									<li class="inactive">29</li>
+									<li style="color:#990000;">1</li>
+									<li>2</li>
+									<li style="color:#990000;">3</li>
+									<li>4</li>
+									<li>5</li>
+									<li>6</li>
+									<li>7</li>
+									<li>8</li>
+									<li>9</li>
+									<li style="color:#990000;">10</li>
+									<li>11</li>
+									<li>12</li>
+									<li>13</li>
+									<li>14</li>
+									<li>15</li>
+									<li>16</li>
+									<li class="active"><b>17</b></li>
+									<li>18</li>
+									<li>19</li>
+									<li>20</li>
+									<li>21</li>
+									<li>22</li>
+									<li>23</li>
+									<li style="color:#990000;">24</li>
+									<li>25</li>
+									<li>26</li>
+									<li>27</li>
+									<li>28</li>
+									<li>29</li>
+									<li>30</li>
+									<li style="color:#990000;">31</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</header>
+			</div>
+		</section>
+		<!-- Three 초대인사말 -->
+		<section id="three" class="wrapper style1 special">
+			<div class="inner">
+				<header class="major">
+					<div class="content">
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">초대합니다</h2>
+						<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="couple-intro">
+							<div class="couple-intro-box">
+								<img src="./images/groom_intro.png" id="couple-intro-img1" alt="groom-intro"/>
+								<span class="couple-intro-text">신랑 <b>동&nbsp;균</b></span>
+							</div>
+							<div class="couple-intro-box">
+								<img src="./images/bride_intro.png" id="couple-intro-img2" alt="bride-intro"/>
+								<span class="couple-intro-text">신부 <b>연&nbsp;우</b></span>
+							</div>
+							<div class="couple-intro-text2">
+								<p><span>사진을 누르면 소개글이 있어요.</span></p>
+							</div>
+						</div>
+						<p style="font-size:1.3em;">
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >그러나 내가 오늘도 가까이</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >안아야 할 행복은</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 산</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 바다</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 내 마음</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 그 사람</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >- 이해인, &lt;가까운행복&gt;中</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >어느 산에서 시작된 작은 인연으로</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서로에게 행복을 주는 사람이 되었습니다.</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >저희가 하나 되어 내딛는 첫걸음을</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >축복해주시면 기쁨으로 간직하겠습니다.</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;line-height: 2.2em;">
+								태복 · 선희<small style="font-size:0.7em;">의 아들</small>&nbsp;&nbsp;<b>동 균</b> </span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="font-size:1.2em;">
+								진헌 · 승현<small style="font-size:0.7em;">의 딸</small>&nbsp;&nbsp;<b>연 우</b> </span>
+						</p>
+					</div>
+				</header>
+				<!-- 신랑소개 Modal-->
+				<div class="container">
+					<div class="popup-wrap" id="popup-groom"> 
+						<div class="popup">	
+							<div class="popup-head">	
+								<span class="head-title">신랑 소개</span>
+							</div>
+						<div class="popup-body-intro">	
+							<div class="body-content">
+								<div class="body-titlebox">
+									<h1 style="color:#101416;">동균이를 소개합니다.</h1>
+								</div>
+								<div class="body-contentbox" style="text-align: left; font-size: 0.8em;">
+									<b><p style="color:#101416;">#INFJ #반전매력 #살림꾼</p></b>
+									<p style="color:#101416;">
+									처음 동균이를 만났을 때 겉모습만 보고서는 재외교포라고 생각했지만 신토불이 한국인이라 놀랐습니다.</p>
+									<p style="color:#101416;">
+									조금 무서워보이는 겉모습과는 다르게 내면은 누구보다 다정하고 섬세한 동균이에게 반전매력을 느꼈습니다.</p>
+									<p style="color:#101416;">연애초반 가정을 꾸리고 한 곳만 바라보고 살고싶다는 동균이의 말에 늦지 않게 답을 줘야겠다 다짐했고, 이후 연애 3개월 차에 여느 연인이 그러듯 시덥잖은 일로 싸우고 화해하던 순간 저는 동균이에게 결혼하자고 말했습니다.</p>
+									<p style="color:#101416;">당황한 동균이는 바로 대답하지 않았지만 제 마음이 상하기 전에 긍정적인 답변을 주어 저희는 빛의 속도로 결혼을 준비하게 되었습니다.</p>
+									<p style="color:#101416;">감정과 다른 사람과의 관계를 다루는데 서투른 제게 동균이는 마음의 버팀목이자 좋은 선생님이 되어주었고, 가끔은 귀찮을법해도 매번 출근길 역까지 배웅해주고 도시락을 챙겨주었습니다. 동균이 덕분에 저는 누군가에게 보살핌 받는 감사함을 배웠습니다.</p>
+									<p style="color:#101416;">알뜰살뜰 살림하고 요리하는 동균이를 보면 생활력이 대단하면서도 꼼꼼히 물건을 고르는 모습이 귀엽게 느껴질 때도 있습니다.</p>
+									<p style="color:#101416;">상대가 귀엽게 느껴지면 끝이라고 하잖아요?</p>
+									<p style="color:#101416;">동균이가 아니면 저는 아예 결혼을 하지 않았거나 시간이 훨씬 흐른 뒤, 먼 훗날에나 결혼을 고민했으리라 감히 예상합니다.</p>
+									<b><p style="color:#101416;text-align:right;"><span style="font-size:1em;">동균이를 신랑으로 맞이하게 되어</span>
+										<span style="font-size:1em;">더없이 행복한 신부 연우</span></p></b>
+								</div>
+							</div>
+						</div>
+							<div class="popup-foot"> 
+								<span class="pop-btn" id="popup-close">닫기</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 신랑소개 Modal-->
+				<!-- 신부소개 Modal-->
+				<div class="container">
+					<div class="popup-wrap" id="popup-bride"> 
+						<div class="popup">	
+							<div class="popup-head">	
+								<span class="head-title">신부 소개</span>
+							</div>
+							<div class="popup-body-intro">	
+								<div class="body-content">
+									<div class="body-titlebox">
+										<h1 style="color:black">연우를 소개합니다.</h1>
+									</div>
+									<div class="body-contentbox">
+										<p style="color:#101416;">준비중입니다.</p>
+									</div>
+								</div>
+							</div>
+							<div class="popup-foot"> 
+								<span class="pop-btn" id="popup-close2">닫기</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 신부소개 Modal-->
+			</div>
+		</section>
+		<!-- Four 갤러리 -->
+		<section id="four" class="wrapper style2 special">
+			<div class="inner">
+				<header class="major">
+					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">사랑스러운 우리의 순간</h2>
+					<div id="gallery-modal">
+						<div id="gallery-content">
+							<span id="close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
+							<img id="gallery-modal-content" alt="Gallery-Box"/>
+						</div>
+						<div id="gallery-modal-paner">
+							<span id="left" onclick="beforeGalleryImg()"><i class="fa-solid fa-chevron-left"></i></span>
+							<span id="right" onclick="nextGalleryImg()"><i class="fa-solid fa-chevron-right"></i></span>
+						</div>
+					</div>
+					<div class="proportion">
+						<div class="gallery"  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">
+							<div style="background-image:url('./images/image0.jpg')" class="gallery-box" onclick="openGalleryModal('0')"></div>
+							<div style="background-image:url('./images/image1.jpg')" class="gallery-box" onclick="openGalleryModal('1')"></div>
+							<div style="background-image:url('./images/image2.jpg')" class="gallery-box" onclick="openGalleryModal('2')"></div>
+							<div style="background-image:url('./images/image3.jpg')" class="gallery-box" onclick="openGalleryModal('3')"></div>
+							<div style="background-image:url('./images/image4.jpg')" class="gallery-box" onclick="openGalleryModal('4')"></div>
+							<div style="background-image:url('./images/image5.jpg')" class="gallery-box" onclick="openGalleryModal('5')"></div>
+							<div style="background-image:url('./images/image6.jpg')" class="gallery-box" onclick="openGalleryModal('6')"></div>
+							<div style="background-image:url('./images/image7.jpg')" class="gallery-box" onclick="openGalleryModal('7')"></div>
+							<div style="background-image:url('./images/image8.jpg')" class="gallery-box" onclick="openGalleryModal('8')"></div>
+							<div style="background-image:url('./images/image9.jpg')" class="gallery-box" onclick="openGalleryModal('9')"></div>
+						</div>
+					</div>
+					<!-- 유튜브 영상
+					<div class="content">
+					<h5 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</h5>
+					<iframe data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"  style="border-radius: 10px;" width="100%" height="300px" src="https://www.youtube.com/embed/vHhvfaVqI6w?si=Dtd4aTcufHUhayli&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+					</div>
+					-->
+				</header>
+			</div>
+		</section>
+		<!--Five 축하의말씀&마음전하는곳 -->
+		<section id="five" class="wrapper style1 special">
+			<div class="inner">
+				<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
+					<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >따뜻한 축하의 말씀</h2>
+						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container"></div>
+						<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-brands fa-google "></i> 축하인사 남기기</div>
+						<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#bbb;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
+					</div>
+					<!-- 방명록 작성 Modal-->
+					<div class="container">
+						<div class="popup-wrap" id="popup-message">
+							<div class="popup">	
+								<div class="popup-head">	
+									<span class="head-title">축하인사 전하기</span>
+								</div>
+								<div class="popup-body-message">	
+									<div class="body-content">
+										<div class="body-titlebox">
+											<div class="writer-wrapper">
+												<span id="writer-img-box"><img id="writer-img" src=""></span>
+												<span id="writer-name" style="color:black;"></span>
+											</div>
+										</div>
+										<div class="body-contentbox">
+											<textarea id="message" maxlength="200" placeholder=""></textarea>
+											<div id="reset-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">초기화</div>
+											<div id="message-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">저 장</div>
+										</div>
+									</div>
+								</div>
+								<div class="popup-foot"> 
+									<span class="pop-btn" id="popup-close-message">닫기</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 방명록 작성 Modal-->
+					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px">마음 전하는 곳</h2>
+					<div class="content">
+						<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
+							<span>송구하지만 멀리서 축하해 주시는 분들을</span>
+							<span>위해 계좌번호를 준비했습니다.</span>
+							<span>축하해 주신 모든분께 감사드립니다.</span>
+						</p>
+					</div>
+				</header>
+				<div class="content">
+					<div class="button-wrapper" id="open-groom-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
+						<span class="button-content"><img src="./images/baby-groom.png"></span>
+						<span class="button-content button-content-text">신랑에게 마음 전하기</span>
+					</div>
+					<div class="button-wrapper"id="open-bride-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
+						<span class="button-content"><img src="./images/baby-bride.png"></span>
+						<span class="button-content button-content-text">신부에게 마음 전하기</span>
+					</div>
+				</div>
+			</div>
+			<!-- 신랑 계좌 Modal-->
+			<div class="container">
+				<div class="popup-wrap" id="popup-groom-account"> 
+					<div class="popup">	
+						<div class="popup-head">	
+							<span class="head-title">신랑에게 마음 전하기</span>
+						</div>
+						<div class="popup-body">	
+							<div class="body-content">
+								<div class="body-titlebox2">
+									<img src="./images/baby-groom.png">
+								</div>
+								<div class="body-contentbox">
+									<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px">
+										<a href='tel:010-3677-0211'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
+										<a href="sms:010-3677-0211">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
+										<a href="https://qr.kakaopay.com/Ej7sHOa17"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a></p>
+									<p style="color:#101416;"> 하나 647-910859-47507 
+										<a onclick="clipboardCopy('하나은행 647-910859-47507')" style="font-weight: 800;">[복사]</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="popup-foot"> 
+							<span class="pop-btn" id="popup-close3">닫기</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 신랑 계좌 Modal-->
+			<!-- 신부 계좌 Modal-->
+				<div class="container">
+					<div class="popup-wrap" id="popup-bride-account"> 
+						<div class="popup">	
+							<div class="popup-head">	
+								<span class="head-title">신부에게 마음 전하기</span>
+							</div>
+							<div class="popup-body">	
+								<div class="body-content">
+									<div class="body-titlebox2">
+										<img src="./images/baby-bride.png">
+									</div>
+									<div class="body-contentbox">
+										<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px;">
+											<a href='tel:010-3233-1191'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
+											<a href="sms:010-3233-1191">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
+											<a href="https://qr.kakaopay.com/Ej7sy8kMj"><img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png"></a>
+										</p>
+										<p style="color:#101416;"> 경남 207-0104-0281-05 
+											<a onclick="clipboardCopy('경남은행 207-0104-0281-05')" style="font-weight: 800;">[복사]</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="popup-foot"> 
+								<span class="pop-btn" id="popup-close4">닫기</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			<!-- 신부 계좌 Modal-->
+			</div>
+		</section>
+		<!-- Footer -->
+		<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
+			<a id="kakaotalk-sharing-btn" href="javascript:;"><img src="./images/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼" /></a>
+			<ul class="copyright">
+				<li>&copy; yeonwookang</li>
+				<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+	</div>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<!-- Naver Map API -->
+	<script>
+		var position = new naver.maps.LatLng(35.8369112, 128.5333350)
+		var mapOptions = {
+			draggable : false,
+			center: position.destinationPoint(0, 0),
+			zoom: 17,
+			zoomControl: true,
+			zoomControlOptions: {
+			style: naver.maps.ZoomControlStyle.SMALL,
+			position: naver.maps.Position.TOP_RIGHT
+			}
+		};
 
-		var dateString = year + '/' + month  + '/' + day;
+		var map = new naver.maps.Map('map', mapOptions);
+		resize();
+		window.addEventListener('resize', resize);
 
-		var hours = ('0' + today.getHours()).slice(-2); 
-		var minutes = ('0' + today.getMinutes()).slice(-2);
-		var seconds = ('0' + today.getSeconds()).slice(-2); 
+		var markerOptions = {
+			position: position.destinationPoint(0, 0),
+			map: map,
+			icon: {
+			url: './images/heart_bookmark.png',
+			size: new naver.maps.Size(40, 40),
+			origin: new naver.maps.Point(0, 0),
+			anchor: new naver.maps.Point(20, 30)
+			}
+		};
 
-		var timeString = hours + ':' + minutes  + ':' + seconds;
+		var marker = new naver.maps.Marker(markerOptions);
 
-		date = "(" + dateString + " " + timeString + ")";
+		function resize() {
+			var mapWidth = window.innerWidth;
+			var mapHeight;
 
-	  push(ref(db, 'users/' + uid), {
-	  	displayName : displayName,
-	  	photoURL : photoURL,
-	    message : message,
-	    date : date
-	  }).then(() => {
+			if (mapWidth <= 767) {
+				mapWidth = Math.min(mapWidth, 90 * window.innerWidth / 100) + 'px';
+				mapHeight = '300px';
+				} else if (mapWidth <= 1023) {
+				mapWidth = '700px';
+				mapHeight = '400px';
+			} 
+			else {
+				mapWidth = '1000px';
+				mapHeight = '600px';
+			}
+			document.getElementById('map').style.width = mapWidth;
+			document.getElementById('map').style.height = mapHeight;
+			map.setSize(new naver.maps.Size(parseInt(mapWidth), parseInt(mapHeight)));
+		}
+	</script>
+	<!--Naver MAP API-->
+	<!--Firebase-->
+	<script type="module">
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+	  import { getDatabase, ref, set, child, get, push, remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+	  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+	  const firebaseConfig = {
+		    apiKey: "AIzaSyAfRh7foEHrHxFQKt0whyUTkvcBSSvc2b4",
+		    authDomain: "dongkyun-and-yeonwoo.firebaseapp.com",
+		    databaseURL: "https://dongkyun-and-yeonwoo-default-rtdb.asia-southeast1.firebasedatabase.app",
+		    projectId: "dongkyun-and-yeonwoo",
+		    storageBucket: "dongkyun-and-yeonwoo.appspot.com",
+		    messagingSenderId: "318368665753",
+		    appId: "1:318368665753:web:005e047eac30f3eefba808",
+		    measurementId: "G-ENCNDJW07Z"
+	 	};
+
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const database = getDatabase(app);
+		const auth = getAuth();
+		const provider = new GoogleAuthProvider();
+
+		var user = auth.currentUser;
+		var displayName;
+		var photoURL;
+		var uid;
+		var messageArray = new Array();
+
+		if(user != null) {
+			displayName = user.displayName;
+			photoURL = user.photoURL;
+			uid = user.uid;
+		}
+
 		loadMessage();
 
-		  // 스크롤 맨 아래로
-	      $("#popup-message").fadeOut(); //페이드아웃 효과
-		  document.body.style.overflow = "unset";
-		  document.getElementById("message").value = "";
-	  })
-	  .catch((error) => {
-	    const errorCode = error.code;
-	    const errorMessage = error.message;
-	  });
-  });
+		// 방명록 글 읽어오기 함수
+		function loadMessage() {
+		  	const dbRef = ref(getDatabase());
+			get(child(dbRef, 'users/')).then((snapshot) => {
+			  if (snapshot.exists()) {
 
+			  	var obj = snapshot.val();
+			  	let keys = Object.keys(obj);
+			  	let values = Object.values(obj);
 
- // 방명록 글쓰기 창 오픈
-  $("#open-message").click(function(){
-	// 로그인 되어있지 않으면 Google 로그인 시도
-	if(uid==null) {
+			  	var htmltext = "";
+			  	messageArray = new Array();
+
+			    for (var i = 0; i < keys.length; i++) {
+					let entries2 = Object.entries(values[i]);
+				    let keys2 = Object.keys(Object.entries(values[i]));
+				    let values2 = Object.values(Object.values(values[i]));
+				    let deletekeys = Object.keys(values[i]);
+
+				    for(var j = 0; j < keys2.length; j++) {
+				    	var checkUid = keys[i];
+
+					    var entries3 = Object.entries(values2[j]);
+					    var keys3 = Object.keys(values2[j]);
+					    var values3 = Object.values(values2[j]);
+
+					    var displayName = values3[1];
+					    var message = values3[2];
+					    var photoURL = values3[3];
+					    var date = values3[0];
+
+					    var messageObj = new Object();
+					    messageObj.date = date;
+					    messageObj.displayName = displayName;
+					    messageObj.photoURL = photoURL;
+					    messageObj.message = message;
+					    messageObj.deleteKey = deletekeys[j];
+
+					    if(checkUid == uid) {
+					    	messageObj.deleteBtn = true;
+					    }
+					    else {
+					    	messageObj.deleteBtn = false;
+					    }
+					    messageArray.push(messageObj);
+					}
+				}
+
+			// 날짜순으로 정렬
+			messageArray.sort(
+				function(a,b) {
+					if(a.date > b.date)
+						return 1;
+					else if(a.date < b.date)
+						return -1;
+					else
+						return 0;
+				});
+
+			for(var i = 0; i < messageArray.length; i++) {
+				var deleteBtn = "";
+				if(messageArray[i].deleteBtn == true) {
+					deleteBtn = "[삭제]";
+				} else {
+					deleteBtn = "";
+				}
+				  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
+				    							messageArray[i].photoURL + '"></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+
+			
+				// 삭제 이벤트 추가
+				$(document).on("click","#"+ messageArray[i].deleteKey , function() {
+						var deleteKey = $(this).attr("id");
+						// 파이어베이스 변수
+						const db = getDatabase();
+						console.log("deleteKey : " + deleteKey);
+						remove(ref(db, 'users/' + uid +"/" + deleteKey));
+						loadMessage();
+				});
+			}
+		    var targetName = document.getElementById('message-container');
+		    targetName.innerHTML = htmltext;
+		  } 
+		  else {
+		    console.log("No data available");
+		    htmltext = "";
+		    var targetName = document.getElementById('message-container');
+		    targetName.innerHTML = htmltext;
+		  }
+			}).catch((error) => {
+			  console.error(error);
+			});
+		}
+
+		// 방명록 글쓰기 저장 이벤트 추가
+		$("#message-button").click(function(){
+			const db = getDatabase();
+			const message = document.getElementById("message").value;
+			var date = "";
+			var today = new Date();
+			var year = today.getFullYear().toString().slice(-2);
+			var month = ('0' + (today.getMonth() + 1)).slice(-2);
+			var day = ('0' + today.getDate()).slice(-2);
+			var dateString = year + '/' + month  + '/' + day;
+			var hours = ('0' + today.getHours()).slice(-2); 
+			var minutes = ('0' + today.getMinutes()).slice(-2);
+			var seconds = ('0' + today.getSeconds()).slice(-2); 
+			var timeString = hours + ':' + minutes  + ':' + seconds;
+			date = "(" + dateString + " " + timeString + ")";
+
+			push(ref(db, 'users/' + uid), {
+				displayName : displayName,
+				photoURL : photoURL,
+				message : message,
+				date : date
+				}).then(() => {
+					loadMessage();
+					$("#popup-message").fadeOut(); //페이드아웃 효과
+					document.body.style.overflow = "unset";
+					document.getElementById("message").value = "";
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+			});
+		});
+
+		// 방명록 글쓰기 창 오픈 이벤트 추가
+		$("#open-message").click(function(){
+		// 로그인 되어있지 않으면 Google 로그인 시도
+		if(uid==null) {
 		signInWithPopup(auth, provider)
-		  .then((result) => {
-		    // This gives you a Google Access Token. You can use it to access the Google API.
-		    const credential = GoogleAuthProvider.credentialFromResult(result);
-		    const token = credential.accessToken;
-		    // The signed-in user info.
-		    user = result.user;
-		    photoURL = user.photoURL;
-		    displayName = user.displayName;
-		    uid = user.uid;
-
-		    var targetImg = document.getElementById('writer-img');
-		    targetImg.src = photoURL;
-		    var targetName = document.getElementById('writer-name');
-		    targetName.innerHTML = displayName;
-
-		  }).catch((error) => {
-		    const errorCode = error.code;
-		    const errorMessage = error.message;
-		    const credential = GoogleAuthProvider.credentialFromError(error);
-
-		    console.log("ERROR CODE : " + errorCode);
-		    console.log("ERROR : " + errorMessage);
-		  });
-
-	}
-
-		 document.body.style.overflow = 'hidden';        
-	      $("#popup-message").css('display','flex').hide().fadeIn();
-	      //팝업을 flex속성으로 바꿔준 후 hide()로 숨기고 다시 fadeIn()으로 효과
-  });
+		.then((result) => {
+				const credential = GoogleAuthProvider.credentialFromResult(result);
+				const token = credential.accessToken;
+				user = result.user;
+				photoURL = user.photoURL;
+				displayName = user.displayName;
+				uid = user.uid;
+				var targetImg = document.getElementById('writer-img');
+				targetImg.src = photoURL;
+				var targetName = document.getElementById('writer-name');
+				targetName.innerHTML = displayName;
+			}).catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				console.log("ERROR CODE : " + errorCode);
+				console.log("ERROR : " + errorMessage);
+				});
+			}
+			document.body.style.overflow = 'hidden';        
+			$("#popup-message").css('display','flex').hide().fadeIn();
+		});
 
 
- // 방명록 삭제 활성화
-  $("#delete-message").click(function(){
-	// 로그인 되어있지 않으면 Google 로그인 시도
-	if(uid==null) {
-	const auth = getAuth();
-	signInWithPopup(auth, provider)
-	  .then((result) => {
-	    // This gives you a Google Access Token. You can use it to access the Google API.
-	    const credential = GoogleAuthProvider.credentialFromResult(result);
-	    const token = credential.accessToken;
-	    // The signed-in user info.
-	    user = result.user;
-	    photoURL = user.photoURL;
-	    displayName = user.displayName;
-	    uid = user.uid;
-
-		loadMessage();
-
-	  }).catch((error) => {
-	    const errorCode = error.code;
-	    const errorMessage = error.message;
-	    const credential = GoogleAuthProvider.credentialFromError(error);
-
-	    console.log("ERROR CODE : " + errorCode);
-	    console.log("ERROR : " + errorMessage);
+		// 방명록 삭제 활성화 이벤트 추가
+		$("#delete-message").click(function(){
+			// 로그인 되어있지 않으면 Google 로그인 시도
+			if(uid==null) {
+				const auth = getAuth();
+				signInWithPopup(auth, provider)
+				.then((result) => {
+					const credential = GoogleAuthProvider.credentialFromResult(result);
+					const token = credential.accessToken;
+					user = result.user;
+					photoURL = user.photoURL;
+					displayName = user.displayName;
+					uid = user.uid;
+					loadMessage();
+			}).catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				console.log("ERROR CODE : " + errorCode);
+				console.log("ERROR : " + errorMessage);
+				});	
+			}  	
+		});
+	</script>
+	<!--Firebase-->
+	<!--Kakao 공유하기 API-->
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js" integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
+	<script>
+	  Kakao.init('2778672d6ce6ef71fe0fc518ec17a861'); 
+	  Kakao.Share.createDefaultButton({
+	    container: '#kakaotalk-sharing-btn',
+	    objectType: 'feed',
+	    content: {
+	      title: '동균♥연우 결혼식에 초대합니다.',
+	      description: '3월 17일 일요일 오후2시\n대구 파라다이스웨딩 그랜드볼룸',
+	      imageUrl: 'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true',
+	      link: {
+	        mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+	        webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+	      },
+	    },
+	    buttons: [
+	      {
+	        title: '청첩장 보기',
+	        link: {
+	          mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+	          webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+	        },
+	      },
+	      {
+	        title: '위치 안내',
+	        link: {
+	          mobileWebUrl: 'https://naver.me/G2UVfoKx',
+	          webUrl: 'https://naver.me/G2UVfoKx',
+	        },
+	      },
+	    ],
 	  });
-	}  	
-  });
-
-</script>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js"
-  integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
-<script>
-  Kakao.init('2778672d6ce6ef71fe0fc518ec17a861'); // 사용하려는 앱의 JavaScript 키 입력
-</script>
-
-
-<script>
-  Kakao.Share.createDefaultButton({
-    container: '#kakaotalk-sharing-btn',
-    objectType: 'feed',
-    content: {
-      title: '동균♥연우 결혼식에 초대합니다.',
-      description: '3월 17일 일요일 오후2시\n대구 파라다이스웨딩 그랜드볼룸',
-      imageUrl:
-        'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true',
-      link: {
-        // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
-        mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-        webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-      },
-    },
-    buttons: [
-      {
-        title: '청첩장 보기',
-        link: {
-          mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-          webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-        },
-      },
-      {
-        title: '위치 안내',
-        link: {
-          mobileWebUrl: 'https://naver.me/G2UVfoKx',
-          webUrl: 'https://naver.me/G2UVfoKx',
-        },
-      },
-    ],
-  });
-</script>
-
-</script>
-	</body>
+	</script>
+	<!--Kakao 공유하기 API-->
+</body>
 </html>
