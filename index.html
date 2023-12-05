@@ -12,7 +12,7 @@
 	<meta property="og:url" content="https://dongkyun-and-yeonwoo.vercel.app">
 	<meta property="og:title" content="동균♥연우 결혼식에 초대합니다!">
 	<meta property="og:type" content="website">
-	<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true">
+	<meta property="og:image" content="https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.jpg?raw=true">
 	<meta property="og:description" content="2024년 3월 17일 일요일 오후 2시 대구 파라다이스웨딩 그랜드볼룸">
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/calendar.css" />
@@ -156,6 +156,7 @@
 
 		/* 화면로딩 후 호출할 함수 및 Modal 이벤트 추가 */
 		window.onload = function() {
+			$('body').sakura(); // 배너 벚꽃효과
 			calcDday("20240317"); // 디데이 설정
 			audioContainer = document.getElementById('audioContainer');
 			audioContainer.volume=0.15; // 볼륨 설정
@@ -225,18 +226,18 @@
 	<div id="page-wrapper">
 		<!-- Header -->
 		<header id="header" class="alt">
-			<h1><a href="index.html"><b>동균</b><i class="fa-solid fa-heart fa-beat"></i><b>연우</b></a></h1>
+			<h1><a href="index.html"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;<b>동균</b><i class="fa-solid fa-heart"></i><b>연우</b>&nbsp;<i class="fa-brands fa-pagelines"></i></a></h1>
 			<nav id="nav">
 				<ul>
 					<li class="special">
 					<a href="#menu" class="menuToggle"><span></span></a>
 						<div id="menu">
 							<ul>
-								<li><a href="index.html">첫화면</a></li>
+								<li><a href="index.html">첫 화면</a></li>
 								<li><a href="#one">오시는 길</a></li>
-								<li><a href="#three">초대합니다</a></li>
-								<li><a href="#four">사랑스러운 우리의 순간</a></li>
-								<li><a href="#five">따듯한 축하의 말씀</a></li>
+								<li><a href="#three">소중한 분들을 초대합니다</a></li>
+								<li><a href="#four">우리가 함께한 순간</a></li>
+								<li><a href="#five">따뜻한 축하의 메세지</a></li>
 							</ul>
 						</div>
 					</li>
@@ -246,11 +247,11 @@
 		<!-- Banner -->
 		<section id="banner" style="box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.3);">
 			<div class="inner">
-				<div class="stars">
+			<!-- 별효과	<div class="stars">
 					<div class="stars stars--small"></div>
 					<div class="stars stars--medium"></div>
 					<div class="stars stars--big"></div>
-				</div>
+				</div> -->
 				<div class="content">
 					<h2><span style="font-size:0.8em;">2024.03.17(일) 오후2시</span>
 					<span>대구 파라다이스웨딩</span></h2>
@@ -279,7 +280,7 @@
 			<div class="inner">
 				<header class="major">
 					<div class="content">
-						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">오시는 길</h2>
+						<h2 data-aos="fade-up" data-aos-duration="2500" data-aos-once="true"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>오시는 길&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 						<p style="font-size:1.3em;">
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><b>대구 파라다이스웨딩 3층 그랜드볼룸</b></span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">(대구광역시 달서구 구마로 52)</span>
@@ -287,18 +288,18 @@
 						</p>
 					<div>
 					<!-- NAVER MAP-->
-					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map" style="width:100%; margin:0 0 4px 0; border: 3px solid white;box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);">
+					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map">
 					</div>
 					<!-- NAVER MAP-->
 					<a href="https://naver.me/G2UVfoKx" target="_blank">
-						<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:100%;margin: 0 0 0 0;max-width:100%" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div>
+						<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="button-map-detail" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div>
 					</a>
-					<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;margin-top:30px">
+					<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;margin-top:50px">
 					<i class="fa-solid fa-map-location-dot fa-fade"></i> 내비게이션</h3>
 					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="actions">
-						<a href="https://naver.me/G2UVfoKx" target="_blank"><img src="./images/navermap.png" alt="navermap" /></a>&nbsp;
-						<a href="https://kko.to/LCrTZl7TOD" target="_blank"><img src="./images/kakaomap.png" alt="kakaomap" /></a>&nbsp;
-						<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank"><img src="./images/tmap.png" alt="tmap" /></a>
+						<a href="https://naver.me/G2UVfoKx" target="_blank"><img class="map-button" src="./images/navermap.png" alt="navermap" /></a>&nbsp;
+						<a href="https://kko.to/LCrTZl7TOD" target="_blank"><img class="map-button" src="./images/kakaomap.png" alt="kakaomap" /></a>&nbsp;
+						<a href="https://surl.tmobiapi.com/f7418cdf" target="_blank"><img class="map-button" src="./images/tmap.png" alt="tmap" /></a>
 					</div>
 					<div style="margin-top:20px">
 						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
@@ -320,8 +321,11 @@
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >시내버스 : 564(남대구IC 하차), 651(본리네거리 하차)</span>
 						</p>
 						<h3 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="border-bottom:none;padding-bottom:0px;">
-						<i class="fa-solid fa-bus fa-fade"></i> 전세버스 안내</h3>
-						<p><span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >준비중입니다.</span></p>
+						<i class="fa-solid fa-circle-info fa-fade"></i> 전세버스 안내</h3>
+						<p>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서울에서 출발하는 분들을 위해</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >신부측에서 전세버스를 준비중입니다.</span>
+						</p>
 					</div>
 				</header>
 			</div>
@@ -397,14 +401,14 @@
 			<div class="inner">
 				<header class="major">
 					<div class="content">
-						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">초대합니다</h2>
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>소중한 분들을 초대합니다&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 						<div  data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="couple-intro">
 							<div class="couple-intro-box">
-								<img src="./images/groom_intro.png" id="couple-intro-img1" alt="groom-intro"/>
+								<img src="./images/groom_intro.jpg" id="couple-intro-img1" alt="groom-intro"/>
 								<span class="couple-intro-text">신랑 <b>동&nbsp;균</b></span>
 							</div>
 							<div class="couple-intro-box">
-								<img src="./images/bride_intro.png" id="couple-intro-img2" alt="bride-intro"/>
+								<img src="./images/bride_intro.jpg" id="couple-intro-img2" alt="bride-intro"/>
 								<span class="couple-intro-text">신부 <b>연&nbsp;우</b></span>
 							</div>
 							<div class="couple-intro-text2">
@@ -444,21 +448,21 @@
 						<div class="popup-body-intro">	
 							<div class="body-content">
 								<div class="body-titlebox">
-									<h1 style="color:#101416;">동균이를 소개합니다.</h1>
+									<h1 style="color:#544225;">동균이를 소개합니다.</h1>
 								</div>
-								<div class="body-contentbox" style="text-align: left; font-size: 0.8em;">
-									<b><p style="color:#101416;">#INFJ #반전매력 #살림꾼</p></b>
-									<p style="color:#101416;">
+								<div class="body-contentbox content" style="text-align: left; font-size: 0.8em;">
+									<b><p>#INFJ #반전매력 #살림꾼</p></b>
+									<p>
 									처음 동균이를 만났을 때 겉모습만 보고서는 재외교포라고 생각했지만 신토불이 한국인이라 놀랐습니다.</p>
-									<p style="color:#101416;">
+									<p>
 									조금 무서워보이는 겉모습과는 다르게 내면은 누구보다 다정하고 섬세한 동균이에게 반전매력을 느꼈습니다.</p>
-									<p style="color:#101416;">연애초반 가정을 꾸리고 한 곳만 바라보고 살고싶다는 동균이의 말에 늦지 않게 답을 줘야겠다 다짐했고, 이후 연애 3개월 차에 여느 연인이 그러듯 시덥잖은 일로 싸우고 화해하던 순간 저는 동균이에게 결혼하자고 말했습니다.</p>
-									<p style="color:#101416;">당황한 동균이는 바로 대답하지 않았지만 제 마음이 상하기 전에 긍정적인 답변을 주어 저희는 빛의 속도로 결혼을 준비하게 되었습니다.</p>
-									<p style="color:#101416;">감정과 다른 사람과의 관계를 다루는데 서투른 제게 동균이는 마음의 버팀목이자 좋은 선생님이 되어주었고, 가끔은 귀찮을법해도 매번 출근길 역까지 배웅해주고 도시락을 챙겨주었습니다. 동균이 덕분에 저는 누군가에게 보살핌 받는 감사함을 배웠습니다.</p>
-									<p style="color:#101416;">알뜰살뜰 살림하고 요리하는 동균이를 보면 생활력이 대단하면서도 꼼꼼히 물건을 고르는 모습이 귀엽게 느껴질 때도 있습니다.</p>
-									<p style="color:#101416;">상대가 귀엽게 느껴지면 끝이라고 하잖아요?</p>
-									<p style="color:#101416;">동균이가 아니면 저는 아예 결혼을 하지 않았거나 시간이 훨씬 흐른 뒤, 먼 훗날에나 결혼을 고민했으리라 감히 예상합니다.</p>
-									<b><p style="color:#101416;text-align:right;"><span style="font-size:1em;">동균이를 신랑으로 맞이하게 되어</span>
+									<p>연애초반 가정을 꾸리고 한 곳만 바라보고 살고싶다는 동균이의 말에 늦지 않게 답을 줘야겠다 다짐했고, 이후 연애 3개월 차에 여느 연인이 그러듯 시덥잖은 일로 싸우고 화해하던 순간 저는 동균이에게 결혼하자고 말했습니다.</p>
+									<p>당황한 동균이는 바로 대답하지 않았지만 제 마음이 상하기 전에 긍정적인 답변을 주어 저희는 빛의 속도로 결혼을 준비하게 되었습니다.</p>
+									<p>감정과 다른 사람과의 관계를 다루는데 서투른 제게 동균이는 마음의 버팀목이자 좋은 선생님이 되어주었고, 가끔은 귀찮을법해도 매번 출근길 역까지 배웅해주고 도시락을 챙겨주었습니다. 동균이 덕분에 저는 누군가에게 보살핌 받는 감사함을 배웠습니다.</p>
+									<p>알뜰살뜰 살림하고 요리하는 동균이를 보면 생활력이 대단하면서도 꼼꼼히 물건을 고르는 모습이 귀엽게 느껴질 때도 있습니다.</p>
+									<p>상대가 귀엽게 느껴지면 끝이라고 하잖아요?</p>
+									<p>동균이가 아니면 저는 아예 결혼을 하지 않았거나 시간이 훨씬 흐른 뒤, 먼 훗날에나 결혼을 고민했으리라 감히 예상합니다.</p>
+									<b><p style="color:#544225;text-align:right;"><span style="font-size:1em;">동균이를 신랑으로 맞이하게 되어</span>
 										<span style="font-size:1em;">더없이 행복한 신부 연우</span></p></b>
 								</div>
 							</div>
@@ -478,12 +482,12 @@
 								<span class="head-title">신부 소개</span>
 							</div>
 							<div class="popup-body-intro">	
-								<div class="body-content">
+								<div class="body-content content">
 									<div class="body-titlebox">
-										<h1 style="color:black">연우를 소개합니다.</h1>
+										<h1 style="color:#544225;">연우를 소개합니다.</h1>
 									</div>
 									<div class="body-contentbox">
-										<p style="color:#101416;">준비중입니다.</p>
+										<p>준비중입니다.</p>
 									</div>
 								</div>
 							</div>
@@ -497,10 +501,10 @@
 			</div>
 		</section>
 		<!-- Four 갤러리 -->
-		<section id="four" class="wrapper style2 special">
+		<section id="four" class="wrapper style3 special">
 			<div class="inner">
 				<header class="major">
-					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true">사랑스러운 우리의 순간</h2>
+					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>우리가 함께한 순간&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 					<div id="gallery-modal">
 						<div id="gallery-content">
 							<span id="close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></span>
@@ -539,30 +543,30 @@
 			<div class="inner">
 				<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
 					<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
-						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >따뜻한 축하의 말씀</h2>
+						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>따뜻한 축하의 메세지&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container"></div>
-						<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#101416;line-height: 30px;height:30px; width:60%;margin: auto;max-width:70%;display: inline-block;" class="button"><i class="fa-brands fa-google "></i> 축하인사 남기기</div>
-						<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="background-color:#bbb;line-height: 30px;height:30px; width:20%;margin: auto;max-width:20%;display: inline-block;" class="button">삭제</div>
+						<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="button"><i class="fa-brands fa-google "></i> 축하 메세지 전하기</div>
+						<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="button">삭제</div>
 					</div>
 					<!-- 방명록 작성 Modal-->
 					<div class="container">
 						<div class="popup-wrap" id="popup-message">
 							<div class="popup">	
 								<div class="popup-head">	
-									<span class="head-title">축하인사 전하기</span>
+									<span class="head-title">축하 메세지 전하기</span>
 								</div>
 								<div class="popup-body-message">	
 									<div class="body-content">
 										<div class="body-titlebox">
 											<div class="writer-wrapper">
 												<span id="writer-img-box"><img id="writer-img" alt="writer-img"/></span>
-												<span id="writer-name" style="color:black;"></span>
+												<span id="writer-name"></span>
 											</div>
 										</div>
 										<div class="body-contentbox">
 											<textarea id="message" maxlength="200" placeholder=""></textarea>
-											<div id="reset-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">초기화</div>
-											<div id="message-button" style="background-color:#101416;line-height: 30px;height:30px; width:30%;margin: 10px 0 0 0;max-width:30%" class="button">저 장</div>
+											<div id="reset-button" class="button">초기화</div>
+											<div id="message-button" class="button">저 장</div>
 										</div>
 									</div>
 								</div>
@@ -573,7 +577,7 @@
 						</div>
 					</div>
 					<!-- 방명록 작성 Modal-->
-					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px">마음 전하는 곳</h2>
+					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>마음 전하는 곳&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 					<div class="content">
 						<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
 							<span>송구하지만 멀리서 축하해 주시는 분들을</span>
@@ -606,14 +610,14 @@
 									<img src="./images/baby-groom.png" alt="baby-groom"/>
 								</div>
 								<div class="body-contentbox">
-									<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px">
+									<p>
 										<a href='tel:010-3677-0211'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
 										<a href="sms:010-3677-0211">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
 										<a href="https://qr.kakaopay.com/Ej7sHOa17">
 											<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
 										</a>
 									</p>
-									<p style="color:#101416;"> 하나 647-910859-47507 
+									<p> 하나 647-910859-47507 
 										<a onclick="clipboardCopy('하나은행 647-910859-47507')" style="font-weight: 800;">[복사]</a>
 									</p>
 								</div>
@@ -639,14 +643,14 @@
 										<img src="./images/baby-bride.png" alt="baby-bride"/>
 									</div>
 									<div class="body-contentbox">
-										<p style="color:#101416;font-weight:800;font-size:0.8em;margin-bottom: 5px;">
+										<p>
 											<a href='tel:010-3233-1191'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
 											<a href="sms:010-3233-1191">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
 											<a href="https://qr.kakaopay.com/Ej7sy8kMj">
 												<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
 											</a>
 										</p>
-										<p style="color:#101416;"> 경남 207-0104-0281-05 
+										<p> 경남 207-0104-0281-05 
 											<a onclick="clipboardCopy('경남은행 207-0104-0281-05')" style="font-weight: 800;">[복사]</a>
 										</p>
 									</div>
@@ -662,8 +666,17 @@
 			</div>
 		</section>
 		<!-- Footer -->
-		<footer id="footer" style="background-color: #101416;color: #F0F4F5;">
-			<a id="kakaotalk-sharing-btn" href="javascript:;"><img src="./images/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼" /></a>
+		<footer id="footer">
+			<div class="inner">
+				<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>예쁘게 살겠습니다&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
+				<div class="content">
+					<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
+						<span style="font-size: 0.8em;">전해주시는 따뜻한 진심을 배워</span>
+						<span style="font-size: 0.8em;">오래도록 행복하게 잘 살겠습니다.</span>
+					</p>
+				</div>
+			</div>
+			<a data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="kakaotalk-sharing-btn" href="javascript:;"><img src="./images/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼" /></a>
 			<ul class="copyright">
 				<li>&copy; yeonwookang</li>
 				<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
@@ -833,7 +846,7 @@
 					deleteBtn = "";
 				}
 				  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-				    							messageArray[i].photoURL + '" alt="writer-img"/></span><span class="writer-name" style="color:black;">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.7em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
+				    							messageArray[i].photoURL + '" alt="writer-img"/></span><span class="writer-name">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.8em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
 
 			
 				// 삭제 이벤트 추가
@@ -943,7 +956,8 @@
 				console.log("ERROR CODE : " + errorCode);
 				console.log("ERROR : " + errorMessage);
 				});	
-			}  	
+			}
+			loadMessage();  	
 		});
 	</script>
 	<!--Firebase-->
@@ -957,7 +971,7 @@
 	    content: {
 	      title: '동균♥연우 결혼식에 초대합니다.',
 	      description: '3월 17일 일요일 오후2시\n대구 파라다이스웨딩 그랜드볼룸',
-	      imageUrl: 'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.png?raw=true',
+	      imageUrl: 'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/banner_preview.jpg?raw=true',
 	      link: {
 	        mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
 	        webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
@@ -982,5 +996,138 @@
 	  });
 	</script>
 	<!--Kakao 공유하기 API-->
+	<!-- Sakura Effect -->
+	<script>
+		(function ($) {
+		    // requestAnimationFrame Polyfill
+		    (function () {
+		        var lastTime = 0;
+		        var vendors = ['ms', 'moz', 'webkit', 'o'];
+
+		        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+		            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+		            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+		        }
+
+		        if (!window.requestAnimationFrame)
+		            window.requestAnimationFrame = function (callback, element) {
+		                var currTime = new Date().getTime();
+		                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+		                var id = window.setTimeout(function () {
+		                        callback(currTime + timeToCall);
+		                    },
+		                    timeToCall);
+		                lastTime = currTime + timeToCall;
+
+		                return id;
+		            };
+
+		        if (!window.cancelAnimationFrame)
+		            window.cancelAnimationFrame = function (id) {
+		                clearTimeout(id);
+		            };
+		    }());
+
+		    // Sakura function.
+		    $.fn.sakura = function (options) {
+		        // We rely on these random values a lot, so define a helper function for it.
+		        function getRandomInt(min, max) {
+		            return Math.floor(Math.random() * (max - min + 1)) + min;
+		        }
+
+		        // Helper function to attach cross-browser events to an element.
+		        var prefixes = ['moz', 'ms', 'o', 'webkit', ''];
+		        var prefCount = prefixes.length;
+
+		        function prefixedEvent(element, type, callback) {
+		            for (var i = 0; i < prefCount; i++) {
+		                if (!prefixes[i]) {
+		                    type = type.toLowerCase();
+		                }
+
+		                element.get(0).addEventListener(prefixes[i] + type, callback, false);
+		            }
+		        }
+
+		        // Defaults for the option object, which gets extended below.
+		        var defaults = {
+		            blowAnimations: ['blow-soft-left', 'blow-medium-left', 'blow-hard-left', 'blow-soft-right', 'blow-medium-right', 'blow-hard-right'],
+		            className: 'sakura',
+		            fallSpeed: 0.295,
+		            maxSize: 14,
+		            minSize: 2,
+		            newOn: 300,
+		            swayAnimations: ['sway-0', 'sway-1', 'sway-2', 'sway-3', 'sway-4', 'sway-5', 'sway-6', 'sway-7', 'sway-8']
+		        };
+
+		        var options = $.extend({}, defaults, options);
+
+		        // Declarations.
+		        var documentHeight = $(document).height();
+		        var documentWidth = $(document).width();
+		        var sakura = $('<div class="' + options.className + '" />');
+
+		        // Set the overflow-x CSS property on the body to prevent horizontal scrollbars.
+		        $('body').css({ 'overflow-x': 'hidden' });
+
+		        // Function that inserts new petals into the document.
+		        var petalCreator = function () {
+		            setTimeout(function () {
+		                requestAnimationFrame(petalCreator);
+		            }, options.newOn);
+
+		            // Get one random animation of each type and randomize fall time of the petals.
+		            var blowAnimation = options.blowAnimations[Math.floor(Math.random() * options.blowAnimations.length)];
+		            var swayAnimation = options.swayAnimations[Math.floor(Math.random() * options.swayAnimations.length)];
+		            var fallTime = (Math.round(documentHeight * 0.007) + Math.random() * 5) * options.fallSpeed;
+
+		            var animations = 'fall ' + fallTime + 's linear 0s 1' + ', ' +
+		                blowAnimation + ' ' + (((fallTime > 30 ? fallTime : 30) - 20) + getRandomInt(0, 20)) + 's linear 0s infinite' + ', ' +
+		                swayAnimation + ' ' + getRandomInt(2, 4) + 's linear 0s infinite';
+		            var petal = sakura.clone();
+		            var size = getRandomInt(options.minSize, options.maxSize);
+		            var startPosLeft = Math.random() * documentWidth - 100;
+		            var startPosTop = -((Math.random() * 20) + 15);
+
+		            // Apply Event Listener to remove petals that reach the bottom of the page.
+		            prefixedEvent(petal, 'AnimationEnd', function () {
+		                $(this).remove();
+		            });
+
+		            // Apply Event Listener to remove petals that finish their horizontal float animation.
+		            prefixedEvent(petal, 'AnimationIteration', function (ev) {
+		                if ($.inArray(ev.animationName, options.blowAnimations) != -1) {
+		                    $(this).remove();
+		                }
+		            });
+
+		            petal
+		                .css({
+		                    '-webkit-animation': animations,
+		                    '-o-animation': animations,
+		                    '-ms-animation': animations,
+		                    '-moz-animation': animations,
+		                    animation: animations,
+		                    height: size,
+		                    left: startPosLeft,
+		                    'margin-top': startPosTop,
+		                    width: size
+		                })
+		                .appendTo('body');
+		        };
+
+
+		        // Recalculate documentHeight and documentWidth on browser resize.
+		        $(window).resize(function () {
+		            documentHeight = $(document).height();
+		            documentWidth = $(document).width();
+		        });
+
+		        // Finally: Start adding petals.
+		        requestAnimationFrame(petalCreator);
+		    };
+		}(jQuery));
+	</script>
+	<!-- Sakura Effect -->
 </body>
 </html>

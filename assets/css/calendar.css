@@ -1,30 +1,27 @@
+@font-face {
+  font-family: 'UhBeeSeulvely';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSeulvely.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
-/*#5 */
 .calender-wrapper {
   width: 100%;
-  background: #F0F4F5;
+  background: #F7F6F4;
   border-radius: 10px;
-  padding: 25px;
+  padding: 20px;
 }
  
-/*#6*/
 .calender-wrapper .nav {
   align-items: center;
   justify-content: space-between;
 }
 .calender-wrapper .nav .current-date {
   font-size: 24px;
-  font-weight: 600;
-  color: #101416;
-}
-.calender-wrapper .nav button {
-  width: 38px;
-  height: 38px;
-  font-size: 30px;
-  color: #878787;
+  color: #544225;
+  font-family:'UhBeeSeulvely';
 }
 
-  /*#7*/
 .calendar ul {
   display: flex;
   list-style: none;
@@ -33,7 +30,7 @@
 }
 .calendar .weeks li {
   font-weight: 700;
-  color:#101416;
+  color:#544225;
 }
 .calendar .days {
   margin-bottom: 20px;
@@ -50,14 +47,12 @@
   z-index: 1;
   margin-top: 15px;
   cursor: pointer;
-  color: #101416;
+  color: #544225;
 }
- 
 /*#11*/
 .days li.inactive {
   color: #aaa;
 }
-
   .days li.active {
   color: #F0F4F5;
 }
@@ -72,9 +67,7 @@
   border-radius: 50%;
   z-index: -1;
 }
-.days li:hover::before {
-  background: #F0F4F5;
-}
+
 .days li.active::before {
   background-image: url("../../images/heart-solid.svg");
   background-repeat: no-repeat;
