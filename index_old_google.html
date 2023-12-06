@@ -154,7 +154,64 @@
 			$("#gallery-content").fadeIn(1000); // 시간설정 6초
 		}
 
+		/* 화면로딩 후 호출할 함수 및 Modal 이벤트 추가 */
+		window.onload = function() {
+			$('body').sakura(); // 배너 벚꽃효과
+			calcDday("20240317"); // 디데이 설정
+			audioContainer = document.getElementById('audioContainer');
+			audioContainer.volume=0.15; // 볼륨 설정
 
+			// 신랑 소개 Modal 호출
+			$("#couple-intro-img1").click(function(){        
+				document.body.style.overflow = 'hidden';
+				$("#popup-groom").css('display','flex').hide().fadeIn();
+			});
+			// 신랑 소개 Modal 닫기
+			$("#popup-close").click(function(){
+				$("#popup-groom").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신부 소개 Modal 호출
+			$("#couple-intro-img2").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-bride").css('display','flex').hide().fadeIn();
+			});
+			// 신부 소개 Modal 닫기
+			$("#popup-close2").click(function(){
+				$("#popup-bride").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신랑 계좌 Modal 호출
+			$("#open-groom-account").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-groom-account").css('display','flex').hide().fadeIn();
+			});
+			// 신랑 계좌 Modal 닫기
+			$("#popup-close3").click(function(){
+				$("#popup-groom-account").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 신부 계좌 Modal 호출
+			$("#open-bride-account").click(function(){
+				document.body.style.overflow = 'hidden';        
+				$("#popup-bride-account").css('display','flex').hide().fadeIn();
+			});
+			// 신부 계좌 Modal 닫기
+			$("#popup-close4").click(function(){
+				$("#popup-bride-account").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 방명록 Modal 호출 및 저장은 Google API Module에서 구현
+			// 방명록 쓰기 Modal 닫기
+			$("#popup-close-message").click(function(){
+				$("#popup-message").fadeOut(); //페이드아웃 효과
+				document.body.style.overflow = "unset";
+			});
+			// 방명록 쓰기 Reset 버튼 이벤트
+			$("#reset-button").click(function() {
+				document.getElementById("message").value = "";
+			});
+		}
 	</script>
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css"/></noscript>
 </head>
@@ -501,7 +558,7 @@
 										<div class="body-titlebox">
 											<div class="writer-wrapper">
 												<span id="writer-img-box"><img id="writer-img" alt="writer-img"/></span>
-												<span id="writer-name"></span><input type="hidden" value="" id="writer-email"></hidden>
+												<span id="writer-name"></span>
 											</div>
 										</div>
 										<div class="body-contentbox">
@@ -741,7 +798,6 @@
 
 				    for(var j = 0; j < keys2.length; j++) {
 				    	var checkUid = keys[i];
-				    	var uid = document.getElementById('writer-email').value;
 
 					    var entries3 = Object.entries(values2[j]);
 					    var keys3 = Object.keys(values2[j]);
@@ -831,10 +887,6 @@
 			var timeString = hours + ':' + minutes  + ':' + seconds;
 			date = "(" + dateString + " " + timeString + ")";
 
-			var displayName = document.getElementById("writer-name").innerHTML;
-			var photoURL = document.getElementById("writer-img").src;
-			var uid = document.getElementById("writer-email").value;
-
 			push(ref(db, 'users/' + uid), {
 				displayName : displayName,
 				photoURL : photoURL,
@@ -852,13 +904,64 @@
 			});
 		});
 
+		// 방명록 글쓰기 창 오픈 이벤트 추가
+		$("#open-message").click(function(){
+		// 로그인 되어있지 않으면 Google 로그인 시도
+		if(uid==null) {
+		signInWithPopup(auth, provider)
+		.then((result) => {
+				const credential = GoogleAuthProvider.credentialFromResult(result);
+				const token = credential.accessToken;
+				user = result.user;
+				photoURL = user.photoURL;
+				displayName = user.displayName;
+				uid = user.uid;
+				var targetImg = document.getElementById('writer-img');
+				targetImg.src = photoURL;
+				var targetName = document.getElementById('writer-name');
+				targetName.innerHTML = displayName;
+			}).catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				console.log("ERROR CODE : " + errorCode);
+				console.log("ERROR : " + errorMessage);
+				});
+			}
+			document.body.style.overflow = 'hidden';        
+			$("#popup-message").css('display','flex').hide().fadeIn();
+		});
+
+
+		// 방명록 삭제 활성화 이벤트 추가
+		$("#delete-message").click(function(){
+			// 로그인 되어있지 않으면 Google 로그인 시도
+			if(uid==null) {
+				const auth = getAuth();
+				signInWithPopup(auth, provider)
+				.then((result) => {
+					const credential = GoogleAuthProvider.credentialFromResult(result);
+					const token = credential.accessToken;
+					user = result.user;
+					photoURL = user.photoURL;
+					displayName = user.displayName;
+					uid = user.uid;
+					loadMessage();
+			}).catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				const credential = GoogleAuthProvider.credentialFromError(error);
+				console.log("ERROR CODE : " + errorCode);
+				console.log("ERROR : " + errorMessage);
+				});	
+			}
+			loadMessage();  	
+		});
 	</script>
 	<!--Firebase-->
 	<!--Kakao 공유하기 API-->
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js" integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
-	<script  type="text/javascript">
-
-
+	<script>
 	  Kakao.init('2778672d6ce6ef71fe0fc518ec17a861'); 
 	  Kakao.Share.createDefaultButton({
 	    container: '#kakaotalk-sharing-btn',
@@ -889,172 +992,6 @@
 	      },
 	    ],
 	  });
-
-	 	console.log("kakaoCode : " + getParam('code'));
-	 	console.log("kakaoCode : " + getParam('code').length);
-	  // 방명록 작성하기 버튼 클릭시 카카오 인증 시도
-	 $("#open-message").click(function(){
-	 	var accessToken = "";
-
-	 	console.log("kakaoCode : " + getParam('code'));
-
-	 	if(getParam('code').length==0) {
-		    Kakao.Auth.authorize({
-		      redirectUri: 'https://dongkyun-and-yeonwoo.vercel.app/',
-  			  scope: 'account_email,profile_image,profile_nickname',
-		    });	
-	 	}
-
- 		console.log("code :" + getParam('code'));
-
-
-		document.body.style.overflow = 'hidden';        
-		$("#popup-message").css('display','flex').hide().fadeIn();
-	  
-	 });
-
-
-		// 방명록 삭제 활성화 이벤트 추가
-		$("#delete-message").click(function(){
-		 	var accessToken = "";
-
-		 	console.log("kakaoCode : " + getParam('code'));
-
-		 	if(getParam('code').length==0) {
-			    Kakao.Auth.authorize({
-			      redirectUri: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	  			  scope: 'account_email,profile_image,profile_nickname',
-			    });	
-		 	}
-
-	 		console.log("code :" + getParam('code'));	
-		});
-
-		// url 에서 parameter 추출
-		function getParam(sname) {
-			var params = location.search.substr(location.search.indexOf("?") + 1);
-			var sval = "";
-			params = params.split("&");
-			for (var i = 0; i < params.length; i++) {
-				temp = params[i].split("=");
-				if ([temp[0]] == sname) { sval = temp[1]; }
-			}
-			return sval;
-		}
-
-		/* 화면로딩 후 호출할 함수 및 Modal 이벤트 추가 */
-		window.onload = function() {
-			// Request값이 있으면 호출
-			if(getParam('code').length>0){
-			 		$.ajax({
-					    type : "POST"
-					    , url : 'https://kauth.kakao.com/oauth/token'
-					    , data : {
-					        grant_type : 'authorization_code',
-					        client_id : '2b862decb4d07b03288f0e3b860421df',
-					        redirect_uri : 'https://dongkyun-and-yeonwoo.vercel.app/',
-					        code : getParam('code')
-					    }
-					    , contentType:'application/x-www-form-urlencoded;charset=utf-8'
-					    , dataType: null
-					    , success : function(response) {
-					    	// access token 받아오기
-					        console.log("response:" + JSON.stringify(response));
-					        accessToken = response.access_token;
-					        console.log("accessToken:" + accessToken);
-					        Kakao.Auth.setAccessToken(response.access_token);
-
-							// 사용자 정보 가져오기
-							Kakao.API.request({
-								url: '/v2/user/me',  
-								data: {
-							  },
-							})
-							.then(function(response) {
-								console.log("api request response:" + JSON.stringify(response));
-								displayName = response.properties.nickname;
-								photoURL = response.properties.thumbnail_image;
-								var email = (response.kakao_account.email).split('@');
-								uid = email[0];
-
-								console.log("result : " + displayName +"," + photoURL + "," + uid);
-							 	var targetImg = document.getElementById('writer-img');
-								targetImg.src = photoURL;
-								var targetName = document.getElementById('writer-name');
-								targetName.innerHTML = displayName;
-								var targetUid = document.getElementById('writer-email');
-								targetUid.value = uid;
-
-								
-							})
-							.catch(function(error) {
-								console.log(error);
-							});
-
-
-					    }
-					    ,error : function(jqXHR, error) {
-					        console.log("error:" + error);
-					    }
-					});
-			}
-
-			$('body').sakura(); // 배너 벚꽃효과
-			calcDday("20240317"); // 디데이 설정
-			audioContainer = document.getElementById('audioContainer');
-			audioContainer.volume=0.15; // 볼륨 설정
-
-			// 신랑 소개 Modal 호출
-			$("#couple-intro-img1").click(function(){        
-				document.body.style.overflow = 'hidden';
-				$("#popup-groom").css('display','flex').hide().fadeIn();
-			});
-			// 신랑 소개 Modal 닫기
-			$("#popup-close").click(function(){
-				$("#popup-groom").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 신부 소개 Modal 호출
-			$("#couple-intro-img2").click(function(){
-				document.body.style.overflow = 'hidden';        
-				$("#popup-bride").css('display','flex').hide().fadeIn();
-			});
-			// 신부 소개 Modal 닫기
-			$("#popup-close2").click(function(){
-				$("#popup-bride").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 신랑 계좌 Modal 호출
-			$("#open-groom-account").click(function(){
-				document.body.style.overflow = 'hidden';        
-				$("#popup-groom-account").css('display','flex').hide().fadeIn();
-			});
-			// 신랑 계좌 Modal 닫기
-			$("#popup-close3").click(function(){
-				$("#popup-groom-account").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 신부 계좌 Modal 호출
-			$("#open-bride-account").click(function(){
-				document.body.style.overflow = 'hidden';        
-				$("#popup-bride-account").css('display','flex').hide().fadeIn();
-			});
-			// 신부 계좌 Modal 닫기
-			$("#popup-close4").click(function(){
-				$("#popup-bride-account").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 방명록 Modal 호출 및 저장은 Google API Module에서 구현
-			// 방명록 쓰기 Modal 닫기
-			$("#popup-close-message").click(function(){
-				$("#popup-message").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 방명록 쓰기 Reset 버튼 이벤트
-			$("#reset-button").click(function() {
-				document.getElementById("message").value = "";
-			});
-		}
 	</script>
 	<!--Kakao 공유하기 API-->
 	<!-- Sakura Effect -->
