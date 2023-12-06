@@ -4776,13 +4776,12 @@ input, select, textarea {
 }
 
 #message-container {
-	max-height: 300px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	height: 500px;
+	width: 100%;
 	overflow: scroll;
-	border-radius: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
 }
-
 
 .writer-wrapper {
 	vertical-align: middle;
@@ -5690,3 +5689,4 @@ input, select, textarea {
     pointer-events: none;
     position: absolute
 }
+

@@ -21,30 +21,6 @@
 	<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=xe3kmd34v7"></script>
 	<script src="assets/js/jquery.js"></script>
 	<script>
-		/* 현재 접속 브라우저 점검 및 인앱브라우저 탈출 함수 */
-		document.addEventListener("DOMContentLoaded", ready);
-		function ready(){      
-			var Url = location.href;
-			var Agent = navigator.userAgent.toLowerCase();
-			console.log("[window ready] : [접속 Url] : " + Url);
-			console.log("[window ready] : [접속 Agent] : " + Agent);
-			//alert(Agent);
-			if(Agent.includes("kakao") || Agent.includes("KAKAO")){ // 카카오 브라우저로 실행 시킨 경우
-				// 먼저, 카카오 인앱 브라우저 닫기
-				if(navigator.userAgent.match(/iPhone|iPad/i)){ // 아이폰 접속 경우
-					location.href = 'kakaoweb://closeBrowser';
-					console.log("[window ready] : [접속 모바일] : " + "[아이폰]");
-					location.href = 'kakaotalk://web/openExternal?url='+encodeURIComponent(Url);
-				}
-				else { // 안드로이드 접속 경우
-					location.href = 'kakaotalk://inappbrowser/close';
-					console.log("[window ready] : [접속 모바일] : " + "[안드로이드]");
-					// 크롬으로 새창 열기
-					location.href='intent://'+location.href.replace(/https?:\/\//i,'')+'#Intent;scheme=http;package=com.android.chrome;end';
-				}
-			}
-		}
-
 		/* 배경음악 재생 Control 함수 */
 		var musicStat = false;
 		var audioContainer;
@@ -485,39 +461,27 @@
 				<header  ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="major">
 					<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="content">
 						<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>따뜻한 축하의 메세지&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
-						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container"></div>
-						<div id="open-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="button"><i class="fa-brands fa-google "></i> 축하 메세지 전하기</div>
-						<div id="delete-message" data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" class="button">삭제</div>
-					</div>
-					<!-- 방명록 작성 Modal-->
-					<div class="container">
-						<div class="popup-wrap" id="popup-message">
-							<div class="popup">	
-								<div class="popup-head">	
-									<span class="head-title">축하 메세지 전하기</span>
-								</div>
-								<div class="popup-body-message">	
-									<div class="body-content">
-										<div class="body-titlebox">
-											<div class="writer-wrapper">
-												<span id="writer-img-box"><img id="writer-img" alt="writer-img"/></span>
-												<span id="writer-name"></span><input type="hidden" value="" id="writer-email"></hidden>
-											</div>
-										</div>
-										<div class="body-contentbox">
-											<textarea id="message" maxlength="200" placeholder=""></textarea>
-											<div id="reset-button" class="button">초기화</div>
-											<div id="message-button" class="button">저 장</div>
-										</div>
-									</div>
-								</div>
-								<div class="popup-foot"> 
-									<span class="pop-btn" id="popup-close-message">닫기</span>
-								</div>
+						<div ata-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="message-container">
+							<!-- 라이브리 시티 설치 코드 -->
+							<div id="lv-container" data-id="city" data-uid="MTAyMC81OTI4MC8zNTc0Mg==">
+								<script type="text/javascript">
+								   (function(d, s) {
+								       var j, e = d.getElementsByTagName(s)[0];
+
+								       if (typeof LivereTower === 'function') { return; }
+
+								       j = d.createElement(s);
+								       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+								       j.async = true;
+
+								       e.parentNode.insertBefore(j, e);
+								   })(document, 'script');
+								</script>
+							<noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
 							</div>
+							<!-- 시티 설치 코드 끝 -->
 						</div>
 					</div>
-					<!-- 방명록 작성 Modal-->
 					<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" style="margin-top:50px"><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>마음 전하는 곳&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 					<div class="content">
 						<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
@@ -684,323 +648,42 @@
 		}
 	</script>
 	<!--Naver MAP API-->
-	<!--Firebase-->
-	<script type="module">
-	  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-	  import { getDatabase, ref, set, child, get, push, remove } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-	  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
-	  const firebaseConfig = {
-		    apiKey: "AIzaSyAfRh7foEHrHxFQKt0whyUTkvcBSSvc2b4",
-		    authDomain: "dongkyun-and-yeonwoo.firebaseapp.com",
-		    databaseURL: "https://dongkyun-and-yeonwoo-default-rtdb.asia-southeast1.firebasedatabase.app",
-		    projectId: "dongkyun-and-yeonwoo",
-		    storageBucket: "dongkyun-and-yeonwoo.appspot.com",
-		    messagingSenderId: "318368665753",
-		    appId: "1:318368665753:web:005e047eac30f3eefba808",
-		    measurementId: "G-ENCNDJW07Z"
-	 	};
-
-		// Initialize Firebase
-		const app = initializeApp(firebaseConfig);
-		const database = getDatabase(app);
-		const auth = getAuth();
-		const provider = new GoogleAuthProvider();
-
-		var user = auth.currentUser;
-		var displayName;
-		var photoURL;
-		var uid;
-		var messageArray = new Array();
-
-		if(user != null) {
-			displayName = user.displayName;
-			photoURL = user.photoURL;
-			uid = user.uid;
-		}
-
-		loadMessage();
-
-		// 방명록 글 읽어오기 함수
-		function loadMessage() {
-		  	const dbRef = ref(getDatabase());
-			get(child(dbRef, 'users/')).then((snapshot) => {
-			  if (snapshot.exists()) {
-
-			  	var obj = snapshot.val();
-			  	let keys = Object.keys(obj);
-			  	let values = Object.values(obj);
-
-			  	var htmltext = "";
-			  	messageArray = new Array();
-
-			    for (var i = 0; i < keys.length; i++) {
-					let entries2 = Object.entries(values[i]);
-				    let keys2 = Object.keys(Object.entries(values[i]));
-				    let values2 = Object.values(Object.values(values[i]));
-				    let deletekeys = Object.keys(values[i]);
-
-				    for(var j = 0; j < keys2.length; j++) {
-				    	var checkUid = keys[i];
-				    	var uid = document.getElementById('writer-email').value;
-
-					    var entries3 = Object.entries(values2[j]);
-					    var keys3 = Object.keys(values2[j]);
-					    var values3 = Object.values(values2[j]);
-
-					    var displayName = values3[1];
-					    var message = values3[2];
-					    var photoURL = values3[3];
-					    var date = values3[0];
-
-					    var messageObj = new Object();
-					    messageObj.date = date;
-					    messageObj.displayName = displayName;
-					    messageObj.photoURL = photoURL;
-					    messageObj.message = message;
-					    messageObj.deleteKey = deletekeys[j];
-
-					    if(checkUid == uid) {
-					    	messageObj.deleteBtn = true;
-					    }
-					    else {
-					    	messageObj.deleteBtn = false;
-					    }
-					    messageArray.push(messageObj);
-					}
-				}
-
-			// 날짜순으로 정렬
-			messageArray.sort(
-				function(a,b) {
-					if(a.date > b.date)
-						return 1;
-					else if(a.date < b.date)
-						return -1;
-					else
-						return 0;
-				});
-
-			for(var i = 0; i < messageArray.length; i++) {
-				var deleteBtn = "";
-				if(messageArray[i].deleteBtn == true) {
-					deleteBtn = "[삭제]";
-				} else {
-					deleteBtn = "";
-				}
-				  htmltext = htmltext + '<div class="speech-bubble"><div class="writer-wrapper"><span class="writer-img-box"><img class="writer-img" src="' +
-				    							messageArray[i].photoURL + '" alt="writer-img"/></span><span class="writer-name">'+ messageArray[i].displayName +'&nbsp;<small style="font-size:0.8em;"> ' + messageArray[i].date +"&nbsp;&nbsp;" + "<span id='" + messageArray[i].deleteKey  + "' style='color:red; z-index:99999;font-size:1.5em;'>" + deleteBtn + '</span></small></span></div><div class="writer-message-box">' + messageArray[i].message + '</div></div></div>';
-
-			
-				// 삭제 이벤트 추가
-				$(document).on("click","#"+ messageArray[i].deleteKey , function() {
-						var deleteKey = $(this).attr("id");
-						// 파이어베이스 변수
-						const db = getDatabase();
-						console.log("deleteKey : " + deleteKey);
-						remove(ref(db, 'users/' + uid +"/" + deleteKey));
-						loadMessage();
-				});
-			}
-		    var targetName = document.getElementById('message-container');
-		    targetName.innerHTML = htmltext;
-		  } 
-		  else {
-		    console.log("No data available");
-		    htmltext = "";
-		    var targetName = document.getElementById('message-container');
-		    targetName.innerHTML = htmltext;
-		  }
-			}).catch((error) => {
-			  console.error(error);
-			});
-		}
-
-		// 방명록 글쓰기 저장 이벤트 추가
-		$("#message-button").click(function(){
-			const db = getDatabase();
-			const message = document.getElementById("message").value;
-			var date = "";
-			var today = new Date();
-			var year = today.getFullYear().toString().slice(-2);
-			var month = ('0' + (today.getMonth() + 1)).slice(-2);
-			var day = ('0' + today.getDate()).slice(-2);
-			var dateString = year + '/' + month  + '/' + day;
-			var hours = ('0' + today.getHours()).slice(-2); 
-			var minutes = ('0' + today.getMinutes()).slice(-2);
-			var seconds = ('0' + today.getSeconds()).slice(-2); 
-			var timeString = hours + ':' + minutes  + ':' + seconds;
-			date = "(" + dateString + " " + timeString + ")";
-
-			var displayName = document.getElementById("writer-name").innerHTML;
-			var photoURL = document.getElementById("writer-img").src;
-			var uid = document.getElementById("writer-email").value;
-
-			push(ref(db, 'users/' + uid), {
-				displayName : displayName,
-				photoURL : photoURL,
-				message : message,
-				date : date
-				}).then(() => {
-					loadMessage();
-					$("#popup-message").fadeOut(); //페이드아웃 효과
-					document.body.style.overflow = "unset";
-					document.getElementById("message").value = "";
-			})
-			.catch((error) => {
-				const errorCode = error.code;
-				const errorMessage = error.message;
-			});
-		});
-
-	</script>
-	<!--Firebase-->
 	<!--Kakao 공유하기 API-->
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js" integrity="sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4" crossorigin="anonymous"></script>
 	<script  type="text/javascript">
-
-
-	  Kakao.init('2778672d6ce6ef71fe0fc518ec17a861'); 
-	  Kakao.Share.createDefaultButton({
-	    container: '#kakaotalk-sharing-btn',
-	    objectType: 'feed',
-	    content: {
-	      title: '동균♥연우 결혼식에 초대합니다.',
-	      description: '3월 17일 일요일 오후2시\n대구 파라다이스웨딩 그랜드볼룸',
-	      imageUrl: 'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/kakao_preview_resized.jpg?raw=true',
-	      link: {
-	        mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	        webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	      },
-	    },
-	    buttons: [
-	      {
-	        title: '청첩장 보기',
-	        link: {
-	          mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	          webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	        },
-	      },
-	      {
-	        title: '위치 안내',
-	        link: {
-	          mobileWebUrl: 'https://naver.me/G2UVfoKx',
-	          webUrl: 'https://naver.me/G2UVfoKx',
-	        },
-	      },
-	    ],
-	  });
-
-	 	console.log("kakaoCode : " + getParam('code'));
-	 	console.log("kakaoCode : " + getParam('code').length);
-	  // 방명록 작성하기 버튼 클릭시 카카오 인증 시도
-	 $("#open-message").click(function(){
-	 	var accessToken = "";
-
-	 	console.log("kakaoCode : " + getParam('code'));
-
-	 	if(getParam('code').length==0) {
-		    Kakao.Auth.authorize({
-		      redirectUri: 'https://dongkyun-and-yeonwoo.vercel.app/',
-  			  scope: 'account_email,profile_image,profile_nickname',
-  				prompt: 'select_account',
-		    });	
-	 	}
-
- 		console.log("code :" + getParam('code'));
-
-
-		document.body.style.overflow = 'hidden';        
-		$("#popup-message").css('display','flex').hide().fadeIn();
-	  
-	 });
-
-
-		// 방명록 삭제 활성화 이벤트 추가
-		$("#delete-message").click(function(){
-		 	var accessToken = "";
-
-		 	console.log("kakaoCode : " + getParam('code'));
-
-		 	if(getParam('code').length==0) {
-			    Kakao.Auth.authorize({
-			      redirectUri: 'https://dongkyun-and-yeonwoo.vercel.app/',
-	  			  scope: 'account_email,profile_image,profile_nickname',
-  					prompt: 'select_account',
-			    });	
-		 	}
-
-	 		console.log("code :" + getParam('code'));	
+	Kakao.init('2778672d6ce6ef71fe0fc518ec17a861'); 
+	Kakao.Share.createDefaultButton({
+			container: '#kakaotalk-sharing-btn',
+			objectType: 'feed',
+			content: {
+			title: '동균♥연우 결혼식에 초대합니다.',
+			description: '3월 17일 일요일 오후2시\n대구 파라다이스웨딩 그랜드볼룸',
+			imageUrl: 'https://github.com/yeonwookang/dongkyun-and-yeonwoo/blob/main/images/kakao_preview_resized.jpg?raw=true',
+			link: {
+			mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+			webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+			},
+		},
+		buttons: [
+		{
+				title: '청첩장 보기',
+				link: {
+				mobileWebUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+				webUrl: 'https://dongkyun-and-yeonwoo.vercel.app/',
+					},
+				},
+			{
+				title: '위치 안내',
+				link: {
+				mobileWebUrl: 'https://naver.me/G2UVfoKx',
+				webUrl: 'https://naver.me/G2UVfoKx',
+					},
+				},
+			],
 		});
-
-		// url 에서 parameter 추출
-		function getParam(sname) {
-			var params = location.search.substr(location.search.indexOf("?") + 1);
-			var sval = "";
-			params = params.split("&");
-			for (var i = 0; i < params.length; i++) {
-				temp = params[i].split("=");
-				if ([temp[0]] == sname) { sval = temp[1]; }
-			}
-			return sval;
-		}
 
 		/* 화면로딩 후 호출할 함수 및 Modal 이벤트 추가 */
 		window.onload = function() {
-			// Request값이 있으면 호출
-			if(getParam('code').length>0){
-			 		$.ajax({
-					    type : "POST"
-					    , url : 'https://kauth.kakao.com/oauth/token'
-					    , data : {
-					        grant_type : 'authorization_code',
-					        client_id : '2b862decb4d07b03288f0e3b860421df',
-					        redirect_uri : 'https://dongkyun-and-yeonwoo.vercel.app/',
-					        code : getParam('code')
-					    }
-					    , contentType:'application/x-www-form-urlencoded;charset=utf-8'
-					    , dataType: null
-					    , success : function(response) {
-					    	// access token 받아오기
-					        console.log("response:" + JSON.stringify(response));
-					        accessToken = response.access_token;
-					        console.log("accessToken:" + accessToken);
-					        Kakao.Auth.setAccessToken(response.access_token);
-
-							// 사용자 정보 가져오기
-							Kakao.API.request({
-								url: '/v2/user/me',  
-								data: {
-							  },
-							})
-							.then(function(response) {
-								console.log("api request response:" + JSON.stringify(response));
-								displayName = response.properties.nickname;
-								photoURL = response.properties.thumbnail_image;
-								var email = (response.kakao_account.email).split('@');
-								uid = email[0];
-
-								console.log("result : " + displayName +"," + photoURL + "," + uid);
-							 	var targetImg = document.getElementById('writer-img');
-								targetImg.src = photoURL;
-								var targetName = document.getElementById('writer-name');
-								targetName.innerHTML = displayName;
-								var targetUid = document.getElementById('writer-email');
-								targetUid.value = uid;
-
-								
-							})
-							.catch(function(error) {
-								console.log(error);
-							});
-
-
-					    }
-					    ,error : function(jqXHR, error) {
-					        console.log("error:" + error);
-					    }
-					});
-			}
-
 			$('body').sakura(); // 배너 벚꽃효과
 			calcDday("20240317"); // 디데이 설정
 			audioContainer = document.getElementById('audioContainer');
@@ -1045,16 +728,6 @@
 			$("#popup-close4").click(function(){
 				$("#popup-bride-account").fadeOut(); //페이드아웃 효과
 				document.body.style.overflow = "unset";
-			});
-			// 방명록 Modal 호출 및 저장은 Google API Module에서 구현
-			// 방명록 쓰기 Modal 닫기
-			$("#popup-close-message").click(function(){
-				$("#popup-message").fadeOut(); //페이드아웃 효과
-				document.body.style.overflow = "unset";
-			});
-			// 방명록 쓰기 Reset 버튼 이벤트
-			$("#reset-button").click(function() {
-				document.getElementById("message").value = "";
 			});
 		}
 	</script>
@@ -1178,7 +851,6 @@
 		                })
 		                .appendTo('body');
 		        };
-
 
 		        // Recalculate documentHeight and documentWidth on browser resize.
 		        $(window).resize(function () {
