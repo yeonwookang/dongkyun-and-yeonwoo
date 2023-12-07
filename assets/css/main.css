@@ -4776,9 +4776,12 @@ input, select, textarea {
 }
 
 #message-container {
+	padding: 0 auto;
+	margin-left: 0;
+	margin-right: 0;
 	margin-top: 50px;
 	margin-bottom: 50px;
-	height: 500px;
+	height: 700px;
 	width: 100%;
 	overflow: scroll;
 }
