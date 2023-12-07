@@ -47,7 +47,7 @@
 			var dDay = (today - base) / 1000 / 60 / 60 / 24;
 			var target = document.getElementById('dDayTarget');
 			if(dDay < 0) {
-				target.innerHTML = "우리 결혼까지 D" + dDay;
+				target.innerHTML = "<span>우</span>리 결혼까지 D" + dDay;
 			} else if(dDay == 0) {
 				target.innerHTML = "우리 오늘 결혼합니다!";
 			} else {
@@ -207,8 +207,7 @@
 						</p>
 					<div>
 					<!-- NAVER MAP-->
-					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map">
-					</div>
+					<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="map"></div>
 					<!-- NAVER MAP-->
 					<a href="https://naver.me/G2UVfoKx" target="_blank">
 						<div data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="button-map-detail" class="button"><i class="fa-solid fa-magnifying-glass"></i> 지도 자세히 보기 </div>
@@ -342,7 +341,7 @@
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 내 마음</span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >바로 앞의 그 사람</span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
-							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >- 이해인, &lt;가까운행복&gt;中</span>
+							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >- 이해인, &lt;가까운행복&gt;중</span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >&nbsp;</span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >어느 산에서 시작된 작은 인연으로</span>
 							<span data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >서로에게 행복을 주는 사람이 되었습니다.</span>
@@ -469,11 +468,11 @@
 					</div>
 					<div class="content">
 						<div class="button-wrapper" id="open-groom-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-							<span class="button-content"><img src="./images/baby-groom.png" alt="baby-groom"/></span>
+							<span class="button-content"><img class="baby-img" src="./images/baby-groom.png" alt="baby-groom"/></span>
 							<span class="button-content button-content-text">신랑에게 마음 전하기</span>
 						</div>
 						<div class="button-wrapper"id="open-bride-account"data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-							<span class="button-content"><img src="./images/baby-bride.png" alt="baby-bride"/></span>
+							<span class="button-content"><img class="baby-img" src="./images/baby-bride.png" alt="baby-bride"/></span>
 							<span class="button-content button-content-text">신부에게 마음 전하기</span>
 						</div>
 					</div>
@@ -510,15 +509,13 @@
 						<div class="popup-body">	
 							<div class="body-content">
 								<div class="body-titlebox2">
-									<img src="./images/baby-groom.png" alt="baby-groom"/>
+									<img class="baby-img" src="./images/baby-groom.png" alt="baby-groom"/>
 								</div>
 								<div class="body-contentbox">
 									<p>
-										<a href='tel:010-3677-0211'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
-										<a href="sms:010-3677-0211">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-										<a href="https://qr.kakaopay.com/Ej7sHOa17">
-											<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
-										</a>
+										<a class="account-button" href='tel:010-3677-0211'><i class="fa-solid fa-phone"></i>전화하기</a>&nbsp;
+										<a class="account-button" href="sms:010-3677-0211"><i class="fa-solid fa-comment"></i>문자하기</a>&nbsp;
+										<a class="account-button" href="https://qr.kakaopay.com/Ej7sHOa17"><i class="fa-solid fa-comment-dollar"></i>카카오페이</a>
 									</p>
 									<p> 하나 647-910859-47507 
 										<a onclick="clipboardCopy('하나은행 647-910859-47507')" style="font-weight: 800;">[복사]</a>
@@ -543,15 +540,13 @@
 							<div class="popup-body">	
 								<div class="body-content">
 									<div class="body-titlebox2">
-										<img src="./images/baby-bride.png" alt="baby-bride"/>
+										<img class="baby-img" src="./images/baby-bride.png" alt="baby-bride"/>
 									</div>
 									<div class="body-contentbox">
 										<p>
-											<a href='tel:010-3233-1191'>[<i class="fa-solid fa-phone"></i>전화하기]</a>&nbsp;
-											<a href="sms:010-3233-1191">[<i class="fa-solid fa-comment"></i>문자하기]</a>&nbsp;
-											<a href="https://qr.kakaopay.com/Ej7sy8kMj">
-												<img style="width:48px;height:auto;vertical-align: middle;" src="./images/payment_icon_yellow_small.png" alt="payment_icon_yellow_small"/>
-											</a>
+											<a class="account-button" href='tel:010-3233-1191'><i class="fa-solid fa-phone"></i>전화하기</a>&nbsp;
+											<a class="account-button" href="sms:010-3233-1191"><i class="fa-solid fa-comment"></i>문자하기</a>&nbsp;
+											<a class="account-button" href="https://qr.kakaopay.com/Ej7sy8kMj"><i class="fa-solid fa-comment-dollar"></i>카카오페이</a>
 										</p>
 										<p> 경남 207-0104-0281-05 
 											<a onclick="clipboardCopy('경남은행 207-0104-0281-05')" style="font-weight: 800;">[복사]</a>
@@ -574,14 +569,14 @@
 				<h2 data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" ><i class="fa-brands fa-pagelines fa-flip-horizontal"></i>&nbsp;</i>예쁘게 살겠습니다&nbsp;<i class="fa-brands fa-pagelines"></i></h2>
 				<div class="content">
 					<p data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" >
-						<span style="font-size: 0.8em;">전해주시는 따뜻한 진심을 배워</span>
+						<span style="font-size: 0.8em;">전해주시는 따뜻한 진심을 간직해</span>
 						<span style="font-size: 0.8em;">오래도록 행복하게 잘 살겠습니다.</span>
 					</p>
 				</div>
 			</div>
 			<a data-aos="fade-up"data-aos-duration="2500" data-aos-once="true" id="kakaotalk-sharing-btn" href="javascript:;"><img src="./images/kakaotalk_sharing_btn_small.png" alt="카카오톡 공유 보내기 버튼" /></a>
 			<ul class="copyright">
-				<li>&copy; yeonwookang</li>
+				<li>@yeonwookang</li>
 				<li style="font-size:0.8em;color: rgba(255,255,255,0.05);"><a href="http://html5up.net">HTML5 UP</a></li>
 			</ul>
 		</footer>
@@ -630,11 +625,11 @@
 			var mapHeight;
 
 			if (mapWidth <= 767) {
-				mapWidth = Math.min(mapWidth, 90 * window.innerWidth / 100) + 'px';
-				mapHeight = '300px';
+				mapWidth = Math.min(mapWidth, 100 * window.innerWidth / 100) + 'px';
+				mapHeight = '350px';
 				} else if (mapWidth <= 1023) {
 				mapWidth = '700px';
-				mapHeight = '400px';
+				mapHeight = '500px';
 			} 
 			else {
 				mapWidth = '1000px';

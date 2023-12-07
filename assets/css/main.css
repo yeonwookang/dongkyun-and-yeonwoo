@@ -1,7 +1,8 @@
 @import url(fontawesome-all.min.css);
+
 @font-face {
-    font-family: 'MaruBuri-Regular';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff') format('woff');
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -33,11 +34,11 @@ section, summary, time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	scroll-behavior: smooth;
 	font: inherit;
 	vertical-align: baseline;
-	font-family: 'MaruBuri-Regular';}
+	font-family: 'GangwonEdu_OTFBoldA';
+	letter-spacing: 0.12em;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -117,7 +118,6 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #F7F4EC;
-		font-family: "Open Sans", Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -3866,10 +3866,10 @@ input, select, textarea {
 /* Banner */
 
 	#banner {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3920,7 +3920,7 @@ input, select, textarea {
 				background: #F7F4EC;
 				content: '';
 				display: block;
-				height: 2px;
+				height: 4px;
 				position: absolute;
 				width: 100%;
 			}
@@ -4339,10 +4339,10 @@ input, select, textarea {
 /* Landing */
 
 	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -4361,10 +4361,10 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.0), rgba(0,0,0,0.0)), url("../../images/banner.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -4686,7 +4686,7 @@ input, select, textarea {
 }
 
 .body-contentbox > p {
-	color:#231C10;font-weight:800;font-size:0.8em;margin-bottom: 20px;
+	color:#231C10;font-size:0.8em;margin-bottom: 20px;
 }
 
 .popup-foot{                     
@@ -4773,6 +4773,13 @@ input, select, textarea {
 
 .head-title{
 	font-family: 'UhBeeSeulvely';
+}
+
+.account-button {
+	background-color: #544225;
+	color:#F7F4EC;
+	border-radius: 3px;
+	padding:2px 3px 2px 3px;
 }
 
 #message-container {
@@ -4892,9 +4899,22 @@ input, select, textarea {
 
 #map {
 	width:100%; 
-	margin:0 0 4px 0; 
-	border: 3px solid white;
-	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.1);
+	margin:0 0 10px 0; 
+	padding: 0 auto;
+}
+
+
+.baby-img {
+  animation: vibration .1s infinite;
+}
+
+@keyframes vibration {
+  from {
+    transform: rotate(2deg);
+  }
+  to {
+    transform: rotate(-2deg);
+  }
 }
 
 
