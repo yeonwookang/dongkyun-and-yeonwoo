@@ -47,9 +47,9 @@
 			var dDay = (today - base) / 1000 / 60 / 60 / 24;
 			var target = document.getElementById('dDayTarget');
 			if(dDay < 0) {
-				target.innerHTML = "<span>우</span>리 결혼까지 D" + dDay;
+				target.innerHTML = "<span class='dday-text'>우</span><span class='dday-text'>리</span> <span class='dday-text'>결</span><span class='dday-text'>혼</span><span class='dday-text'>까</span><span class='dday-text'>지</span> <span class='dday-text'>D</span><span class='dday-text'>" + dDay+"</span>";
 			} else if(dDay == 0) {
-				target.innerHTML = "우리 오늘 결혼합니다!";
+				target.innerHTML = "<span class='dday-text'>우</span><span class='dday-text'>리</span> <span class='dday-text'>오</span><span class='dday-text'>늘</span> <span class='dday-text'>결</span><span class='dday-text'>혼</span><span class='dday-text'>합</span><span class='dday-text'>니</span><span class='dday-text'>다</span><span class='dday-text'>!</span>";
 			} else {
 				target.innerHTML = "우리 결혼 D+" + dDay;
 			}
