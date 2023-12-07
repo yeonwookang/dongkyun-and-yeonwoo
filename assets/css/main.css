@@ -4516,7 +4516,7 @@ input, select, textarea {
  	padding: 0px;
  }
   .couple-intro-text2 span{
-  	color: #999;
+  	color: #ccc;
   	margin-top: -25px;
  }
 
@@ -4905,7 +4905,7 @@ input, select, textarea {
 }
 
 .dday-text {
-	  position: relative;
+	position: relative;
   	top: 3px;
 	display: inline-block !important;
 	font-weight: 500;
@@ -4916,16 +4916,6 @@ input, select, textarea {
 	text-transform: uppercase;
 	animation: bounce .7s ease infinite alternate;
 	font-family: 'UhBeeSeulvely';
-	  text-shadow: 0 1px 0 #CCC,
-               0 1px 0 #CCC,
-               0 1px 0 #CCC,
-               0 2px 0 #CCC,
-               0 2px 0 #CCC,
-               0 2px 0 transparent,
-               0 3px 0 transparent,
-               0 3px 0 transparent,
-               0 3px 0 transparent,
-               0 3px 3px rgba(0, 0, 0, .4);
 }
 
 .dday-text:nth-child(2) { animation-delay: .1s; }
@@ -4939,16 +4929,6 @@ input, select, textarea {
 @keyframes bounce {
   100% {
     top: -7px;
-    text-shadow: 0 1px 0 #CCC,
-                 0 1px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 2px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 3px 0 #CCC,
-                 0 3px 3px rgba(0, 0, 0, .2);
   }
 }
 
