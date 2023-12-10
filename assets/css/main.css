@@ -117,7 +117,7 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #544225;
+		color: #F7F4EC;
 		font-size: 15pt;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -164,7 +164,7 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #544225;
+		color: #F7F4EC;
 		font-weight: 600;
 	}
 
@@ -177,7 +177,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #544225;
+		color: #F7F4EC;
 		font-weight: 500;
 		letter-spacing: 0.225em;
 		line-height: 1em;
@@ -3800,7 +3800,7 @@ input, select, textarea {
 				-webkit-transition-delay: 0.25s;
 				-ms-transition-delay: 0.25s;
 				transition-delay: 0.25s;
-				background: #544225;
+				background: #F7F4EC;
 				content: '';
 				display: block;
 				height: 2px;
@@ -5608,11 +5608,11 @@ input, select, textarea {
 }
 
 .sakura {
-    background: -webkit-linear-gradient(120deg, rgba(255, 200, 200, 0.9), rgba(255, 200, 200, 0.9));
-    background: -o-linear-gradient(120deg, rgba(255, 200, 200, 0.9), rgba(255, 200, 200, 0.9));
-    background: -ms-linear-gradient(120deg, rgba(255, 200, 200, 0.9), rgba(255, 200, 200, 0.9));
-    background: -moz-linear-gradient(120deg, rgba(255, 200, 200, 0.9), rgba(255, 200, 200, 0.9));
-    background: linear-gradient(120deg, rgba(255, 200, 200, 0.9), rgba(255, 200, 200, 0.9));
+    background: -webkit-linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background: -o-linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background: -ms-linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background: -moz-linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
     -webkit-border-radius: 12px 1px;
     -o-border-radius: 12px 1px;
     -ms-border-radius: 12px 1px;
