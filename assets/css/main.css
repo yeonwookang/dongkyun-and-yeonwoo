@@ -3939,22 +3939,27 @@ input, select, textarea {
 			background-size: 250%;
 		}	
 		.gallery-box:nth-child(4) {
-			background-size: 200%;
+			background-size: 100%;
 		}
 		.gallery-box:nth-child(5) {
 			grid-column: 2 / span 2;
 			grid-row: 3 / span 2;
-			background-size: 200%;
+			background-size: 150%;
 		}	
-
+		.gallery-box:nth-child(6) {
+			background-size: 100%;
+		}	
 		.gallery-box:nth-child(7) {
 			grid-column: 1 / span 2;
 			grid-row: 5 / span 3;
 			border-bottom-left-radius: 10px;
 		}	
-
+		.gallery-box:nth-child(8) {
+			background-size: 150%;
+		}
 		.gallery-box:nth-child(10) {
 			border-bottom-right-radius: 10px;
+			background-size: 150%;
 		}	
 
 		.inner .content h2 span {
